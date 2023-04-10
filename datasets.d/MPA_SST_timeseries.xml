@@ -1,0 +1,247 @@
+<dataset type="EDDTableFromAsciiFiles" datasetID="MPA_SST_timeseries" active="true">
+    <iso19115File></iso19115File>
+    <reloadEveryNMinutes>1440</reloadEveryNMinutes>
+    <fileDir>/datasets/MPA_SST_timeseries/</fileDir>
+    <fileNameRegex>.*</fileNameRegex>
+    <recursive>true</recursive>
+    <pathRegex>.*</pathRegex>
+    <metadataFrom>last</metadataFrom>
+    <standardizeWhat>0</standardizeWhat>
+    <charset>UTF-8</charset>
+    <columnSeparator></columnSeparator>
+    <columnNamesRow>1</columnNamesRow>
+    <firstDataRow>2</firstDataRow>
+    <sortedColumnSourceName></sortedColumnSourceName>
+    <sortFilesBySourceNames></sortFilesBySourceNames>
+    <fileTableInMemory>false</fileTableInMemory>
+    <accessibleViaFiles>false</accessibleViaFiles>
+    <!-- sourceAttributes>
+    </sourceAttributes -->
+    <!-- Please specify the actual cdm_data_type (TimeSeries?) and related info below, for example...
+        <att name="cdm_timeseries_variables">station_id, longitude, latitude</att>
+        <att name="subsetVariables">station_id, longitude, latitude</att>
+    -->
+    <addAttributes>
+        <att name="cdm_data_type">TimeSeries</att>
+        <att name="cdm_timeseries_variables">stn_id</att>
+        <att name="Conventions">COARDS, CF-1.6, ACDD-1.3</att>
+        <att name="infoUrl">???</att>
+        <att name="institution">Institute of Ocean Sciences</att>
+        <att name="keywords">subSurfaceTemperature</att>
+        <att name="keywords_fra">température de la sous-surface</att>
+        <att name="language">eng</att>
+        <att name="license">[standard]</att>
+        <att name="sourceUrl">(local files)</att>
+        <att name="standard_name_vocabulary">CF Standard Name Table v79</att>
+        <att name="summary">Data from a local source.</att>
+        <att name="summary_fra">summary in french</att>
+        <att name="title">SST and CHLa timeseries at MPAs</att>
+        <att name="title_fra">title in french</att>
+        <att name="subsetVariables">stn_id, station_type</att>
+    </addAttributes>
+    <dataVariable>
+        <sourceName>STN_ID</sourceName>
+        <destinationName>stn_id</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="long_name">Station ID</att>
+            <att name="cf_role">timeseries_id</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>STN_Type</sourceName>
+        <destinationName>station_type</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="long_name">Station Type</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Date_midmonth</sourceName>
+        <destinationName>time</destinationName>
+        <dataType>String</dataType>
+        <addAttributes>
+            <att name="standard_name">time</att>
+            <att name="time_precision">1970-01-01T00:00:00Z</att>
+            <att name="units">yyyy-MM-dd'T'HH:mm:ss'Z'</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>latitude_centre</sourceName>
+        <destinationName>latitude</destinationName>
+        <dataType>float</dataType>
+
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">90.0</att>
+            <att name="colorBarMinimum" type="double">-90.0</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>longitude_centre</sourceName>
+        <destinationName>longitude</destinationName>
+        <dataType>float</dataType>
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">180.0</att>
+            <att name="colorBarMinimum" type="double">-180.0</att>
+            <att name="standard_name">longitude</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>SST_mean</sourceName>
+        <destinationName>SST_mean</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="long_name">mean sea water surface temperature</att>
+            <att name="standard_name">mean_sea_water_surface_temperature</att>
+            <att name="units">deg_C</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>SST_median</sourceName>
+        <destinationName>SST_median</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="long_name">median sea water surface temperature</att>
+            <att name="standard_name">median_sea_water_surface_temperature</att>
+            <att name="units">deg_C</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>SST_sd</sourceName>
+        <destinationName>SST_sd</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="long_name">std. dev of sea water surface temperature</att>
+            <att name="standard_name">sd_sea_water_surface_temperature</att>
+            <att name="units">deg_C</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>SST_min</sourceName>
+        <destinationName>SST_min</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="long_name">min sea water surface temperature</att>
+            <att name="standard_name">min_sea_water_surface_temperature</att>
+            <att name="units">deg_C</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>SST_max</sourceName>
+        <destinationName>SST_max</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="long_name">max dev of sea water surface temperature</att>
+            <att name="standard_name">max_sea_water_surface_temperature</att>
+            <att name="units">deg_C</att>
+        </addAttributes>
+    </dataVariable>
+
+
+    <dataVariable>
+        <sourceName>SST_Num_Obs</sourceName>
+        <destinationName>SST_Num_Obs</destinationName>
+        <dataType>short</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="long_name">number of SST observations</att>
+            <att name="standard_name">number_of_sst_observations</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>ChlA_geomean</sourceName>
+        <destinationName>ChlA_geomean</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="long_name">geometric mean of ChlA</att>
+            <att name="standard_name">geometric_mean_chlA</att>
+            <att name="units">mg m^-3</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>ChlA_mean</sourceName>
+        <destinationName>ChlA_mean</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="long_name">mean of ChlA</att>
+            <att name="standard_name">mean_chlA</att>
+            <att name="units">mg m^-3</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>ChlA_geosd</sourceName>
+        <destinationName>ChlA_geosd</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="long_name">std.dev of ChlA</att>
+            <att name="standard_name">sd_chlA</att>
+            <att name="units">mg m^-3</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>ChlA_min</sourceName>
+        <destinationName>ChlA_min</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="long_name">min ChlA</att>
+            <att name="standard_name">min_chlA</att>
+            <att name="units">mg m^-3</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>ChlA_max</sourceName>
+        <destinationName>ChlA_max</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="long_name">max ChlA</att>
+            <att name="standard_name">max_chlA</att>
+            <att name="units">mg m^-3</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>ChlA_Num_Obs</sourceName>
+        <destinationName>ChlA_num_obs</destinationName>
+        <dataType>short</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="long_name">number of ChlA observations</att>
+            <att name="standard_name">number_of_chlA_observations</att>
+            <att name="units">mg m^-3</att>
+        </addAttributes>
+    </dataVariable>
+
+</dataset>

@@ -1,0 +1,340 @@
+<dataset type="EDDTableFromNcFiles" datasetID="amundsen800" active="true">
+    <reloadEveryNMinutes>10080</reloadEveryNMinutes>
+    <updateEveryNMillis>10000</updateEveryNMillis>
+    <fileDir>/datasets/amundsen/800/</fileDir>
+    <fileNameRegex>.*</fileNameRegex>
+    <recursive>true</recursive>
+    <pathRegex>.*</pathRegex>
+    <metadataFrom>last</metadataFrom>
+    <standardizeWhat>0</standardizeWhat>
+    <sortedColumnSourceName></sortedColumnSourceName>
+    <sortFilesBySourceNames></sortFilesBySourceNames>
+    <fileTableInMemory>true</fileTableInMemory>
+    <cacheFromUrl>http://jorvik.uwaterloo.ca:8080/opendap/hyrax/data/Amundsen_INT_to_NetCDF/800</cacheFromUrl>
+    <accessibleViaFiles>true</accessibleViaFiles>
+    <!-- sourceAttributes>
+        <att name="_NCProperties">version=2,netcdf=4.9.0,hdf5=1.12.2</att>
+        <att name="cast_number" type="long">20</att>
+        <att name="cruise_name">ArcticNet 1003</att>
+        <att name="cruise_number">2010003</att>
+        <att name="initial_latitude_deg" type="double">70.6357</att>
+        <att name="initial_longitude_deg" type="double">-123.0386</att>
+        <att name="max_depth_m" type="double">598.34</att>
+        <att name="min_depth_m" type="double">1.72</att>
+        <att name="original_filename">CTD_2010003_020_1_DN.ODF</att>
+        <att name="sounding_m" type="long">607</att>
+        <att name="start_date_time_utc">2010-10-08T14:12:24</att>
+        <att name="station">Station 405</att>
+    </sourceAttributes -->
+    <!-- Please specify the actual cdm_data_type (TimeSeries?) and related info below, for example...
+        <att name="cdm_timeseries_variables">station_id, longitude, latitude</att>
+        <att name="subsetVariables">station_id, longitude, latitude</att>
+    -->
+    <addAttributes>
+        <att name="_NCProperties">null</att>
+        <att name="Conventions">COARDS, CF-1.6, ACDD-1.3</att>
+        <att name="infoUrl">???</att>
+        <att name="institution">???</att>
+        <att name="keywords">-1000, active, altimetry, anomaly, aphotic, available, brunt, brunt-vaisala, cdom, chemistry, chlorophyll, colored, concentration, concentration_of_colored_dissolved_organic_matter_in_sea_water_expressed_as_equivalent_mass_fraction_of_quinine_sulfate_dihydrate, content, data, Dens, density, dihydrate, dissolved, downwelling, downwelling_photosynthetic_photon_flux_in_sea_water, due, earth, Earth Science &gt; Oceans &gt; Ocean Chemistry &gt; Chlorophyll, Earth Science &gt; Oceans &gt; Ocean Chemistry &gt; Nitrate, Earth Science &gt; Oceans &gt; Ocean Chemistry &gt; Oxygen, Earth Science &gt; Oceans &gt; Ocean Optics &gt; Aphotic/Photic Zone, Earth Science &gt; Oceans &gt; Ocean Optics &gt; Photosynthetically Active Radiation, Earth Science &gt; Oceans &gt; Ocean Temperature &gt; Water Temperature, Earth Science &gt; Oceans &gt; Salinity/Density &gt; Density, Earth Science &gt; Oceans &gt; Salinity/Density &gt; Salinity, equivalent, expressed, Fluo, fluorescence, FLUOV, flux, fraction, FreezT, frequency, index, its, its-90, laboratory, light, local, mass, mass_concentration_of_chlorophyll_in_sea_water, matter, mole, mole_concentration_of_nitrate_in_sea_water, n02, nitrate, no3, no3-n, O2, ocean, oceans, optics, organic, oxygen, Par, photic, photon, photosynthetic, photosynthetically, practical, Pres, pressure, pss, pss-78, quinine, radiation, rho, Sal, salinity, satellite, scale, science, sea, sea_water_practical_salinity, sea_water_pressure_due_to_sea_water, sea_water_sigma_t, sea_water_sigma_theta, sea_water_temperature, seawater, sigma, sigma-t, sigma-theta, sigt, sigthe, source, SPar, specific, square, square_of_brunt_vaisala_frequency_in_sea_water, sulfate, surface, surface_downwelling_photosynthetic_photon_flux_in_sea_water, svan, Temp, temperature, teos, teos-10, theta, Trans, transmission, vaisala, volume, volume_fraction_of_oxygen_in_sea_water, water, zone</att>
+        <att name="keywords_vocabulary">GCMD Science Keywords</att>
+        <att name="license">[standard]</att>
+        <att name="sourceUrl">(local files)</att>
+        <att name="standard_name_vocabulary">CF Standard Name Table v79</att>
+        <att name="cdm_data_type">Profile</att>
+        <att name="cdm_profile_variables">filename,platform_name,platform_id,cruise_name,cruise_number,cast_number,station,time,latitude,longitude</att>
+        <att name="subsetVariables">platform_name,platform_id,filename,cruise_name,cruise_number,cast_number,station</att>
+        <att name="title">ArcticNet - CFL - Arctic SOLAS 0706c - Beaufort Sea CTD data</att>
+        <att name="summary">The CTD data was obtained during the 2007-2008 ArcticNet scientific cruise #0706. The data were collected from October 15 to November 6, 2007, aboard the CCGS Amundsen. There were 108 casts, associated to 78 oceanographic stations, in the Beaufort Sea. &#x0d;
+&#x0d;
+The following parameters were measured: temperature, conductivity and pressure (with a Sea-Bird SBE-9plus), dissolved oxygen (Sea-Bird SBE-43), pH (Sea-Bird SBE-18-I), fluorescence (Seapoint chlorophyll fluorometer), nitrate concentration (Satlantic MBARI-ISUS 5T), transmittance (Wetlabs C-Star transmissometer), light intensity (PAR; Biospherical Instruments QCP2300) and surface light intensity (sPAR; Biospherical Instruments QCP2200). Quality control procedures were applied to the data. Data are available on the Polar Data Catalogue and at the Marine Environmental Data Service (MEDS) of Fisheries and Oceans Canada.</att>
+        <att name="comment">Purpose: The physical data are one of the tools used to characterize the water masses and, to some extent, the water circulation in the Beaufort Sea. 
+
+ Supplementary information: Summary: Not Applicable Research Program(s): ArcticNet,IPY,IPY. For further information: pdc@arcticnet.ulaval.ca</att>
+        <att name="institution">Amundsen Science</att>
+        <att name="platform">ship</att>
+        <att name="platform_vocabulary">https://vocab.nerc.ac.uk/collection/L06/current/</att>
+        <att name="date_created">2014-09-04T00:00:00</att>
+        <att name="creator_name"> Colline Gombault</att>
+        <att name="creator_role">Amundsen's Core Data Manager </att>
+        <att name="creator_type">person</att>
+        <att name="creator_email">pdc@arcticnet.ulaval.ca</att>
+        <att name="creator_institution">ArcticNet</att>
+        <att name="contributor_name">Gratton Yves; Lago Véronique; Janin Amélie</att>
+        <att name="contributor_role">original creators</att>
+        <att name="publisher_name">Polar Data Catalogue</att>
+        <att name="publisher_type">institution</att>
+        <att name="publisher_email">pdc@uwaterloo.ca</att>
+        <att name="publisher_institution">Canadian Cryospheric Information Network</att>
+        <att name="ccin">800</att>
+        <att name="id">800</att>
+        <att name="naming_authority">ca.polardata.ccin</att>
+        <att name="geospatial_lat_min">70.0</att>
+        <att name="geospatial_lat_max">73.0</att>
+        <att name="geospatial_lat_units">degree_north</att>
+        <att name="geospatial_lon_min">-134.0</att>
+        <att name="geospatial_lon_max">-120.0</att>
+        <att name="geospatial_lon_units">degree_east</att>
+        <att name="time_coverage_start">2007-10-15T00:00:00</att>
+        <att name="time_coverage_end">2007-11-06T00:00:00</att>
+        <att name="keywords">Beaufort Sea; Conductivity; CTD profiles; Fluorescence; Nitrates; Oxygen; Photosynthetically available radiation (PAR); Salinity; Temperature; Transmittance; Beaufort Sea</att>
+        <att name="metadata_link">https://www.polardata.ca/pdcsearch/PDCSearchDOI.jsp?doi_id=800</att>
+        <att name="infoUrl">https://www.polardata.ca/pdcsearch/PDCSearchDOI.jsp?doi_id=800</att>
+        <att name="reference">https://www.polardata.ca/pdcsearch/PDCSearchDOI.jsp?doi_id=800</att>
+    </addAttributes>
+    <dataVariable>
+        <sourceName>="Amundsen"</sourceName>
+        <destinationName>platform_name</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="double">NaN</att>
+            <att name="long_name">Sea Pressure (sea surface - 0) </att>
+            <att name="units">decibars</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="long_name">Platform Name</att>
+            <att name="standard_name">platform_name</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>=7510846</sourceName>
+        <destinationName>platform_id</destinationName>
+        <dataType>int</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="double">NaN</att>
+            <att name="long_name">Sea Pressure (sea surface - 0) </att>
+            <att name="units">decibars</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="long_name">Platform WMO ID</att>
+            <att name="standard_name">platform_id</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>***fileName,(.*),1</sourceName>
+        <destinationName>filename</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="double">NaN</att>
+            <att name="long_name">Sea Pressure (sea surface - 0) </att>
+            <att name="units">decibars</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">1050.0</att>
+            <att name="colorBarMinimum" type="double">950.0</att>
+            <att name="long_name">Source File Name</att>
+            <att name="cf_role">profile_id</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>global:cruise_name</sourceName>
+        <destinationName>cruise_name</destinationName>
+        <dataType>String</dataType>
+        <addAttributes>
+            <att name="long_name">Cruise Name</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>global:cruise_number</sourceName>
+        <destinationName>cruise_number</destinationName>
+        <dataType>String</dataType>
+        <addAttributes>
+            <att name="long_name">Cruise Number</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>global:cast_number</sourceName>
+        <destinationName>cast_number</destinationName>
+        <dataType>int</dataType>
+        <addAttributes>
+            <att name="long_name">Cast Number</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>global:station</sourceName>
+        <destinationName>station</destinationName>
+        <dataType>String</dataType>
+        <addAttributes>
+            <att name="long_name">Station</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>global:start_date_time_utc</sourceName>
+        <destinationName>time</destinationName>
+        <dataType>String</dataType>
+        <addAttributes>
+            <att name="long_name">Initial Start Time</att>
+            <att name="standard_name">time</att>
+            <att name="units">yyyy-MM-dd'T'HH:mm:ss</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>global:initial_latitude_deg</sourceName>
+        <destinationName>latitude</destinationName>
+        <dataType>float</dataType>
+        <addAttributes>
+            <att name="long_name">Initial Latitude</att>
+            <att name="units">degrees_north</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>global:initial_longitude_deg</sourceName>
+        <destinationName>longitude</destinationName>
+        <dataType>float</dataType>
+        <addAttributes>
+            <att name="long_name">Initial Longitude</att>
+            <att name="units">degrees_east</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Pres</sourceName>
+        <destinationName>Pres</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="missing_values" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>instrument_depth</sourceName>
+        <destinationName>depth</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="standard_name">depth</att>
+            <att name="missing_values" type="double">NaN</att>
+            <att name="units">m</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Temp</sourceName>
+        <destinationName>Temp</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="missing_values" type="double">NaN</att>
+            <att name="units">degC</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Sal</sourceName>
+        <destinationName>Sal</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="missing_values" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>O2</sourceName>
+        <destinationName>O2</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="missing_values" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Dens</sourceName>
+        <destinationName>Dens</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="missing_values" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>FreezT</sourceName>
+        <destinationName>FreezT</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="missing_values" type="double">NaN</att>
+            <att name="units">degC</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>pH</sourceName>
+        <destinationName>pH</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="missing_values" type="double">NaN</att>
+            <att name="standard_name">sea_water_ph_reported_on_total_scale</att>
+            <att name="units">1</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>NO3</sourceName>
+        <destinationName>NO3</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="missing_values" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Trans</sourceName>
+        <destinationName>Trans</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="missing_values" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Fluo</sourceName>
+        <destinationName>Fluo</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="missing_values" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>SPar</sourceName>
+        <destinationName>SPar</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="missing_values" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Par</sourceName>
+        <destinationName>Par</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="missing_values" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>theta</sourceName>
+        <destinationName>theta</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="missing_values" type="double">NaN</att>
+            <att name="units">degC</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>sigt</sourceName>
+        <destinationName>sigt</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="missing_values" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>sigthe</sourceName>
+        <destinationName>sigthe</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="missing_values" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>N2</sourceName>
+        <destinationName>N2</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="missing_values" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>svan</sourceName>
+        <destinationName>svan</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="missing_values" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+
+</dataset>
