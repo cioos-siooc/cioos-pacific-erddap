@@ -1,0 +1,442 @@
+<dataset type="EDDTableFromAsciiFiles" datasetID="IYS_2022_TINRO_CTD" active="true">
+    <reloadEveryNMinutes>10080</reloadEveryNMinutes>
+    <updateEveryNMillis>10000</updateEveryNMillis>
+    <fileDir>/datasets/IYS_2022_TINRO_CTD/</fileDir>
+    <fileNameRegex>.*</fileNameRegex>
+    <recursive>true</recursive>
+    <pathRegex>.*</pathRegex>
+    <metadataFrom>last</metadataFrom>
+    <standardizeWhat>0</standardizeWhat>
+    <charset>UTF-8</charset>
+    <columnSeparator>,</columnSeparator>
+    <columnNamesRow>1</columnNamesRow>
+    <firstDataRow>2</firstDataRow>
+    <sortedColumnSourceName>Date_Time</sortedColumnSourceName>
+    <sortFilesBySourceNames>Date_Time</sortFilesBySourceNames>
+    <fileTableInMemory>false</fileTableInMemory>
+    <accessibleViaFiles>true</accessibleViaFiles>
+    <!-- sourceAttributes>
+    </sourceAttributes -->
+    <!-- Please specify the actual cdm_data_type (TimeSeries?) and related info below, for example...
+        <att name="cdm_timeseries_variables">station_id, longitude, latitude</att>
+        <att name="subsetVariables">station_id, longitude, latitude</att>
+    -->
+    <addAttributes>
+        <att name="cdm_data_type">TimeSeriesProfile</att>
+        <att name="cdm_timeseries_variables">Station,latitude,longitude</att>
+        <att name="cdm_profile_variables">time</att>
+        <att name="cdm_altitude_proxy">Sampling_Depth_Dbar</att>
+        <att name="project">International Year of the Salmon</att>
+        <att name="id">https://doi.org/10.21966/rfv4-e505</att>
+        <att name="DOI">https://doi.org/10.21966/rfv4-e505</att>
+        <att name="publisher">North Pacific Anadromous Fish Commission</att>
+        <att name="publisher_type">Organization</att>
+        <att name="Conventions">COARDS, CF-1.6, ACDD-1.3</att>
+        <att name="creator_name">Russian Federal Institute of Fisheries and Oceanography</att>
+        <att name="creator_url">https://yearofthesalmon.org</att>
+        <att name="infoUrl">https://yearofthesalmon.org</att>
+        <att name="institution">Russian Federal Institute of Fisheries and Oceanography</att>
+        <att name="keywords">oceans, International Year of the Salmon, CTD, Conductivity, Temperature, Depth</att>
+        <att name="keywords_vocabulary">GCMD Science Keywords</att>
+        <att name="license">https://creativecommons.org/licenses/by/4.0/</att>
+        <att name="sourceUrl">(local files)</att>
+        <att name="standard_name_vocabulary">CF Standard Name Table v79</att>
+        <att name="subsetVariables">Station</att>
+        <att name="summary">Conductivity, temperature and depth data collection by the Russian research vessel TINRO chartered by the International Year of the Salmon</att>
+        <att name="testOutOfDate">now-138days</att>
+        <att name="title">CTD (Conductivity, Temperature, Depth) Data from the R/V TINRO during the 2022 International Year of the Salmon Pan-Pacific Winter High Seas Expedition</att>
+        <att name="platform">ship</att>
+        <att name="platform_vocabulary">http://vocab.nerc.ac.uk/collection/L06/current/</att>
+    </addAttributes>
+    <dataVariable>
+        <sourceName>Cruise_name</sourceName>
+        <destinationName>Cruise_name</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Unknown</att>
+            <att name="long_name">Cruise Name</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Vessel_Name_Abbr</sourceName>
+        <destinationName>Vessel_Name_Abbreviation</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Unknown</att>
+            <att name="long_name">Vessel Name Abbr</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Zone</sourceName>
+        <destinationName>Zone</destinationName>
+        <dataType>byte</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Unknown</att>
+            <att name="long_name">Zone</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Station</sourceName>
+        <destinationName>Station</destinationName>
+        <dataType>byte</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Identifier</att>
+            <att name="long_name">Station</att>
+            <att name="cf_role">timeseries_id</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Event_Type</sourceName>
+        <destinationName>Event_Type</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Unknown</att>
+            <att name="long_name">Event Type</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Station_Event_ID</sourceName>
+        <destinationName>Station_Event_ID</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Identifier</att>
+            <att name="long_name">Station Event ID</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Date_Time</sourceName>
+        <destinationName>time</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Time</att>
+            <att name="long_name">Date Time</att>
+            <att name="source_name">Date_Time</att>
+            <att name="standard_name">time</att>
+            <att name="time_precision">1970-01-01T00:00:00Z</att>
+            <att name="units">yyyy-MM-dd&#39;T&#39;HH:mm:ss&#39;Z&#39;</att>
+            <att name="cf_role">profile_id</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Year</sourceName>
+        <destinationName>Year</destinationName>
+        <dataType>short</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Time</att>
+            <att name="long_name">Year</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Month</sourceName>
+        <destinationName>Month</destinationName>
+        <dataType>byte</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Time</att>
+            <att name="long_name">Month</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Day</sourceName>
+        <destinationName>Day</destinationName>
+        <dataType>byte</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Time</att>
+            <att name="long_name">Day</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Time_Start</sourceName>
+        <destinationName>Time_Start</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Time</att>
+            <att name="long_name">Time Start</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Time_End</sourceName>
+        <destinationName>Time_End</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Time</att>
+            <att name="long_name">Time End</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Sampling_Duration_Minutes</sourceName>
+        <destinationName>Sampling_Duration_Minutes</destinationName>
+        <dataType>byte</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Time</att>
+            <att name="long_name">Sampling Duration Minutes</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Time_Zone_Code</sourceName>
+        <destinationName>Time_Zone_Code</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Time</att>
+            <att name="long_name">Time Zone Code</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Minimum_Sampling_Depth_Meters</sourceName>
+        <destinationName>Minimum_Sampling_Depth_Meters</destinationName>
+        <dataType>byte</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Minimum Sampling Depth Meters</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Maximum_Sampling_Depth_Meters</sourceName>
+        <destinationName>Maximum_Sampling_Depth_Meters</destinationName>
+        <dataType>short</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Maximum Sampling Depth Meters</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Latitude_Start_DecDeg</sourceName>
+        <destinationName>latitude</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">90.0</att>
+            <att name="colorBarMinimum" type="double">-90.0</att>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Latitude_start</att>
+            <att name="source_name">Latitude_Start_DecDeg</att>
+            <att name="standard_name">latitude</att>
+            <att name="units">degrees_north</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Longitude_Start_DecDeg</sourceName>
+        <destinationName>longitude</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">180.0</att>
+            <att name="colorBarMinimum" type="double">-180.0</att>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Longitude_start</att>
+            <att name="source_name">Longitude_Start_DecDeg</att>
+            <att name="standard_name">longitude</att>
+            <att name="units">degrees_east</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Latitude_End_DecDeg</sourceName>
+        <destinationName>Latitude_End_DecDeg</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">90.0</att>
+            <att name="colorBarMinimum" type="double">-90.0</att>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Latitude</att>
+            <att name="standard_name">latitude</att>
+            <att name="units">degrees_north</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Longitude_End_DecDeg</sourceName>
+        <destinationName>Longitude_End_DecDeg</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">180.0</att>
+            <att name="colorBarMinimum" type="double">-180.0</att>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Longitude</att>
+            <att name="standard_name">longitude</att>
+            <att name="units">degrees_east</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Bottom_Depth_Meters</sourceName>
+        <destinationName>Bottom_Depth_Meters</destinationName>
+        <dataType>short</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Bottom Depth Meters</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Wind_Direction_Degrees</sourceName>
+        <destinationName>Wind_Direction_Degrees</destinationName>
+        <dataType>short</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">360.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="ioos_category">Wind</att>
+            <att name="long_name">Wind From Direction</att>
+            <att name="standard_name">wind_from_direction</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Wind_Speed_kilometers_per_hour</sourceName>
+        <destinationName>Wind_Speed_kilometers_per_hour</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">15.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="ioos_category">Wind</att>
+            <att name="long_name">Wind Speed</att>
+            <att name="standard_name">wind_speed</att>
+            <att name="units">km h-1</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Wave_height_Meters</sourceName>
+        <destinationName>Wave_height_Meters</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">10.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="ioos_category">Surface Waves</att>
+            <att name="long_name">Wave Height</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Instrument_Type</sourceName>
+        <destinationName>Instrument_Type</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Unknown</att>
+            <att name="long_name">Instrument Type</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Instrument_Model</sourceName>
+        <destinationName>Instrument_Model</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Unknown</att>
+            <att name="long_name">Instrument Model</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Sampling_Depth_Dbar</sourceName>
+        <destinationName>Sampling_Depth_Dbar</destinationName>
+        <dataType>short</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Sampling Depth Dbar</att>
+            <att name="standard_name">sea_water_pressure_due_to_sea_water</att>
+            <att name="units">dBar</att>
+            <att name="cdm_altitude_proxy">pressure</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>sea_water_temperature</sourceName>
+        <destinationName>sea_water_temperature</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">32.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="ioos_category">Temperature</att>
+            <att name="long_name">Sea Water Temperature</att>
+            <att name="standard_name">sea_water_temperature</att>
+            <att name="units">celsius</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>sea_water_salinity</sourceName>
+        <destinationName>sea_water_salinity</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">37.0</att>
+            <att name="colorBarMinimum" type="double">32.0</att>
+            <att name="ioos_category">Salinity</att>
+            <att name="long_name">Sea Water Salinity</att>
+            <att name="standard_name">sea_water_practical_salinity</att>
+            <att name="units">psu</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>sea_water_density</sourceName>
+        <destinationName>sea_water_density</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">28.0</att>
+            <att name="colorBarMinimum" type="double">20.0</att>
+            <att name="ioos_category">Salinity</att>
+            <att name="long_name">Sea Water Density</att>
+            <att name="standard_name">sea_water_density</att>
+            <att name="units">kg m-3</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>sea_water_sigmaT</sourceName>
+        <destinationName>sea_water_sigmaT</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Unknown</att>
+            <att name="long_name">Sea Water Sigma T</att>
+            <att name="standard_name">sea_water_sigma_t</att>
+            <att name="units">kg m-3</att>
+        </addAttributes>
+    </dataVariable>
+</dataset>

@@ -1,0 +1,113 @@
+<dataset type="EDDTableFromAsciiFiles" datasetID="IOS_P26_Annualized" active="true">
+    <iso19115File></iso19115File>
+    <reloadEveryNMinutes>1440</reloadEveryNMinutes>
+    <fileDir>/datasets/IOS_P26_Annualized/</fileDir>
+    <fileNameRegex>.*</fileNameRegex>
+    <recursive>true</recursive>
+    <pathRegex>.*</pathRegex>
+    <metadataFrom>last</metadataFrom>
+    <standardizeWhat>0</standardizeWhat>
+    <charset>UTF-8</charset>
+    <columnSeparator></columnSeparator>
+    <columnNamesRow>1</columnNamesRow>
+    <firstDataRow>2</firstDataRow>
+    <sortedColumnSourceName></sortedColumnSourceName>
+    <sortFilesBySourceNames></sortFilesBySourceNames>
+    <fileTableInMemory>false</fileTableInMemory>
+    <accessibleViaFiles>false</accessibleViaFiles>
+    <!-- sourceAttributes>
+    </sourceAttributes -->
+    <!-- Please specify the actual cdm_data_type (TimeSeries?) and related info below, for example...
+        <att name="cdm_timeseries_variables">station_id, longitude, latitude</att>
+        <att name="subsetVariables">station_id, longitude, latitude</att>
+    -->
+    <addAttributes>
+        <att name="cdm_data_type">Other</att>
+        <att name="Conventions">COARDS, CF-1.6, ACDD-1.3</att>
+        <att name="infoUrl">???</att>
+        <att name="institution">Institute of Ocean Sciences</att>
+        <att name="keywords">subSurfaceTemperature</att>
+        <att name="keywords_fra">température de la sous-surface</att>
+        <att name="language">eng</att>
+        <att name="license">[standard]</att>
+        <att name="sourceUrl">(local files)</att>
+        <att name="standard_name_vocabulary">CF Standard Name Table v79</att>
+        <att name="summary">Data from a local source.</att>
+        <att name="summary_fra">summary in french</att>
+        <att name="title">Station Papa CTD Annualized</att>
+        <att name="title_fra">title in french</att>
+        <att name="platform">ship</att>
+        <att name="platform_vocabulary">http://vocab.nerc.ac.uk/collection/L06/current/</att>
+    </addAttributes>
+    <dataVariable>
+        <sourceName>Year</sourceName>
+        <destinationName>Year</destinationName>
+        <dataType>short</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="long_name">Year</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>temp_0-10 dbar</sourceName>
+        <destinationName>temp_0_10_dbar</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="long_name">Temp 0-10 dbar</att>
+            <att name="standard_name">sea_water_temperature</att>
+            <att name="units">deg_C</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>temp_10-50 dbar</sourceName>
+        <destinationName>temp_10_50_dbar</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="long_name">Temp 10-50 dbar</att>
+            <att name="standard_name">sea_water_temperature</att>
+            <att name="units">deg_C</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>temp_100-150 dbar</sourceName>
+        <destinationName>temp_100_150_dbar</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="long_name">Temp 10-50 dbar</att>
+            <att name="standard_name">sea_water_temperature</att>
+            <att name="units">deg_C</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>temp_800-1200 dbar</sourceName>
+        <destinationName>temp_800_1200_dbar</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="long_name">Temp 800-1200 dbar</att>
+            <att name="standard_name">sea_water_temperature</att>
+            <att name="units">deg_C</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>temp_2000 dbar - bottom</sourceName>
+        <destinationName>temp_2000_dbar_bottom</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="_FillValue" type="float">NaN</att>
+            <att name="long_name">Temp 2000 dbar - Bottom</att>
+            <att name="standard_name">sea_water_temperature</att>
+            <att name="units">deg_C</att>
+        </addAttributes>
+    </dataVariable>
+</dataset>

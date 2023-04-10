@@ -1,0 +1,36 @@
+version: '2'
+services:
+  erddap:
+    container_name: "erddap"
+    image: axiom/docker-erddap:2.22-jdk17-openjdk
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "${HOST_PORT:-8090}:8080"
+    volumes:
+      - "./erddap/conf/robots.txt:/usr/local/tomcat/webapps/ROOT/robots.txt"
+      - "./erddap/content:/usr/local/tomcat/content/erddap"
+      - "./erddap/data:/erddapData"
+      - "/data/erddap_data:/datasets"
+      - "/tmp/:/usr/local/tomcat/temp/"
+      - "./datasets.d:/datasets.d:ro"
+      - "./init.d:/init.d"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "curl",
+          "-f",
+          "http://localhost:8080/erddap/index.html"
+        ]
+      interval: 10s
+  erddap-logs:
+    image: gynter/rsyslog-relp:alpine
+    volumes:
+      - ./erddap/data:/erddapData:ro
+      - ./tomcatLogs:/usr/local/tomcat/logs:ro
+      - ./rsyslog/rsyslog.conf:/etc/rsyslog.conf:ro
+      - ./rsyslog/rsyslog.d:/etc/rsyslog.d:ro
+    depends_on:
+      - erddap

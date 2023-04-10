@@ -1,0 +1,874 @@
+<dataset type="EDDTableFromMultidimNcFiles" datasetID="IOS_ADCP_Moorings" active="true">
+    <iso19115File>/xml/IOS_ADCP_Moorings_iso19115.xml</iso19115File>
+    <reloadEveryNMinutes>1440</reloadEveryNMinutes>
+    <reloadEveryNMinutes>10080</reloadEveryNMinutes>
+    <updateEveryNMillis>10000</updateEveryNMillis>
+    <fileDir>/datasets/IOS_ADCP_moorings</fileDir>
+    <fileNameRegex>.*\.adcp.L1.nc</fileNameRegex>
+    <recursive>true</recursive>
+    <pathRegex>.*</pathRegex>
+    <metadataFrom>last</metadataFrom>
+    <preExtractRegex></preExtractRegex>
+    <accessibleViaFiles>true</accessibleViaFiles>
+    <postExtractRegex></postExtractRegex>
+    <extractRegex></extractRegex>
+    <columnNameForExtract></columnNameForExtract>
+    <standardizeWhat>0</standardizeWhat>
+    <removeMVRows>true</removeMVRows>
+    <sortFilesBySourceNames></sortFilesBySourceNames>
+    <fileTableInMemory>false</fileTableInMemory>
+    <addAttributes>
+        <att name="cdm_data_type">TimeSeriesProfile</att>
+        <att name="cdm_timeseries_variables">filename,latitude,longitude</att>
+        <att name="cdm_profile_variables">time</att>
+        <att name="Conventions">CF-1.7, COARDS, ACDD-1.3</att>
+        <att name="creator_name">Institute of Ocean Sciences, 9860 West Saanich Road, Sidney, B.C., Canada</att>
+        <att name="infoUrl">???</att>
+        <att name="title">IOS Moored ADCP Profile Data</att>
+        <att name="title_fra">Données ADCP de mouillages de l'ISM</att>
+        <att name="keywords_vocabulary">GCMD Science Keywords</att>
+        <att name="keywords">subSurfaceCurrents, subSurfaceTemperature, acoustic, acoustics, adcp, angle, archived, beam, circulation, CMAGZZ01, CMAGZZ02, CMAGZZ03, CMAGZZ04, correlation, current, currents, data, depth, distance, DISTTRAN, doppler, dtut8601, earth, Earth Science ; Oceans ; Ocean Acoustics ; Acoustic Velocity, Earth Science ; Oceans ; Ocean Circulation ; Ocean Currents, Earth Science ; Oceans ; Ocean Pressure ; Water Pressure, Earth Science ; Oceans ; Sea Surface Topography ; Sea Surface Height, eastward, eastward_sea_water_velocity, echo, ELTMEP01, error, files, flag, good, HEADCM01, heading, height, identifier, intensity, latitude, lcewap01, LCEWAP01_QC, lcnsap01, LCNSAP01_QC, LERRAP01, level, longitude, lrzaap01, LRZAAP01_QC, magnitude, make, name, northward, northward_sea_water_velocity, ocean, oceans, PCGDAP00, PCGDAP02, PCGDAP03, PCGDAP04, percent, pitch, platform, platform_name, platform_pitch_angle, platform_roll_angle, PRESPR01, pressure, profiler, PTCHGP01, quality, raw, roll, ROLLGP01, science, sea, sea level, sea_surface_height, sea_water_pressure, seawater, set, sound, speed, speed_of_sound_in_sea_water, statistics, surface, SVELCV01, temperature, TEMPPR01, time, TNIHCE01, TNIHCE02, TNIHCE03, TNIHCE04, topography, transducer, upward, upward_sea_water_velocity, used, velocity, water</att>
+        <att name="keywords_fra">température sous la surface, courants sous la surface, courantomètre acoustique, adcp,courants, profondeur, pression</att>
+        <att name="license">[standard]</att>
+        <att name="sourceUrl">(local files)</att>
+        <att name="standard_name_vocabulary">CF Standard Name Table v79</att>
+        <att name="subsetVariables">filename, longitude, latitude</att>
+        <att name="summary">This dataset contain observations made by the Institute of Ocean Sciences of Fisheries and Oceans (DFO) using moored ADCPs (Acoustic Doppler Current Profiler). The ADCPs were deployed by DFO and on scientific cruises between 1992 to present. Variables present in the dataset include Location, Time, Pressure, Current Velocities, Temperature, Sound Velocity, echo intensity, and correlation magnitude of acoustic signal returns. For any questions please contact (DFO.PAC.SCI.IOSData-DonneesISO.SCI.PAC.MPO@dfo-mpo.gc.ca).</att>
+        <att name="summary_fra">Cet ensemble de données contient des observations complétées par l'Institut des sciences de la mer (ISM) de Pêches et des Océans Canada (PO) à l'aide de courantomètres acoustiques (Acoustic Doppler Current Profiler; ADCP) déployés sur des mouillages océanographiques. Les ADCP ont été déployés par PO lors de campagnes scientifiques de 1992 et à aujourd'hui. Les variables présentes dans cet ensemble de données comprennent l'emplacement, le temps, la pression, les vitesses de courant, la température, la vitesse du son, l'intensité de l'écho et la corrélation des signaux acoustiques de retour. Pour toute question, veuillez contacter (DFO.PAC.SCI.IOSData-DonneesISO.SCI.PAC.MPO@dfo-mpo.gc.ca).</att>
+        <att name="start_time">null</att>
+        <att name="language">eng</att>
+        <att name="publisher_name">Hakai Institute</att>
+        <att name="institution">Institute of Ocean Sciences</att>
+        <att name="time_coverage_duration"></att>
+        <att name="platform">mooring</att>
+        <att name="platform_vocabulary">http://vocab.nerc.ac.uk/collection/L06/current/</att>
+    </addAttributes>
+    <dataVariable>
+        <sourceName>time</sourceName>
+        <destinationName>time</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+            <att name="calendar">gregorian</att>
+            <att name="cf_role">profile_id</att>
+            <att name="long_name">time</att>
+            <att name="units">seconds since 1970-01-01T00:00:00Z</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Identifier</att>
+            <att name="standard_name">time</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>distance</sourceName>
+        <destinationName>distance</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+            <att name="long_name">distance</att>
+            <att name="units">metres</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Unknown</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>filename</sourceName>
+        <destinationName>filename</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+            <att name="cf_role">timeseries_id</att>
+            <att name="latitude" type="double">48.5293</att>
+            <att name="long_name">station</att>
+            <att name="longitude" type="double">-126.2026</att>
+            <att name="standard_name">platform_name</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="cf_role">timeseries_id</att>
+            <att name="ioos_category">Identifier</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>LCEWAP01</sourceName>
+        <destinationName>LCEWAP01</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="float">1.0E35</att>
+            <att name="ancillary_variables">LCEWAP01_QC</att>
+            <att name="comment">Quality flag resulting from cleaning of the beginning and end of the dataset</att>
+            <att name="data_max" type="double">0.19515503493478936</att>
+            <att name="data_min" type="double">-0.27742517593253296</att>
+            <att name="flag_meanings">no_quality_control, value_seems_correct, value_appears_inconsistant_with_other_values, value_seems_doubtful, value_seems_erroneous, value_was_modified, value_below_detection, value_in_excess, value_interpolated, value_missing</att>
+            <att name="flag_values">0, 1, 2, 3, 4, 5, 6, 7, 8, 9</att>
+            <att name="generic_name">u</att>
+            <att name="legency_GF3_code">SDN:GF3::EWCT</att>
+            <att name="long_name">eastward_sea_water_velocity</att>
+            <att name="References">BODC SeaDataNet</att>
+            <att name="sdn_parameter_name">Eastward current velocity (Eulerian measurement) in the water body by moored acoustic doppler current profiler (ADCP)</att>
+            <att name="sdn_uom_name">Metres per second</att>
+            <att name="sdn_uom_urn">SDN:P06::UVAA</att>
+            <att name="sensor_depth" type="double">210.73433605026983</att>
+            <att name="sensor_type">adcp</att>
+            <att name="serial_number">2281</att>
+            <att name="standard_name">eastward_sea_water_velocity</att>
+            <att name="units">m/sec</att>
+            <att name="valid_max" type="double">1000.0</att>
+            <att name="valid_min" type="double">-1000.0</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">10.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="ioos_category">Currents</att>
+            <att name="long_name">Eastward Sea Water Velocity</att>
+            <att name="References">null</att>
+            <att name="references">BODC SeaDataNet</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>LCNSAP01</sourceName>
+        <destinationName>LCNSAP01</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="float">1.0E35</att>
+            <att name="ancillary_variables">LCNSAP01_QC</att>
+            <att name="comment">Quality flag resulting from cleaning of the beginning and end of the dataset</att>
+            <att name="data_max" type="double">0.2482094480494997</att>
+            <att name="data_min" type="double">-0.1937992370811935</att>
+            <att name="flag_meanings">no_quality_control, value_seems_correct, value_appears_inconsistant_with_other_values, value_seems_doubtful, value_seems_erroneous, value_was_modified, value_below_detection, value_in_excess, value_interpolated, value_missing</att>
+            <att name="flag_values">0, 1, 2, 3, 4, 5, 6, 7, 8, 9</att>
+            <att name="generic_name">v</att>
+            <att name="legency_GF3_code">SDN:GF3::NSCT</att>
+            <att name="long_name">northward_sea_water_velocity</att>
+            <att name="References">BODC SeaDataNet</att>
+            <att name="sdn_parameter_name">Northward current velocity (Eulerian measurement) in the water body by moored acoustic doppler current profiler (ADCP)</att>
+            <att name="sdn_uom_name">Metres per second</att>
+            <att name="sdn_uom_urn">SDN:P06::UVAA</att>
+            <att name="sensor_depth" type="double">210.73433605026983</att>
+            <att name="sensor_type">adcp</att>
+            <att name="serial_number">2281</att>
+            <att name="standard_name">northward_sea_water_velocity</att>
+            <att name="units">m/sec</att>
+            <att name="valid_max" type="double">1000.0</att>
+            <att name="valid_min" type="double">-1000.0</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">10.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="ioos_category">Currents</att>
+            <att name="long_name">Northward Sea Water Velocity</att>
+            <att name="References">null</att>
+            <att name="references">BODC SeaDataNet</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>LRZAAP01</sourceName>
+        <destinationName>LRZAAP01</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="float">1.0E35</att>
+            <att name="ancillary_variables">LRZAAP01_QC</att>
+            <att name="data_max" type="double">0.042</att>
+            <att name="data_min" type="double">-0.068</att>
+            <att name="generic_name">w</att>
+            <att name="legency_GF3_code">SDN:GF3::VCSP</att>
+            <att name="long_name">upward_sea_water_velocity</att>
+            <att name="sdn_parameter_name">Upward current velocity in the water body by moored acoustic doppler current profiler (ADCP)</att>
+            <att name="sdn_uom_name">Metres per second</att>
+            <att name="sdn_uom_urn">SDN:P06::UVAA</att>
+            <att name="sensor_depth" type="double">210.73433605026983</att>
+            <att name="sensor_type">adcp</att>
+            <att name="serial_number">2281</att>
+            <att name="standard_name">upward_sea_water_velocity</att>
+            <att name="units">m/sec</att>
+            <att name="valid_max" type="double">1000.0</att>
+            <att name="valid_min" type="double">-1000.0</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">0.5</att>
+            <att name="colorBarMinimum" type="double">-0.5</att>
+            <att name="ioos_category">Currents</att>
+            <att name="long_name">Upward Sea Water Velocity</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>LERRAP01</sourceName>
+        <destinationName>LERRAP01</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="float">1.0E35</att>
+            <att name="data_max" type="double">0.201</att>
+            <att name="data_min" type="double">-0.151</att>
+            <att name="generic_name">w</att>
+            <att name="legency_GF3_code">SDN:GF3::ERRV</att>
+            <att name="long_name">error_velocity_in_sea_water</att>
+            <att name="sdn_parameter_name">Current velocity error in the water body by moored acoustic doppler current profiler (ADCP)</att>
+            <att name="sdn_uom_name">Metres per second</att>
+            <att name="sdn_uom_urn">SDN:P06::UVAA</att>
+            <att name="sensor_depth" type="double">210.73433605026983</att>
+            <att name="sensor_type">adcp</att>
+            <att name="serial_number">2281</att>
+            <att name="units">m/sec</att>
+            <att name="valid_max" type="double">2000.0</att>
+            <att name="valid_min" type="double">-2000.0</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">50.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="ioos_category">Statistics</att>
+            <att name="long_name">Error Velocity In Sea Water</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>ELTMEP01</sourceName>
+        <destinationName>ELTMEP01</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="double">1.0E35</att>
+            <att name="legency_GF3_code">SDN:GF3::N/A</att>
+            <att name="long_name">time_02</att>
+            <att name="sdn_parameter_name">Elapsed time (since 1970-01-01T00:00:00Z)</att>
+            <att name="sdn_uom_name">Seconds</att>
+            <att name="sdn_uom_urn">SDN:P06::UTBB</att>
+            <att name="standard_name">time</att>
+            <att name="units">seconds since 1970-01-01T00:00:00Z</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Time</att>
+            <att name="long_name">Time 02</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>TNIHCE01</sourceName>
+        <destinationName>TNIHCE01</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="float">1.0E35</att>
+            <att name="data_max" type="double">142.0</att>
+            <att name="data_min" type="double">0.0</att>
+            <att name="generic_name">AGC</att>
+            <att name="legency_GF3_code">SDN:GF3::BEAM_01</att>
+            <att name="long_name">ADCP_echo_intensity_beam_1</att>
+            <att name="sdn_parameter_name">Echo intensity from the water body by moored acoustic doppler current profiler (ADCP) beam 1</att>
+            <att name="sdn_uom_name">Counts</att>
+            <att name="sdn_uom_urn">SDN:P06::UCNT</att>
+            <att name="sensor_depth" type="double">210.73433605026983</att>
+            <att name="sensor_type">adcp</att>
+            <att name="serial_number">2281</att>
+            <att name="units">counts</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">100.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="ioos_category">Statistics</att>
+            <att name="units">count</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>TNIHCE02</sourceName>
+        <destinationName>TNIHCE02</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="float">1.0E35</att>
+            <att name="data_max" type="double">156.0</att>
+            <att name="data_min" type="double">0.0</att>
+            <att name="generic_name">AGC</att>
+            <att name="legency_GF3_code">SDN:GF3::BEAM_02</att>
+            <att name="long_name">ADCP_echo_intensity_beam_2</att>
+            <att name="sdn_parameter_name">Echo intensity from the water body by moored acoustic doppler current profiler (ADCP) beam 2</att>
+            <att name="sdn_uom_name">Counts</att>
+            <att name="sdn_uom_urn">SDN:P06::UCNT</att>
+            <att name="sensor_depth" type="double">210.73433605026983</att>
+            <att name="sensor_type">adcp</att>
+            <att name="serial_number">2281</att>
+            <att name="units">counts</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">100.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="ioos_category">Statistics</att>
+            <att name="units">count</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>TNIHCE03</sourceName>
+        <destinationName>TNIHCE03</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="float">1.0E35</att>
+            <att name="data_max" type="double">159.0</att>
+            <att name="data_min" type="double">0.0</att>
+            <att name="generic_name">AGC</att>
+            <att name="legency_GF3_code">SDN:GF3::BEAM_03</att>
+            <att name="long_name">ADCP_echo_intensity_beam_3</att>
+            <att name="sdn_parameter_name">Echo intensity from the water body by moored acoustic doppler current profiler (ADCP) beam 3</att>
+            <att name="sdn_uom_name">Counts</att>
+            <att name="sdn_uom_urn">SDN:P06::UCNT</att>
+            <att name="sensor_depth" type="double">210.73433605026983</att>
+            <att name="sensor_type">adcp</att>
+            <att name="serial_number">2281</att>
+            <att name="units">counts</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">100.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="ioos_category">Statistics</att>
+            <att name="units">count</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>TNIHCE04</sourceName>
+        <destinationName>TNIHCE04</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="float">1.0E35</att>
+            <att name="data_max" type="double">156.0</att>
+            <att name="data_min" type="double">0.0</att>
+            <att name="generic_name">AGC</att>
+            <att name="legency_GF3_code">SDN:GF3::BEAM_04</att>
+            <att name="long_name">ADCP_echo_intensity_beam_4</att>
+            <att name="sdn_parameter_name">Echo intensity from the water body by moored acoustic doppler current profiler (ADCP) beam 4</att>
+            <att name="sdn_uom_name">Counts</att>
+            <att name="sdn_uom_urn">SDN:P06::UCNT</att>
+            <att name="sensor_depth" type="double">210.73433605026983</att>
+            <att name="sensor_type">adcp</att>
+            <att name="serial_number">2281</att>
+            <att name="units">counts</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">100.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="ioos_category">Statistics</att>
+            <att name="units">count</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>PCGDAP00</sourceName>
+        <destinationName>PCGDAP00</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="float">1.0E35</att>
+            <att name="data_max" type="double">70.0</att>
+            <att name="data_min" type="double">0.0</att>
+            <att name="generic_name">PGd</att>
+            <att name="legency_GF3_code">SDN:GF3::PGDP_01</att>
+            <att name="long_name">percent_good_beam_1</att>
+            <att name="sdn_parameter_name">Acceptable proportion of signal returns by moored acoustic doppler current profiler (ADCP) beam 1</att>
+            <att name="sdn_uom_name">Percent</att>
+            <att name="sdn_uom_urn">SDN:P06::UPCT</att>
+            <att name="sensor_depth" type="double">210.73433605026983</att>
+            <att name="sensor_type">adcp</att>
+            <att name="serial_number">2281</att>
+            <att name="units">percent</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">100.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="ioos_category">Unknown</att>
+            <att name="long_name">Percent Good Beam 1</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>PCGDAP02</sourceName>
+        <destinationName>PCGDAP02</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="float">1.0E35</att>
+            <att name="data_max" type="double">3.0</att>
+            <att name="data_min" type="double">0.0</att>
+            <att name="generic_name">PGd</att>
+            <att name="legency_GF3_code">SDN:GF3::PGDP_02</att>
+            <att name="long_name">percent_good_beam_2</att>
+            <att name="sdn_parameter_name">Acceptable proportion of signal returns by moored acoustic doppler current profiler (ADCP) beam 2</att>
+            <att name="sdn_uom_name">Percent</att>
+            <att name="sdn_uom_urn">SDN:P06::UPCT</att>
+            <att name="sensor_depth" type="double">210.73433605026983</att>
+            <att name="sensor_type">adcp</att>
+            <att name="serial_number">2281</att>
+            <att name="units">percent</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">100.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="ioos_category">Unknown</att>
+            <att name="long_name">Percent Good Beam 2</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>PCGDAP03</sourceName>
+        <destinationName>PCGDAP03</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="float">1.0E35</att>
+            <att name="data_max" type="double">100.0</att>
+            <att name="data_min" type="double">0.0</att>
+            <att name="generic_name">PGd</att>
+            <att name="legency_GF3_code">SDN:GF3::PGDP_03</att>
+            <att name="long_name">percent_good_beam_3</att>
+            <att name="sdn_parameter_name">Acceptable proportion of signal returns by moored acoustic doppler current profiler (ADCP) beam 3</att>
+            <att name="sdn_uom_name">Percent</att>
+            <att name="sdn_uom_urn">SDN:P06::UPCT</att>
+            <att name="sensor_depth" type="double">210.73433605026983</att>
+            <att name="sensor_type">adcp</att>
+            <att name="serial_number">2281</att>
+            <att name="units">percent</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">100.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="ioos_category">Unknown</att>
+            <att name="long_name">Percent Good Beam 3</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>PCGDAP04</sourceName>
+        <destinationName>PCGDAP04</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="float">1.0E35</att>
+            <att name="data_max" type="double">100.0</att>
+            <att name="data_min" type="double">0.0</att>
+            <att name="generic_name">PGd</att>
+            <att name="legency_GF3_code">SDN:GF3::PGDP_04</att>
+            <att name="long_name">percent_good_beam_4</att>
+            <att name="sdn_parameter_name">Acceptable proportion of signal returns by moored acoustic doppler current profiler (ADCP) beam 4</att>
+            <att name="sdn_uom_name">Percent</att>
+            <att name="sdn_uom_urn">SDN:P06::UPCT</att>
+            <att name="sensor_depth" type="double">210.73433605026983</att>
+            <att name="sensor_type">adcp</att>
+            <att name="serial_number">2281</att>
+            <att name="units">percent</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">100.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="ioos_category">Unknown</att>
+            <att name="long_name">Percent Good Beam 4</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>PTCHGP01</sourceName>
+        <destinationName>PTCHGP01</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="float">1.0E35</att>
+            <att name="data_max" type="double">0.5100939991751302</att>
+            <att name="data_min" type="double">-0.6200589347040424</att>
+            <att name="legency_GF3_code">SDN:GF3::PTCH</att>
+            <att name="long_name">pitch</att>
+            <att name="sdn_parameter_name">Orientation (pitch) of measurement platform by inclinometer</att>
+            <att name="sdn_uom_name">Degrees</att>
+            <att name="sdn_uom_urn">SDN:P06:UAAA</att>
+            <att name="standard_name">platform_pitch_angle</att>
+            <att name="units">degrees</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Unknown</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>ROLLGP01</sourceName>
+        <destinationName>ROLLGP01</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="float">1.0E35</att>
+            <att name="data_max" type="double">0.02</att>
+            <att name="data_min" type="double">-1.4000000000000001</att>
+            <att name="legency_GF3_code">SDN:GF3::ROLL</att>
+            <att name="long_name">roll</att>
+            <att name="sdn_parameter_name">Orientation (roll angle) of measurement platform by inclinometer (second sensor)</att>
+            <att name="sdn_uom_name">Degrees</att>
+            <att name="sdn_uom_urn">SDN:P06:UAAA</att>
+            <att name="standard_name">platform_roll_angle</att>
+            <att name="units">degrees</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Unknown</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>DISTTRAN</sourceName>
+        <destinationName>DISTTRAN</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="float">1.0E35</att>
+            <att name="data_max" type="double">212.0305150580814</att>
+            <att name="data_min" type="double">209.67402016382104</att>
+            <att name="generic_name">height</att>
+            <att name="legency_GF3_code">SDN:GF3::HGHT</att>
+            <att name="long_name">height of sea surface</att>
+            <att name="sdn_uom_name">Metres</att>
+            <att name="sdn_uom_urn">SDN:P06::ULAA</att>
+            <att name="sensor_depth" type="double">210.73433605026983</att>
+            <att name="sensor_type">adcp</att>
+            <att name="serial_number">2281</att>
+            <att name="units">m</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">2.0</att>
+            <att name="colorBarMinimum" type="double">-2.0</att>
+            <att name="ioos_category">Sea Level</att>
+            <att name="standard_name">sea_surface_height</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>TEMPPR01</sourceName>
+        <destinationName>TEMPPR01</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="float">1.0E35</att>
+            <att name="data_max" type="double">7.390000000000001</att>
+            <att name="data_min" type="double">6.46</att>
+            <att name="generic_name">temp</att>
+            <att name="legency_GF3_code">SDN:GF3::te90</att>
+            <att name="long_name">ADCP Transducer Temp.</att>
+            <att name="sdn_parameter_name">Temperature of the water body</att>
+            <att name="sdn_uom_name">Celsius degree</att>
+            <att name="sdn_uom_urn">SDN:P06::UPAA</att>
+            <att name="sensor_depth" type="double">210.73433605026983</att>
+            <att name="sensor_type">adcp</att>
+            <att name="serial_number">2281</att>
+            <att name="units">degrees celsius</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">40.0</att>
+            <att name="colorBarMinimum" type="double">-10.0</att>
+            <att name="ioos_category">Temperature</att>
+            <att name="units">degree_C</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>PPSAADCP</sourceName>
+        <destinationName>depth</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="float">1.0E35</att>
+            <att name="bin_size" type="double">4.0</att>
+            <att name="data_max" type="double">212.0305150580814</att>
+            <att name="data_min" type="double">209.67402016382104</att>
+            <att name="generic_name">depth</att>
+            <att name="legency_GF3_code">SDN:GF3::DEPH</att>
+            <att name="long_name">instrument depth</att>
+            <att name="sdn_parameter_name">Depth below surface of the water body</att>
+            <att name="sdn_uom_name">Metres</att>
+            <att name="sdn_uom_urn">SDN:P06:ULAA</att>
+            <att name="sensor_depth" type="double">210.73433605026983</att>
+            <att name="sensor_type">adcp</att>
+            <att name="serial_number">2281</att>
+            <att name="standard_name">depth</att>
+            <att name="units">m</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">8000.0</att>
+            <att name="colorBarMinimum" type="double">-8000.0</att>
+            <att name="colorBarPalette">TopographyDepth</att>
+            <att name="ioos_category">Location</att>
+            <att name="source_name">PPSAADCP</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>LCEWAP01_QC</sourceName>
+        <destinationName>LCEWAP01_QC</destinationName>
+        <dataType>int</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="int">0</att>
+            <att name="comment">Quality flag resulting from cleaning of the beginning and end of the dataset</att>
+            <att name="data_max" type="int">4</att>
+            <att name="data_min" type="int">0</att>
+            <att name="flag_meanings">no_quality_control, value_seems_correct, value_appears_inconsistant_with_other_values, value_seems_doubtful, value_seems_erroneous, value_was_modified, value_below_detection, value_in_excess, value_interpolated, value_missing</att>
+            <att name="flag_values">0, 1, 2, 3, 4, 5, 6, 7, 8, 9</att>
+            <att name="long_name">quality flag for LCEWAP01</att>
+            <att name="References">BODC SeaDataNet</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">10.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="ioos_category">Quality</att>
+            <att name="References">null</att>
+            <att name="references">BODC SeaDataNet</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>LCNSAP01_QC</sourceName>
+        <destinationName>LCNSAP01_QC</destinationName>
+        <dataType>int</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="int">0</att>
+            <att name="comment">Quality flag resulting from cleaning of the beginning and end of the dataset</att>
+            <att name="data_max" type="int">4</att>
+            <att name="data_min" type="int">0</att>
+            <att name="flag_meanings">no_quality_control, value_seems_correct, value_appears_inconsistant_with_other_values, value_seems_doubtful, value_seems_erroneous, value_was_modified, value_below_detection, value_in_excess, value_interpolated, value_missing</att>
+            <att name="flag_values">0, 1, 2, 3, 4, 5, 6, 7, 8, 9</att>
+            <att name="long_name">quality flag for LCNSAP01</att>
+            <att name="References">BODC SeaDataNet</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">10.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="ioos_category">Quality</att>
+            <att name="References">null</att>
+            <att name="references">BODC SeaDataNet</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>LRZAAP01_QC</sourceName>
+        <destinationName>LRZAAP01_QC</destinationName>
+        <dataType>int</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="int">0</att>
+            <att name="comment">Quality flag resulting from cleaning of the beginning and end of the dataset</att>
+            <att name="data_max" type="int">4</att>
+            <att name="data_min" type="int">0</att>
+            <att name="flag_meanings">no_quality_control, value_seems_correct, value_appears_inconsistant_with_other_values, value_seems_doubtful, value_seems_erroneous, value_was_modified, value_below_detection, value_in_excess, value_interpolated, value_missing</att>
+            <att name="flag_values">0, 1, 2, 3, 4, 5, 6, 7, 8, 9</att>
+            <att name="long_name">quality flag for LRZAAP01</att>
+            <att name="References">BODC SeaDataNet</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">10.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="ioos_category">Quality</att>
+            <att name="References">null</att>
+            <att name="references">BODC SeaDataNet</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>longitude</sourceName>
+        <destinationName>longitude</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">180.0</att>
+            <att name="colorBarMinimum" type="double">-180.0</att>
+            <att name="ioos_category">Location</att>
+            <att name="source_name">ALONZZ01</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>latitude</sourceName>
+        <destinationName>latitude</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">90.0</att>
+            <att name="colorBarMinimum" type="double">-90.0</att>
+            <att name="ioos_category">Location</att>
+            <att name="source_name">ALATZZ01</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>ALONZZ01</sourceName>
+        <destinationName>ALONZZ01</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+            <att name="legency_GF3_code">SDN:GF3::lon</att>
+            <att name="long_name">longitude</att>
+            <att name="sdn_parameter_name">Longitude east</att>
+            <att name="sdn_uom_name">Degrees east</att>
+            <att name="sdn_uom_urn">SDN:P06::DEGE</att>
+            <att name="standard_name">longitude</att>
+            <att name="units">degrees_east</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">180.0</att>
+            <att name="colorBarMinimum" type="double">-180.0</att>
+            <att name="ioos_category">Location</att>
+            <att name="source_name">ALONZZ01</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>ALATZZ01</sourceName>
+        <destinationName>ALATZZ01</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+            <att name="legency_GF3_code">SDN:GF3::lat</att>
+            <att name="long_name">latitude</att>
+            <att name="sdn_parameter_name">Latitude north</att>
+            <att name="sdn_uom_name">Degrees north</att>
+            <att name="sdn_uom_urn">SDN:P06:DEGN</att>
+            <att name="standard_name">latitude</att>
+            <att name="units">degrees_north</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">90.0</att>
+            <att name="colorBarMinimum" type="double">-90.0</att>
+            <att name="ioos_category">Location</att>
+            <att name="source_name">ALATZZ01</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>HEADCM01</sourceName>
+        <destinationName>HEADCM01</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="float">1.0E35</att>
+            <att name="data_max" type="double">354.71</att>
+            <att name="data_min" type="double">4.33</att>
+            <att name="legency_GF3_code">SDN:GF3::HEAD</att>
+            <att name="long_name">heading</att>
+            <att name="sdn_parameter_name">Orientation (horizontal relative to true north) of measurement device {heading}</att>
+            <att name="sdn_uom_name">Degrees</att>
+            <att name="sdn_uom_urn">SDN:P06:UAAA</att>
+            <att name="sensor_depth" type="double">210.73433605026983</att>
+            <att name="sensor_type">adcp</att>
+            <att name="serial_number">2281</att>
+            <att name="units">degrees</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Unknown</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>PRESPR01</sourceName>
+        <destinationName>PRESPR01</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="float">1.0E35</att>
+            <att name="data_max" type="double">213.946</att>
+            <att name="data_min" type="double">211.567</att>
+            <att name="legency_GF3_code">SDN:GF3::PRES</att>
+            <att name="long_name">pressure</att>
+            <att name="sdn_parameter_name">Pressure (spatial co-ordinate) exerted by the water body by profiling pressure sensor and corrected to read zero at sea level</att>
+            <att name="sdn_uom_name">Decibars</att>
+            <att name="sdn_uom_urn">SDN:P06:UPDB</att>
+            <att name="sensor_depth" type="double">210.73433605026983</att>
+            <att name="sensor_type">adcp</att>
+            <att name="serial_number">2281</att>
+            <att name="standard_name">sea_water_pressure</att>
+            <att name="units">decibars</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">5000.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="ioos_category">Pressure</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>SVELCV01</sourceName>
+        <destinationName>SVELCV01</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="float">1.0E35</att>
+            <att name="data_max" type="int">1522</att>
+            <att name="data_min" type="int">1476</att>
+            <att name="legency_GF3_code">SDN:GF3::SVEL</att>
+            <att name="long_name">speed of sound</att>
+            <att name="sdn_parameter_name">Sound velocity in the water body by computation from temperature and salinity by unspecified algorithm</att>
+            <att name="sdn_uom_name">Metres per second</att>
+            <att name="sdn_uom_urn">SDN:P06:UVAA</att>
+            <att name="sensor_depth" type="double">210.73433605026983</att>
+            <att name="sensor_type">adcp</att>
+            <att name="serial_number">2281</att>
+            <att name="standard_name">speed_of_sound_in_sea_water</att>
+            <att name="units">m/s</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Currents</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>DTUT8601</sourceName>
+        <destinationName>DTUT8601</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+            <att name="legency_GF3_code">SDN:GF3::time_string</att>
+            <att name="note">time values as ISO8601 string, YY-MM-DD hh:mm:ss</att>
+            <att name="sdn_parameter_name">String corresponding to format &#39;YYYY-MM-DDThh:mm:ss.sssZ&#39; or other valid ISO8601 string</att>
+            <att name="sdn_uom_name">ISO8601</att>
+            <att name="sdn_uom_urn">SDN:P06::TISO</att>
+            <att name="time_zone">UTC</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Unknown</att>
+            <att name="long_name">DTUT8601</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>CMAGZZ01</sourceName>
+        <destinationName>CMAGZZ01</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="float">1.0E35</att>
+            <att name="data_max" type="double">134.0</att>
+            <att name="data_min" type="double">0.0</att>
+            <att name="generic_name">CM</att>
+            <att name="legency_GF3_code">SDN:GF3::CMAG_01</att>
+            <att name="long_name">ADCP_correlation_magnitude_beam_1</att>
+            <att name="sdn_parameter_name">Correlation magnitude of acoustic signal returns from the water body by moored acoustic doppler current profiler (ADCP) beam 4</att>
+            <att name="sensor_depth" type="double">210.73433605026983</att>
+            <att name="sensor_type">adcp</att>
+            <att name="serial_number">2281</att>
+            <att name="units">counts</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">100.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="ioos_category">Statistics</att>
+            <att name="units">count</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>CMAGZZ02</sourceName>
+        <destinationName>CMAGZZ02</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="float">1.0E35</att>
+            <att name="data_max" type="double">135.0</att>
+            <att name="data_min" type="double">0.0</att>
+            <att name="generic_name">CM</att>
+            <att name="legency_GF3_code">SDN:GF3::CMAG_02</att>
+            <att name="long_name">ADCP_correlation_magnitude_beam_2</att>
+            <att name="sensor_depth" type="double">210.73433605026983</att>
+            <att name="sensor_type">adcp</att>
+            <att name="serial_number">2281</att>
+            <att name="units">counts</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">100.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="ioos_category">Statistics</att>
+            <att name="units">count</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>CMAGZZ03</sourceName>
+        <destinationName>CMAGZZ03</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="float">1.0E35</att>
+            <att name="data_max" type="double">134.0</att>
+            <att name="data_min" type="double">0.0</att>
+            <att name="generic_name">CM</att>
+            <att name="legency_GF3_code">SDN:GF3::CMAG_03</att>
+            <att name="long_name">ADCP_correlation_magnitude_beam_3</att>
+            <att name="sensor_depth" type="double">210.73433605026983</att>
+            <att name="sensor_type">adcp</att>
+            <att name="serial_number">2281</att>
+            <att name="units">counts</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">100.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="ioos_category">Statistics</att>
+            <att name="units">count</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>CMAGZZ04</sourceName>
+        <destinationName>CMAGZZ04</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+            <att name="_FillValue" type="float">1.0E35</att>
+            <att name="data_max" type="double">135.0</att>
+            <att name="data_min" type="double">0.0</att>
+            <att name="generic_name">CM</att>
+            <att name="legency_GF3_code">SDN:GF3::CMAG_04</att>
+            <att name="long_name">ADCP_correlation_magnitude_beam_4</att>
+            <att name="sensor_depth" type="double">210.73433605026983</att>
+            <att name="sensor_type">adcp</att>
+            <att name="serial_number">2281</att>
+            <att name="units">counts</att>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">100.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="ioos_category">Statistics</att>
+            <att name="units">count</att>
+        </addAttributes>
+    </dataVariable>
+</dataset>

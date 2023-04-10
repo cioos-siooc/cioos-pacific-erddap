@@ -1,0 +1,151 @@
+<dataset type="EDDTableFromMultidimNcFiles" datasetID="BCSOP_monthly" active="true">
+    <reloadEveryNMinutes>1440</reloadEveryNMinutes>
+    <fileDir>/datasets/BCSOP/monthly/</fileDir>
+    <fileNameRegex>.*\.nc</fileNameRegex>
+    <recursive>true</recursive>
+    <pathRegex>.*</pathRegex>
+    <metadataFrom>last</metadataFrom>
+    <preExtractRegex></preExtractRegex>
+    <accessibleViaFiles>true</accessibleViaFiles>
+    <postExtractRegex></postExtractRegex>
+    <extractRegex></extractRegex>
+    <columnNameForExtract></columnNameForExtract>
+    <removeMVRows>true</removeMVRows>
+    <sortFilesBySourceNames></sortFilesBySourceNames>
+    <fileTableInMemory>false</fileTableInMemory>
+
+    <addAttributes>
+        <att name="ios_comments"></att>
+        <att name="ios_remarks"></att>
+        <att name="header"></att>
+        <att name="cdm_data_type">TimeSeries</att>
+        <att name="cdm_timeseries_variables">profile</att>
+        <att name="Conventions">COARDS, CF-1.6, ACDD-1.3</att>
+        <att name="contact_name">Institute of Oceans Sciences</att>
+        <att name="contact_email">DFO.PAC.SCI.IOSData-DonneesISO.SCI.PAC.MPO@dfo-mpo.gc.ca</att>
+        <att name="creator_name">Institute of Ocean Sciences, 9860 West Saanich Road, Sidney, B.C., Canada</att>
+        <att name="infoUrl">https://open.canada.ca/data/en/dataset/719955f2-bf8e-44f7-bc26-6bd623e82884</att>
+        <att name="license">[standard]</att>
+        <att name="sourceUrl">(local files)</att>
+        <att name="subsetVariables">agency, scientist, country, profile, status</att>
+        <att name="standard_name_vocabulary">CF Standard Name Table v79</att>
+        <att name="START_TIME">null</att>
+        <att name="start_time">null</att>
+        <att name="summary">"Daily sea surface temperature and salinity observations have been carried out at several locations on the coast of British Columbia since the early part of the 20th century. Observations started at the Pacific Biological Station (Departure Bay) in 1914; 11 stations were added in the mid-1930s and several more in the 1960s. The number of stations reporting at any given time has varied as sampling has been discontinued at some stations and started or resumed at others.
+Presently termed the British Columbia Shore Station Oceanographic Program (BCSOP), there are 12 participating stations where daily sea-surface temperature and salinity measurements have been collected from 1914 to present. Due to unfavourable sampling conditions, there are some gaps in the daily data.
+Observations are made daily using seawater collected in a bucket lowered into the surface water at or near the daytime high tide. This sampling method was designed long ago by Dr. John P. Tully and has not been changed in the interests of a homogeneous data set. This means, for example, that if an observer starts sampling one day at 6 a.m., and continues to sample at the daytime high tide on the second day the sample will be taken at about 06:50 the next day, 07:40 the day after etc. When the daytime high-tide gets close to 6 p.m. the observer will then begin again to sample early in the morning, and the cycle continues. Since there is a day/night variation in the sea surface temperatures the daily time series will show a signal that varies with the 14-day tidal cycle. This artifact does not affect the monthly sea surface temperature data.
+The monthly data are calculated by averaging the daily data of each month."</att>
+        <att name="title">BC Lightstation data</att>
+        <att name="language">eng</att>
+        <att name="publisher_name">Hakai Institute</att>
+        <att name="keywords_vocabulary">GCMD Science Keywords</att>
+        <att name="keywords">salinity, seaSurfaceSalinity, seaSurfaceTemperature, temperature</att>
+        <att name="keywords_fra">salinité sous la surface,température sous la surface,salinité,température</att>
+        <att name="title_fra"></att>
+        <att name="summary_fra"></att>
+        <att name="institution">Institute of Ocean Sciences</att>
+        <att name="platform">land/onshore structure</att>
+        <att name="platform_vocabulary">http://vocab.nerc.ac.uk/collection/L06/current/</att>
+    </addAttributes>
+
+    <dataVariable>
+        <sourceName>profile</sourceName>
+        <destinationName>profile</destinationName>
+        <dataType>String</dataType>
+        <addAttributes>
+            <att name="cf_role">timeseries_id</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>status</sourceName>
+        <destinationName>status</destinationName>
+        <dataType>String</dataType>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>country</sourceName>
+        <destinationName>country</destinationName>
+        <dataType>String</dataType>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>mission_id</sourceName>
+        <destinationName>mission_id</destinationName>
+        <dataType>String</dataType>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>scientist</sourceName>
+        <destinationName>scientist</destinationName>
+        <dataType>String</dataType>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>agency</sourceName>
+        <destinationName>agency</destinationName>
+        <dataType>String</dataType>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>latitude</sourceName>
+        <destinationName>latitude</destinationName>
+        <dataType>float</dataType>
+
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">90.0</att>
+            <att name="colorBarMinimum" type="double">-90.0</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>longitude</sourceName>
+        <destinationName>longitude</destinationName>
+        <dataType>float</dataType>
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">180.0</att>
+            <att name="colorBarMinimum" type="double">-180.0</att>
+            <att name="standard_name">longitude</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>time</sourceName>
+        <destinationName>time</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+            <att name="units">seconds since 1970-01-01T00:00:00Z</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>TEMPTC01</sourceName>
+        <destinationName>TEMPTC01</destinationName>
+        <dataType>float</dataType>
+        <addAttributes>
+            <att name="units">degC</att>
+            <att name="long_name">Sea Water Temperature</att>
+            <att name="standard_name">sea_water_temperature</att>
+            <att name="colorBarMaximum" type="double">32.0</att>
+            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="Maximum">null</att>
+            <att name="Minimum">null</att>
+        </addAttributes>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>PSALPR01</sourceName>
+        <destinationName>PSALPR01</destinationName>
+        <dataType>float</dataType>
+        <addAttributes>
+            <att name="units">PSS-78</att>
+            <att name="long_name">Sea Water Practical Salinity</att>
+            <att name="standard_name">sea_water_practical_salinity</att>
+            <att name="colorBarMaximum" type="double">37.0</att>
+            <att name="colorBarMinimum" type="double">20.0</att>
+            <att name="Maximum">null</att>
+            <att name="Minimum">null</att>
+        </addAttributes>
+    </dataVariable>
+
+</dataset>

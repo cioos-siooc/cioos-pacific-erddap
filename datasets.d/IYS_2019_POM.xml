@@ -1,0 +1,251 @@
+<dataset type="EDDTableFromAsciiFiles" datasetID="IYS_2019_POM" active="true">
+    <reloadEveryNMinutes>10080</reloadEveryNMinutes>
+    <updateEveryNMillis>10000</updateEveryNMillis>
+    <fileDir>/datasets/IYS_2019_POM/</fileDir>
+    <fileNameRegex>.*</fileNameRegex>
+    <recursive>true</recursive>
+    <pathRegex>.*</pathRegex>
+    <metadataFrom>last</metadataFrom>
+    <standardizeWhat>0</standardizeWhat>
+    <charset>UTF-8</charset>
+    <columnSeparator>,</columnSeparator>
+    <columnNamesRow>1</columnNamesRow>
+    <firstDataRow>2</firstDataRow>
+    <sortedColumnSourceName>eventDate</sortedColumnSourceName>
+    <sortFilesBySourceNames>eventDate</sortFilesBySourceNames>
+    <fileTableInMemory>false</fileTableInMemory>
+    <accessibleViaFiles>true</accessibleViaFiles>
+    <!-- sourceAttributes>
+    </sourceAttributes -->
+    <!-- Please specify the actual cdm_data_type (TimeSeries?) and related info below, for example...
+        <att name="cdm_timeseries_variables">station_id, longitude, latitude</att>
+        <att name="subsetVariables">station_id, longitude, latitude</att>
+    -->
+    <addAttributes>
+        <att name="cdm_data_type">TimeSeriesProfile</att>
+        <att name="cdm_timeseries_variables">station,latitude,longitude</att>
+        <att name="cdm_profile_variables">time</att>
+        <att name="Conventions">COARDS, CF-1.6, ACDD-1.3</att>
+        <att name="project">International Year of the Salmon (IYS)</att>
+        <att name="id">https://doi.org/10.21966/h1f2-0377</att>
+        <att name="DOI">https://doi.org/10.21966/h1f2-0377</att>
+        <att name="creator_name">Natalie Mahara </att>
+        <att name="creator_type">Person</att>
+        <att name="infoUrl">http://yearofthesalmon.org</att>
+        <att name="institution">University of British Columbia</att>
+        <att name="keywords">oceans, ocean chemistry, particulate organic matter, International Year of the Salmon (IYS)</att>
+        <att name="license">https://creativecommons.org/licenses/by/4.0/</att>
+        <att name="publisher">North Pacific Anadromous Fish Commission</att>
+        <att name="publisher_type">Organization</att>
+        <att name="sourceUrl">(local files)</att>
+        <att name="standard_name_vocabulary">CF Standard Name Table v79</att>
+        <att name="subsetVariables">sample_type, depth</att>
+        <att name="summary">Particulate Organic Matter (POM) samples were collected for the analysis of carbon and nitrogen content and stable isotope composition at all oceanographic stations. Samples were collected using Niskin bottles from a depth of 5m. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in February and March 2019, to further improve the understanding of factors impacting salmon early marine winter survival.</att>
+        <att name="title">Particulate Organic Matter (POM) data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</att>
+        <att name="platform">ship</att>
+        <att name="platform_vocabulary">http://vocab.nerc.ac.uk/collection/L06/current/</att>
+    </addAttributes>
+    <dataVariable>
+        <sourceName>Sample ID</sourceName>
+        <destinationName>Sample_ID</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Identifier</att>
+            <att name="long_name">Sample ID</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>station</sourceName>
+        <destinationName>station</destinationName>
+        <dataType>byte</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="cf_role">timeseries_id</att>
+            <att name="ioos_category">Identifier</att>
+            <att name="long_name">Station</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Latitude</sourceName>
+        <destinationName>latitude</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">90.0</att>
+            <att name="colorBarMinimum" type="double">-90.0</att>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Latitude</att>
+            <att name="standard_name">latitude</att>
+            <att name="units">degrees_north</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Longitude</sourceName>
+        <destinationName>longitude</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">180.0</att>
+            <att name="colorBarMinimum" type="double">-180.0</att>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Longitude</att>
+            <att name="standard_name">longitude</att>
+            <att name="units">degrees_east</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>eventDate</sourceName>
+        <destinationName>time</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="cf_role">profile_id</att>
+            <att name="ioos_category">Time</att>
+            <att name="long_name">Event Date</att>
+            <att name="source_name">eventDate</att>
+            <att name="standard_name">time</att>
+            <att name="time_precision">1970-01-01T00:00:00Z</att>
+            <att name="units">yyyy-MM-dd&#39;T&#39;HH:mm:ssxxx</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Depth</sourceName>
+        <destinationName>bottom_depth</destinationName>
+        <dataType>short</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">8000.0</att>
+            <att name="colorBarMinimum" type="double">-8000.0</att>
+            <att name="colorBarPalette">TopographyDepth</att>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Bottom Depth</att>
+            <att name="standard_name">sea_floor_depth_below_sea_surface</att>
+            <att name="units">m</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Sample type</sourceName>
+        <destinationName>sample_type</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Unknown</att>
+            <att name="long_name">Sample Type</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Sample depth</sourceName>
+        <destinationName>depth</destinationName>
+        <dataType>byte</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Location</att>
+            <att name="long_name">Sample Depth</att>
+            <att name="standard_name">depth</att>
+            <att name="units">m</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Volume filtered</sourceName>
+        <destinationName>volume_filtered</destinationName>
+        <dataType>short</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Unknown</att>
+            <att name="long_name">Volume Filtered</att>
+            <att name="description">The volume of sea-water filtered through a vacuum pump onto glass fibre filters</att>
+            <att name="units">mL</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Acidified</sourceName>
+        <destinationName>acidified</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Unknown</att>
+            <att name="long_name">Acidified</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>δ13CVPDB (‰)</sourceName>
+        <destinationName>delta_13C</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Unknown</att>
+            <att name="long_name">&#x394;13 CVPDB (&#x2030;)</att>
+            <att name="units">parts per thousand (‰)</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Total C (µg)</sourceName>
+        <destinationName>total_c</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Unknown</att>
+            <att name="long_name">Total Carbon</att>
+            <att name="units">micro grams (µg)</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>C Comment</sourceName>
+        <destinationName>c_comment</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Unknown</att>
+            <att name="long_name">Carbon Measurement Comments</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>δ15NAir (‰)</sourceName>
+        <destinationName>delta_15N</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Unknown</att>
+            <att name="long_name">&#x394;15 NAir (&#x2030;)</att>
+            <att name="units">ppt (‰)</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Total N (µg)</sourceName>
+        <destinationName>total_n</destinationName>
+        <dataType>float</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Statistics</att>
+            <att name="long_name">Total Nitrogen</att>
+            <att name="units">micro grams (µg)</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>N Comment</sourceName>
+        <destinationName>n_comment</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Statistics</att>
+            <att name="long_name">Nitrogen Measurement Comments</att>
+        </addAttributes>
+    </dataVariable>
+</dataset>

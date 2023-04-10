@@ -1,0 +1,15 @@
+.DS_Store
+*.nc
+bigParentDirectory/
+logs
+.Rproj.user
+cioos-pacific-erddap.Rproj
+.Rhistory
+
+
+create-datasetsxml.sh
+.env
+erddap/data/**
+erddap/content/datasets.xml*
+bkp/**
+datasets/**

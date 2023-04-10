@@ -1,0 +1,234 @@
+<dataset type="EDDTableFromAsciiFiles" datasetID="IYS_NISKIN_chl_phaeo" active="true">
+    <reloadEveryNMinutes>10080</reloadEveryNMinutes>
+    <updateEveryNMillis>10000</updateEveryNMillis>
+    <fileDir>/datasets/IYS_NISKIN_chl_phaeo/</fileDir>
+    <fileNameRegex>.*</fileNameRegex>
+    <recursive>true</recursive>
+    <pathRegex>.*</pathRegex>
+    <metadataFrom>last</metadataFrom>
+    <standardizeWhat>0</standardizeWhat>
+    <charset>ISO-8859-1</charset>
+    <columnSeparator></columnSeparator>
+    <columnNamesRow>1</columnNamesRow>
+    <firstDataRow>2</firstDataRow>
+    <sortedColumnSourceName>eventDate</sortedColumnSourceName>
+    <sortFilesBySourceNames>eventDate</sortFilesBySourceNames>
+    <fileTableInMemory>true</fileTableInMemory>
+    <accessibleViaFiles>true</accessibleViaFiles>
+    <!-- sourceAttributes>
+    </sourceAttributes -->
+    <!-- Please specify the actual cdm_data_type (TimeSeries?) and related info below, for example...
+        <att name="cdm_timeseries_variables">station_id, longitude, latitude</att>
+        <att name="subsetVariables">station_id, longitude, latitude</att>
+    -->
+    <addAttributes>
+        <att name="cdm_data_type">TimeSeriesProfile</att>
+        <att name="cdm_timeseries_variables">station,latitude,longitude</att>
+        <att name="cdm_profile_variables">profile,time</att>
+        <att name="Conventions">COARDS, CF-1.6, ACDD-1.3</att>
+        <att name="project">International Year of the Salmon (IYS)</att>
+        <att name="infoUrl">http://yearofthesalmon.org</att>
+        <att name="creator_name">Brian Hunt</att>
+        <att name="id">https://doi.org/10.21966/yxzb-a531</att>
+        <att name="DOI">https://doi.org/10.21966/yxzb-a531</att>
+        <att name="publisher">North Pacific Anadromous Fish Commission</att>
+        <att name="publisher_type">Organization</att>
+        <att name="institution">University of British Columbia</att>
+        <att name="keywords">oceans, International Year of the Salmon (IYS), chlorophyll, phaeopigment, chlorophyll-a, Earth Science &gt; Oceans &gt; Ocean Chemistry &gt; Chlorophyll</att>
+        <att name="keywords_vocabulary">GCMD Science Keywords</att>
+        <att name="license">CC BY 4.0 https://creativecommons.org/licenses/by/4.0/ </att>
+        <att name="sourceUrl">(local files)</att>
+        <att name="standard_name_vocabulary">CF Standard Name Table v79</att>
+        <att name="subsetVariables">depth</att>
+        <att name="summary">Chlorophyll a and Phaeopigment concentration samples were collected at six depths between 0 and 150 m at all oceanographic stations. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in February and March 2019, to further improve the understanding of factors impacting salmon early marine winter survival.</att>
+        <att name="title">Chlorophyll a and Phaeopigment Concentrations from the 2019 Gulf of Alaska International Year of the Salmon Expedition</att>
+        <att name="platform">ship</att>
+        <att name="platform_vocabulary">http://vocab.nerc.ac.uk/collection/L06/current/</att>
+    </addAttributes>
+    <dataVariable>
+        <sourceName>cruise</sourceName>
+        <destinationName>cruise</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="long_name">Cruise</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>station</sourceName>
+        <destinationName>station</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="long_name">station</att>
+            <att name="cf_role">timeseries_id</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>profile</sourceName>
+        <destinationName>profile</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="long_name">Profile</att>
+            <att name="cf_role">profile_id</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>eventDate</sourceName>
+        <destinationName>time</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Time</att>
+            <att name="long_name">Date Time</att>
+            <att name="source_name">eventDate</att>
+            <att name="standard_name">time</att>
+            <att name="time_precision">1970-01-01T00:00:00Z</att>
+            <att name="units">yyyy-MM-dd&#39;T&#39;HH:mm:ss&#39;Z&#39;</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>year</sourceName>
+        <destinationName>year</destinationName>
+        <dataType>short</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Time</att>
+            <att name="long_name">Year</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>month</sourceName>
+        <destinationName>month</destinationName>
+        <dataType>byte</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Time</att>
+            <att name="long_name">Month</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>day</sourceName>
+        <destinationName>day</destinationName>
+        <dataType>byte</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Time</att>
+            <att name="long_name">Day</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>time</sourceName>
+        <destinationName>time2</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="ioos_category">Time</att>
+            <att name="long_name">Time</att>
+            <att name="standard_name">time</att>
+            <att name="units">UTC</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Latitude</sourceName>
+        <destinationName>latitude</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">90.0</att>
+            <att name="colorBarMinimum" type="double">-90.0</att>
+            <att name="long_name">Latitude</att>
+            <att name="source_name">Latitude</att>
+            <att name="standard_name">latitude</att>
+            <att name="units">degrees_north</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Longitude</sourceName>
+        <destinationName>longitude</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">180.0</att>
+            <att name="colorBarMinimum" type="double">-180.0</att>
+            <att name="long_name">Longitude</att>
+            <att name="source_name">Longitude</att>
+            <att name="standard_name">longitude</att>
+            <att name="units">degrees_east</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Depth</sourceName>
+        <destinationName>depth</destinationName>
+        <dataType>short</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="_FillValue" type="short">32767</att>
+            <att name="colorBarMaximum" type="double">8000.0</att>
+            <att name="colorBarMinimum" type="double">-8000.0</att>
+            <att name="colorBarPalette">TopographyDepth</att>
+            <att name="long_name">Depth</att>
+            <att name="standard_name">depth</att>
+            <att name="units">m</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Tube</sourceName>
+        <destinationName>tube</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="long_name">Tube</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Chl</sourceName>
+        <destinationName>chlorophyll_a</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="colorBarMaximum" type="double">30.0</att>
+            <att name="colorBarMinimum" type="double">0.03</att>
+            <att name="colorBarScale">Log</att>
+            <att name="long_name">Mass Concentration Of Chlorophyll A In Sea Water</att>
+            <att name="standard_name">mass_concentration_of_chlorophyll_a_in_sea_water</att>
+            <att name="units">mg m-3</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Phe</sourceName>
+        <destinationName>phaeopigment</destinationName>
+        <dataType>double</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="long_name">Mass Concentration Of Phaeopigment In Sea Water</att>
+            <att name="units">mg m-3</att>
+            <att name="standard_name">mass_concentration_of_phaeopigments_in_sea_water</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Region</sourceName>
+        <destinationName>region</destinationName>
+        <dataType>String</dataType>
+        <!-- sourceAttributes>
+        </sourceAttributes -->
+        <addAttributes>
+            <att name="long_name">Region</att>
+        </addAttributes>
+    </dataVariable>
+</dataset>
