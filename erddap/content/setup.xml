@@ -360,7 +360,7 @@ a similar number of pixels wide and high.
   <highResLogoImageFile>noaa_simple.gif</highResLogoImageFile>
   <lowResLogoImageFile>noaa20.gif</lowResLogoImageFile>
   <googleEarthLogoFile>nlogo.gif</googleEarthLogoFile>
-  <questionMarkImageFile>QuestionMark.jpg</questionMarkImageFile>
+  <!-- <questionMarkImageFile>QuestionMark.jpg</questionMarkImageFile> -->
 
   <!-- The font family to be used for all of the text in images.
 "SansSerif" (the default) is always a valid and reasonable option.
