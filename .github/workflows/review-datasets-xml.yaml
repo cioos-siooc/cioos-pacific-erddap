@@ -2,14 +2,14 @@ name: Test datasets.xml and linter
 on:
   push:
     branches:
-      - master
-      - dev
+      - main
+      - development
     paths:
       - datasets.d/**
   pull_request:
     branches:
-      - master
-      - dev
+      - main
+      - development
     paths:
       - datasets.d/**
 jobs:
@@ -24,7 +24,7 @@ jobs:
         uses: github/super-linter/slim@v4
         env:
           VALIDATE_ALL_CODEBASE: false
-          DEFAULT_BRANCH: master
+          DEFAULT_BRANCH: main
           VALIDATE_XML: true
           LOG_LEVEL: WARN
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
