@@ -4,7 +4,7 @@ services:
   erddap:
     image: ${ERDDAP_DOCKER_IMAGE:-axiom/docker-erddap:2.22-jdk17-openjdk}
     restart: always
-    container_name: erddap
+    container_name: ${CONTAINER_NAME:-erddap}
     env_file:
       - .env
     ports:
@@ -13,7 +13,7 @@ services:
       - "./erddap/conf/robots.txt:/usr/local/tomcat/webapps/ROOT/robots.txt"
       - "./erddap/content:/usr/local/tomcat/content/erddap"
       - "./erddap/data:/erddapData"
-      - "./datasets:/datasets"
+      - "${DATASETS_DIR:-./datasets}:/datasets"
       - "/tmp/:/usr/local/tomcat/temp/"
       - "./datasets.d:/datasets.d:ro"
       - "./init.d:/init.d"
