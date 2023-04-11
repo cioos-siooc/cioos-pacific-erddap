@@ -12,9 +12,12 @@ Help()
    # Display Help
    echo "update-erddap.sh review any changes made between two commits and generate ERDDAP datasets flags for each associated datasets"
    echo
-   echo "Syntax: update-erddap.sh [--sha *, --hardFlag, -h|--help]"
+   echo "Syntax: update-erddap.sh [--sh *, --hardFlag, -h|--help, --mode|-m]"
    echo "options:"
-   echo "  all       Consider all changes, including the uncommited changes."
+   echo "  mode      (all|pull|commited) Method used to determinate which commits to compare:"
+   echo "       - all: any active changes including none committed ones since the last update."
+   echo "       - pull: run git pull and get changes since the last update"
+   echo "       - no-pull: no git pull and get changes since the last update"
    echo "  hardFlag  Generate Hard Flag. Default to flag"
    echo "  sha       Git SHA to review changes from. If not given use sha available in .last_update_sha or present git SHA."
    echo "  help,h    Print this Help."
@@ -22,14 +25,14 @@ Help()
 }
 
 # Argument Parsing
-VALID_ARGS=$(getopt -o ha --long sha:,hardFlag,help,all -- "$@")
+VALID_ARGS=$(getopt -o hm --long sha:,hardFlag,help,mode: -- "$@")
 if [[ $? -ne 0 ]]; then
     exit 1;
 fi
 
 # Parse arguments
 ADD_FLAG_DIR=$FLAG_DIR
-ALL=false
+MODE='pull'
 eval set -- "$VALID_ARGS"
 while [ : ]; do
    case "$1" in
@@ -39,27 +42,31 @@ while [ : ]; do
       \?) # Invalid option
          echo "Error: Invalid option -> $option"
          exit;;
-      -a | --all) ALL=true; shift;;
+      -m | --mode) MODE=$2; echo "run mode=$MODE"; shift 2;;
       -- ) shift; break ;;
    esac
 done
 
 # Define SHA to review from if not provided
 if [ -z ${SHA} ] && [ -f .last_update_sha ]; then 
-echo 'update based on .last_update_sha file'
 SHA=$(cat .last_update_sha)
 elif [ -z ${SHA} ]; then
 echo 'Update based on present SHA'
 SHA=$(git rev-parse HEAD)
 fi
 
-git pull
-if $ALL ; then
+if [ "$MODE" == 'all' ] ; then
     NEW_SHA=''
-else
+elif [ "$MODE" == 'pull' ]; then
+    echo 'pull from origin'
+    git pull
     NEW_SHA=$(git rev-parse HEAD)
+elif [ "$MODE" == 'no-pull' ]; then
+    NEW_SHA=$(git rev-parse HEAD)
+else 
+    echo "Error! Unknown MODE=$MODE"
+    exit
 fi
-echo SHA=$SHA  NEW_SHA=$NEW_SHA
 
 # Unchanged repository
 if [ "$SHA" == "$NEW_SHA" ]; then
