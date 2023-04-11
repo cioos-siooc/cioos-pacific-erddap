@@ -12,7 +12,7 @@ services:
       - "./erddap/conf/robots.txt:/usr/local/tomcat/webapps/ROOT/robots.txt"
       - "./erddap/content:/usr/local/tomcat/content/erddap"
       - "./erddap/data:/erddapData"
-      - "${DATASETS_DIR:-/datasets}:/datasets"
+      - "${DATASETS_DIR:-./datasets}:/datasets"
       - "/tmp/:/usr/local/tomcat/temp/"
       - "./datasets.d:/datasets.d:ro"
       - "./init.d:/init.d"
