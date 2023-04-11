@@ -50,6 +50,7 @@ done
 # Define SHA to review from if not provided
 if [ -z ${SHA} ] && [ -f .last_update_sha ]; then 
 SHA=$(cat .last_update_sha)
+echo "update based on file .last_update_sha = $SHA"
 elif [ -z ${SHA} ]; then
 echo 'Update based on present SHA'
 SHA=$(git rev-parse HEAD)
