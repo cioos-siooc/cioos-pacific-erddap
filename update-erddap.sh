@@ -14,9 +14,9 @@ Help()
    echo
    echo "Syntax: update-erddap.sh [--sha *, --hardFlag, -h|--help]"
    echo "options:"
-   echo "hardFlag  Generate Hard Flag. default flag"
-   echo "sha       Git SHA to review change from. If not given use sha available in .last_update_sha or present git SHA."
-   echo "help (h)  Print this Help."
+   echo "  hardFlag  Generate Hard Flag. Default to flag"
+   echo "  sha       Git SHA to review change from. If not given use sha available in .last_update_sha or present git SHA."
+   echo "  help,h    Print this Help."
    echo
 }
 
