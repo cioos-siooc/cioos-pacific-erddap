@@ -16,6 +16,7 @@ services:
       - "/tmp/:/usr/local/tomcat/temp/"
       - "./datasets.d:/datasets.d:ro"
       - "./init.d:/init.d"
+      - ./tomcatLogs:/usr/local/tomcat/logs
     healthcheck:
       test:
         [
