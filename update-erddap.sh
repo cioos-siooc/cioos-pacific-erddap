@@ -2,9 +2,8 @@
 
 # SHA=$(git rev-parse HEAD)
 DATASET_XMLS_DIRS='datasets.d/'
-DATASET_XML_FILE='erddap/content/datasets.xml'
 HARD_FLAG_DIR='erddap/data/hardFlag/'
-CONTAINER_NAME='erddap'
+CONTAINER_NAME=${CONTAINER_NAME:-erddap}
 
 # Define SHA to review from
 if [ -z $1 ]; then 
@@ -19,7 +18,7 @@ NEW_SHA=$(git rev-parse HEAD)
 
 # Unchanged repository
 if [ "$SHA" == "$NEW_SHA" ]; then
-echo "No new changes were made"
+echo "No uncommitted changes were made"
 exit 1
 fi
 
