@@ -2,7 +2,7 @@
 name: New ERDDAP Dataset Submission
 about: To Do list associated to a new CIOOS Pacific ERDDAP dataset submission.
 title: 'New ERDDAP Dataset: datasetID'
-labels: submission
+labels: 'new submission'
 assignees: ''
 
 ---
