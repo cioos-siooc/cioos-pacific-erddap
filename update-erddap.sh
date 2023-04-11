@@ -14,20 +14,22 @@ Help()
    echo
    echo "Syntax: update-erddap.sh [--sha *, --hardFlag, -h|--help]"
    echo "options:"
+   echo "  all       Consider all changes, including the uncommited changes."
    echo "  hardFlag  Generate Hard Flag. Default to flag"
-   echo "  sha       Git SHA to review change from. If not given use sha available in .last_update_sha or present git SHA."
+   echo "  sha       Git SHA to review changes from. If not given use sha available in .last_update_sha or present git SHA."
    echo "  help,h    Print this Help."
    echo
 }
 
 # Argument Parsing
-VALID_ARGS=$(getopt -o h --long sha:,hardFlag,help -- "$@")
+VALID_ARGS=$(getopt -o ha --long sha:,hardFlag,help,all -- "$@")
 if [[ $? -ne 0 ]]; then
     exit 1;
 fi
 
 # Parse arguments
 ADD_FLAG_DIR=$FLAG_DIR
+ALL=false
 eval set -- "$VALID_ARGS"
 while [ : ]; do
    case "$1" in
@@ -37,6 +39,7 @@ while [ : ]; do
       \?) # Invalid option
          echo "Error: Invalid option -> $option"
          exit;;
+      -a | --all) ALL=true; shift;;
       -- ) shift; break ;;
    esac
 done
@@ -51,7 +54,12 @@ SHA=$(git rev-parse HEAD)
 fi
 
 git pull
-NEW_SHA=$(git rev-parse HEAD)
+if $ALL ; then
+    NEW_SHA=''
+else
+    NEW_SHA=$(git rev-parse HEAD)
+fi
+echo SHA=$SHA  NEW_SHA=$NEW_SHA
 
 # Unchanged repository
 if [ "$SHA" == "$NEW_SHA" ]; then
@@ -75,4 +83,6 @@ do
 done
 
 # Save NEW_SHA to .last_update_sha
-echo $NEW_SHA > .last_update_sha
+if [ "$NEW_SHA" != '' ]; then
+    echo $NEW_SHA > .last_update_sha
+fi
