@@ -16,7 +16,7 @@ Help()
    echo "options:"
    echo "  mode      (all|pull|commited) Method used to determinate which commits to compare:"
    echo "       - all: any active changes including none committed ones since the last update."
-   echo "       - pull: run git pull and get changes since the last update"
+   echo "       - pull (default): run git pull and get changes since the last update"
    echo "       - no-pull: no git pull and get changes since the last update"
    echo "  hardFlag  Generate Hard Flag. Default to flag"
    echo "  sha       Git SHA to review changes from. If not given use sha available in .last_update_sha or present git SHA."
@@ -61,7 +61,7 @@ if [ "$MODE" == 'all' ] ; then
 elif [ "$MODE" == 'pull' ]; then
     echo 'pull from origin'
     git pull
-    NEW_SHA=$(git rev-parse HEAD)
+    NEW_SHA=$(git rev-parse HEAD) 
 elif [ "$MODE" == 'no-pull' ]; then
     NEW_SHA=$(git rev-parse HEAD)
 else 
