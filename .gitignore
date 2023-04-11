@@ -14,3 +14,4 @@ erddap/content/datasets.xml*
 bkp/**
 datasets/**
 .last_update_sha
+tomcatLogs
