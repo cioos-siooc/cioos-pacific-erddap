@@ -5,5 +5,5 @@ docker run --rm -it \
   -v "$(pwd)/erddap/data/logs:/erddapData/logs" \
   -v "$(pwd)/erddap/content:/usr/local/tomcat/content/erddap" \
   ${ERDDAP_CONTAINAR_NAME:-axiom/docker-erddap:latest} \
-  bash -c "cd webapps/erddap/WEB-INF/ && bash DasDds.sh"
+  bash -c "cd webapps/erddap/WEB-INF/ && bash DasDds.sh $*"
   
