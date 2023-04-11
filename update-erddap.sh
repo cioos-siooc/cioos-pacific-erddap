@@ -4,7 +4,7 @@
 DATASET_XMLS_DIRS='datasets.d/'
 DATASET_XML_FILE='erddap/content/datasets.xml'
 HARD_FLAG_DIR='erddap/data/hardFlag/'
-ERDDAP_CONTAINER_NAME='erddap'
+CONTAINER_NAME='erddap'
 
 # Define SHA to review from
 if [ -z $1 ]; then 
@@ -24,8 +24,8 @@ exit 1
 fi
 
 # update datasets.xml
-sudo docker exec $ERDDAP_CONTAINER_NAME bash -c "/datasets.d.sh > /usr/local/tomcat/content/erddap/datasets.xml"
-sudo docker exec $ERDDAP_CONTAINER_NAME bash /init.d/replace-datasets-secrets.sh
+sudo docker exec $CONTAINER_NAME bash -c "/datasets.d.sh > /usr/local/tomcat/content/erddap/datasets.xml"
+sudo docker exec $CONTAINER_NAME bash /init.d/replace-datasets-secrets.sh
 
 # Get xml files that were modified[M] or added[A] since the last commit  and generate flag
 DATASETS_IDS=$(git diff --diff-filter=AMCR --name-only --relative=$DATASET_XMLS_DIRS $SHA $NEW_SHA $DATASET_XMLS_DIRS | sed 's:.xml::')
