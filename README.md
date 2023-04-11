@@ -1,4 +1,4 @@
-[![Lint Code Base](https://github.com/HakaiInstitute/cioos-pacific-erddap/actions/workflows/superlinter.yml/badge.svg)](https://github.com/HakaiInstitute/cioos-pacific-erddap/actions/workflows/superlinter.yml)
+[![Lint Code Base](https://github.com/HakaiInstitute/cioos-pacific-erddap/actions/workflows/superlinter.yml/badge.svg)](https://github.com/HakaiInstitute/cioos-pacific-erddap-public/actions/workflows/superlinter.yml)
 
 # CIOOS Pacific ERDDAP Config
 
@@ -6,7 +6,7 @@ This repo stores CIOOS Pacific ERDDAP datasets `datasets.d/*.xml` which is used 
 
 ## Creating .xml snippet files for your dataset
 This repository relies on the `docker-erddap` docker container and uses the experimental `datasets.d` feature available within this container (see more documentation [here](https://github.com/axiom-data-science/docker-erddap)). To include a new dataset, apply the following steps:
-- Create one .xml file in `datasets.d` for each dataset.
+- create one .xml file in `datasets.d` for each dataset. Use `GenerateDatasetsXml.sh` to generate a new dataset xml.
 - the filename should match the dataset ID _exactly_ (best to copy and paste)
 - the file should start with `<dataset>` and end with `</dataset>`. There should be no XML prolog (
   remove `<?xml...`)
