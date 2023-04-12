@@ -2,7 +2,7 @@ name: Dataset Issue Report
 description: File a bug report regarding a specific ERDDAP Dataset
 title: "[Issue]:  *DatasetID*"
 labels: ["issue"]
-assignees:
+assignees: []
 body:
   - type: markdown
     attributes:
