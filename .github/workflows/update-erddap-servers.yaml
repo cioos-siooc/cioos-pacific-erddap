@@ -32,4 +32,4 @@ jobs:
           passphrase: ${{ secrets.PROD_SERVER_PASSPHRASE }}
           key: ${{ secrets.PROD_SERVER_SSH_KEY }}
           fingerprint: ${{ secrets.PROD_SERVER_FINGERPRINT }}
-          script: cd  ~/cioos-pacific-erddap/; sh update-erddap.sh
+          script: cd  ~/cioos-pacific-erddap/; sh update-erddap.sh --hardFlag
