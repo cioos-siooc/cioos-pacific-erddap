@@ -20,7 +20,6 @@ jobs:
           username: ${{ secrets.DEV_SERVER_USERNAME }}
           passphrase: ${{ secrets.DEV_SERVER_PASSPHRASE }}
           key: ${{ secrets.DEV_SERVER_SSH_KEY }}
-          fingerprint: ${{ secrets.DEV_SERVER_FINGERPRINT }}
           script: cd  ~/cioos-pacific-erddap/; sh update-erddap.sh --hardFlag
 
       - name: Update production server
@@ -31,5 +30,4 @@ jobs:
           username: ${{ secrets.PROD_SERVER_USERNAME }}
           passphrase: ${{ secrets.PROD_SERVER_PASSPHRASE }}
           key: ${{ secrets.PROD_SERVER_SSH_KEY }}
-          fingerprint: ${{ secrets.PROD_SERVER_FINGERPRINT }}
           script: cd  ~/cioos-pacific-erddap/; sh update-erddap.sh --hardFlag
