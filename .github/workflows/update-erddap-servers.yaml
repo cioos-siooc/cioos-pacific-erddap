@@ -6,8 +6,7 @@ on:
       - development
 
 jobs:
-  development_update:
-    name: Update Development ERDDAP
+  development-update:
     if: ${{github.ref_name}} == 'development'
     runs-on: ubuntu-latest
     steps:
@@ -19,9 +18,8 @@ jobs:
           passphrase: ${{ secrets.DEV_SERVER_PASSPHRASE }}
           key: ${{ secrets.DEV_SERVER_SSH_KEY }}
           script: cd  ~/cioos-pacific-erddap/; sh update-erddap.sh --hardFlag
-          
-  production_update:
-    name: Update Production ERDDAP
+
+  production-update:
     if: ${{github.ref_name}} == 'main'
     runs-on: ubuntu-latest
       - name: Update production server
