@@ -1,6 +1,9 @@
 [![Lint Code Base](https://github.com/HakaiInstitute/cioos-pacific-erddap/actions/workflows/superlinter.yml/badge.svg)](https://github.com/HakaiInstitute/cioos-pacific-erddap-public/actions/workflows/superlinter.yml)
-![Production Server](https://github.com/HakaiInstitute/cioos-pacific-erddap/actions/workflows/update-erddap-servers.yaml/badge.svg?branch=main)
+
+[![Production Server](https://github.com/HakaiInstitute/cioos-pacific-erddap/actions/workflows/update-erddap-servers.yaml/badge.svg?branch=main)](https://github.com/HakaiInstitute/cioos-pacific-erddap/actions/workflows/update-erddap-servers.yaml?branch=main))
+
 ![Development Server](https://github.com/HakaiInstitute/cioos-pacific-erddap/actions/workflows/update-erddap-servers.yaml/badge.svg?branch=development)
+(https://github.com/HakaiInstitute/cioos-pacific-erddap/actions/workflows/update-erddap-servers.yaml?branch=development)
 
 # CIOOS Pacific ERDDAP Config
 
