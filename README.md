@@ -1,13 +1,12 @@
-[![Lint Code Base](https://github.com/cioos-siooc/cioos-pacific-erddap/actions/workflows/superlinter.yml/badge.svg)](https://github.com/cioos-siooc/cioos-pacific-erddap-public/actions/workflows/superlinter.yml)
-
-[![Production Server](https://github.com/cioos-siooc/cioos-pacific-erddap/actions/workflows/update-erddap-servers.yaml/badge.svg?branch=main)](https://github.com/cioos-siooc/cioos-pacific-erddap/actions/workflows/update-erddap-servers.yaml?branch=main)
-
-[![Development Server](https://github.com/cioos-siooc/cioos-pacific-erddap/actions/workflows/update-erddap-servers.yaml/badge.svg?branch=development)]
-(https://github.com/cioos-siooc/cioos-pacific-erddap/actions/workflows/update-erddap-servers.yaml?branch=development)
-
 # CIOOS Pacific ERDDAP Config
 
 This repo stores CIOOS Pacific ERDDAP datasets `datasets.d/*.xml` which is used by CIOOS Pacific's ERDDAP at <https://data.cioospacific.ca/erddap/> and the dev site at <https://pac-dev2.cioos.org/erddap/>. It also provides a `docker-compose.local.yaml` file so you can test out your changes on your local machine.
+
+| Server | Linter | Server Update |
+| --- | --- |--- |
+| https://data.cioospacific.ca/erddap | ![Lint Code Base](https://github.com/cioos-siooc/cioos-pacific-erddap/actions/workflows/review-datasets-xml.yaml/badge.svg) |![Production Server](https://github.com/cioos-siooc/cioos-pacific-erddap/actions/workflows/update-erddap-servers.yaml/badge.svg?branch=main)|
+| https://pac-dev2.cioos.org/erddap | ![Lint Code Base](https://github.com/cioos-siooc/cioos-pacific-erddap/actions/workflows/review-datasets-xml.yaml/badge.svg?branch=development) | ![Development Server](https://github.com/cioos-siooc/cioos-pacific-erddap/actions/workflows/update-erddap-servers.yaml/badge.svg?branch=development)|
+
 
 ## Creating .xml snippet files for your dataset
 This repository relies on the `docker-erddap` docker container and uses the experimental `datasets.d` feature available within this container (see more documentation [here](https://github.com/axiom-data-science/docker-erddap)). To include a new dataset, apply the following steps:
