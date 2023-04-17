@@ -34,8 +34,8 @@ To start a new configuration create a copy of the `sample.env` file as `.env` an
 - See if it works by going to <http://localhost:8090/erddap>
 
 ### Production and Development environments
-For both servers, configuration is handled within the `.env` file which overwrites fields present within the `dataset.xml`.
-- [CIOOS Pacific Production ERDDAP](https://data.cioospacific.ca/erddap/) (branch = master)
+For both servers, configuration is handled within the `.env` file which  overwrites fields present within the `setup.xml` through the `ERDDAP_*` variables, expressions to hidden within the datasets.xml are defined by the variables `ERDDAP_SECRET_*`. Pushes to main and development branches triggers an update of each associated servers via the update [workflow](.github/workflows/update-erddap-servers.yaml)
+- [CIOOS Pacific Production ERDDAP](https://data.cioospacific.ca/erddap/) (branch = main)
 - [CIOOS Pacific Development ERDDAP](https://pac-dev2.cioospacific.ca/erddap/) (branch = development)
 
 ## Use ERDDAP docker container
