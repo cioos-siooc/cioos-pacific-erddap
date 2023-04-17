@@ -6,30 +6,25 @@ on:
       - development
 
 jobs:
-  update:
+  development-update:
     name: Update ERDDAP
     runs-on: ubuntu-latest
-    env:
-      BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
     steps:
       - name: Update development server
-        if: ${{github.ref_name}} == 'development'
+        if: github.ref_name == 'development'
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.DEV_SERVER_HOST }}
           username: ${{ secrets.DEV_SERVER_USERNAME }}
           passphrase: ${{ secrets.DEV_SERVER_PASSPHRASE }}
           key: ${{ secrets.DEV_SERVER_SSH_KEY }}
-          fingerprint: ${{ secrets.DEV_SERVER_FINGERPRINT }}
           script: cd  ~/cioos-pacific-erddap/; sh update-erddap.sh --hardFlag
-
       - name: Update production server
-        if: ${{github.ref_name}} == 'main'
+        if: github.ref_name == 'main'
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.PROD_SERVER_HOST }}
           username: ${{ secrets.PROD_SERVER_USERNAME }}
           passphrase: ${{ secrets.PROD_SERVER_PASSPHRASE }}
           key: ${{ secrets.PROD_SERVER_SSH_KEY }}
-          fingerprint: ${{ secrets.PROD_SERVER_FINGERPRINT }}
           script: cd  ~/cioos-pacific-erddap/; sh update-erddap.sh --hardFlag
