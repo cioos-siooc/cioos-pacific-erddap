@@ -87,7 +87,7 @@ echo modified $DATASETS_IDS
 for file in $DATASETS_IDS 
 do
     echo add hardFlag $file                                                                       
-    touch "$HARD_FLAG_DIR$file"
+    sudo touch "$HARD_FLAG_DIR$file"
 done
 
 # Save NEW_SHA to .last_update_sha
