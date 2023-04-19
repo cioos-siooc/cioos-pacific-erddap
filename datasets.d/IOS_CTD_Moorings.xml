@@ -42,10 +42,16 @@
         <att name="institution">Institute of Ocean Sciences</att>
         <att name="platform">subsurface mooring</att>
         <att name="platform_vocabulary">http://vocab.nerc.ac.uk/collection/L06/current/</att>
+        <att name="headers">null</att>
+        <att name="history">null</att>
+        <att name="number_of_channels">null</att>
+        <att name="number_of_records">null</att>
+        <att name="pad">null</att>
+        <att name="ios_header_version">null</att>
     </addAttributes>
 
     <dataVariable>
-        <sourceName>global:profile</sourceName>
+        <sourceName>***filename,(.*).nc,1</sourceName>
         <destinationName>profile</destinationName>
         <dataType>String</dataType>
         <addAttributes>
@@ -54,7 +60,7 @@
     </dataVariable>
 
     <dataVariable>
-        <sourceName>global:filename</sourceName>
+        <sourceName>***filename,(.*),1</sourceName>
         <destinationName>filename</destinationName>
         <dataType>String</dataType>
     </dataVariable>
@@ -66,7 +72,7 @@
     </dataVariable>
 
     <dataVariable>
-        <sourceName>global:mission_id</sourceName>
+        <sourceName>global:mission</sourceName>
         <destinationName>mission_id</destinationName>
         <dataType>String</dataType>
     </dataVariable>
@@ -86,6 +92,11 @@
     <dataVariable>
         <sourceName>global:agency</sourceName>
         <destinationName>agency</destinationName>
+        <dataType>String</dataType>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>global:station</sourceName>
+        <destinationName>station</destinationName>
         <dataType>String</dataType>
     </dataVariable>
 
@@ -124,6 +135,68 @@
         <destinationName>event_number</destinationName>
         <dataType>String</dataType>
     </dataVariable>
+    <dataVariable>
+        <sourceName>global:deployment_mission</sourceName>
+        <destinationName>deployment_mission</destinationName>
+        <dataType>String</dataType>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>global:deployment_remarks</sourceName>
+        <destinationName>deployment_remarks</destinationName>
+        <dataType>String</dataType>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>global:water_depth</sourceName>
+        <destinationName>water_depth</destinationName>
+        <dataType>float</dataType>
+        <addAttributes>
+            <att name="units">m</att>
+        </addAttributes>
+    </dataVariable>
+
+
+    <dataVariable>
+        <sourceName>global:deployment_time_anchor_dropped</sourceName>
+        <destinationName>deployment_time_anchor_dropped</destinationName>
+        <dataType>String</dataType>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>global:deployment_type</sourceName>
+        <destinationName>deployment_type</destinationName>
+        <dataType>String</dataType>
+    </dataVariable>
+    
+    <dataVariable>
+        <sourceName>global:recovery_mission</sourceName>
+        <destinationName>recovery_mission</destinationName>
+        <dataType>String</dataType>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>global:recovery_time_anchor_released</sourceName>
+        <destinationName>recovery_time_anchor_released</destinationName>
+        <dataType>String</dataType>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>global:start_time</sourceName>
+        <destinationName>start_time</destinationName>
+        <dataType>String</dataType>
+        <addAttributes>
+            <att name="units">yyyy-MM-dd'T'HH:mm:ss.SSSZZZ</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>global:end_time</sourceName>
+        <destinationName>end_time</destinationName>
+        <dataType>String</dataType>
+        <addAttributes>
+            <att name="units">yyyy-MM-dd'T'HH:mm:ss.SSSZZZ</att>
+        </addAttributes>
+    </dataVariable>
+
 
     <dataVariable>
         <sourceName>global:latitude</sourceName>
@@ -155,7 +228,7 @@
         </addAttributes>
     </dataVariable>
     <dataVariable>
-        <sourceName>instrument_depth</sourceName>
+        <sourceName>global:instrument_depth</sourceName>
         <destinationName>instrument_depth</destinationName>
         <dataType>float</dataType>
         <addAttributes>
