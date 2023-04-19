@@ -185,7 +185,7 @@
         <destinationName>start_time</destinationName>
         <dataType>String</dataType>
         <addAttributes>
-            <att name="units">yyyy-MM-dd'T'HH:mm:ss.SSSSSSZZZ</att>
+            <att name="units">yyyy-MM-dd'T'HH:mm:ssZZZ</att>
         </addAttributes>
     </dataVariable>
     <dataVariable>
@@ -193,7 +193,7 @@
         <destinationName>end_time</destinationName>
         <dataType>String</dataType>
         <addAttributes>
-            <att name="units">yyyy-MM-dd'T'HH:mm:ss.SSSSSSZZZ</att>
+            <att name="units">yyyy-MM-dd'T'HH:mm:ssZZZ</att>
         </addAttributes>
     </dataVariable>
 
