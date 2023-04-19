@@ -4,7 +4,10 @@ on:
     branches:
       - main
       - development
-
+  workflow_run:
+    workflows: [Test datasets.xml and linter]
+    types:
+      - completed
 jobs:
   development-update:
     name: Update ERDDAP
