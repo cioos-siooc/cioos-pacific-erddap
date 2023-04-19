@@ -26,7 +26,7 @@
         <att name="infoUrl">???</att>
         <att name="license">[standard]</att>
         <att name="sourceUrl">(local files)</att>
-        <att name="subsetVariables">instrument_type, platform, agency, scientist, country, geographic_area</att>
+        <att name="subsetVariables">mission_id,station,instrument_type, platform,project, agency, scientist, country, geographic_area</att>
         <att name="standard_name_vocabulary">CF Standard Name Table v79</att>
         <att name="START_TIME">null</att>
         <att name="start_time">null</att>
@@ -51,7 +51,7 @@
     </addAttributes>
 
     <dataVariable>
-        <sourceName>***filename,(.*).nc,1</sourceName>
+        <sourceName>***fileName,(.*)\.nc,1</sourceName>
         <destinationName>profile</destinationName>
         <dataType>String</dataType>
         <addAttributes>
@@ -60,7 +60,7 @@
     </dataVariable>
 
     <dataVariable>
-        <sourceName>***filename,(.*),1</sourceName>
+        <sourceName>***fileName,(.*),1</sourceName>
         <destinationName>filename</destinationName>
         <dataType>String</dataType>
     </dataVariable>
@@ -168,7 +168,7 @@
         <destinationName>deployment_type</destinationName>
         <dataType>String</dataType>
     </dataVariable>
-    
+
     <dataVariable>
         <sourceName>global:recovery_mission</sourceName>
         <destinationName>recovery_mission</destinationName>
