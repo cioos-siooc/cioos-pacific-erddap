@@ -709,7 +709,7 @@
     </dataVariable>
     <dataVariable>
         <sourceName>Thin Flag</sourceName>
-        <destinationName>Thin Flag</destinationName>
+        <destinationName>thin_flag</destinationName>
         <dataType>float</dataType>
         <addAttributes>
             <att name="original_ios_variable">{3: '{"ios_name":"Thin Flag","units":null}'}</att>
@@ -721,7 +721,7 @@
 
     <dataVariable>
         <sourceName>Flag:CTD</sourceName>
-        <destinationName>Flag_CTD</destinationName>
+        <destinationName>flag_ctd</destinationName>
         <dataType>float</dataType>
         <addAttributes>
             <att name="original_ios_variable">{8: '{"ios_name":"Flag:CTD","units":null}'}</att>
@@ -733,7 +733,7 @@
     </dataVariable>
     <dataVariable>
         <sourceName>Flag</sourceName>
-        <destinationName>Flag</destinationName>
+        <destinationName>flag</destinationName>
         <dataType>float</dataType>
         <addAttributes>
             <att name="original_ios_variable">{12: '{"ios_name":"Flag","units":null}'}</att>
@@ -745,7 +745,7 @@
     </dataVariable>
     <dataVariable>
         <sourceName>Number_of_bin_records</sourceName>
-        <destinationName>Number_of_bin_records</destinationName>
+        <destinationName>number_of_bin_records</destinationName>
         <dataType>int</dataType>
         <addAttributes>
             <att name="original_ios_variable">{11: '{"ios_name":"Number_of_bin_records","units":null}'}</att>
