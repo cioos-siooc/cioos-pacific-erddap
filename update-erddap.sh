@@ -81,14 +81,15 @@ sudo docker exec $CONTAINER_NAME bash /init.d/replace-datasets-secrets.sh
 
 # Get xml files that were modified[M] or added[A] since the last commit  and generate flag
 DATASETS_IDS=$(git diff --diff-filter=AMCR --name-only --relative=$DATASET_XMLS_DIRS $SHA $NEW_SHA $DATASET_XMLS_DIRS | sed 's:.xml::')
-
 echo modified $DATASETS_IDS
 # generate a flag for each related datasetID
-for file in $DATASETS_IDS 
+if $APPLY_HARD_FLAG_DIR; then
+for DATASETS_ID in $DATASETS_IDS 
 do
-    echo add hardFlag $file                                                                       
-    sudo touch "$HARD_FLAG_DIR$file"
+    echo add hardFlag $DATASETS_ID                                                                       
+    sudo touch "$HARD_FLAG_DIR$DATASETS_ID"
 done
+fi
 
 # Save NEW_SHA to .last_update_sha
 if [ "$NEW_SHA" != '' ]; then
