@@ -424,7 +424,7 @@
     </dataVariable>
     <dataVariable>
         <sourceName>Transmissivity:Green</sourceName>
-        <destinationName>Transmissivity:Green</destinationName>
+        <destinationName>Transmissivity_Green</destinationName>
         <dataType>float</dataType>
         <addAttributes>
             <att name="original_ios_variable">{5: '{"ios_name":"Transmissivity:Green","units":"%\\/metre"}'}</att>
@@ -721,7 +721,7 @@
 
     <dataVariable>
         <sourceName>Flag:CTD</sourceName>
-        <destinationName>Flag:CTD</destinationName>
+        <destinationName>Flag_CTD</destinationName>
         <dataType>float</dataType>
         <addAttributes>
             <att name="original_ios_variable">{8: '{"ios_name":"Flag:CTD","units":null}'}</att>
