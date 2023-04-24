@@ -292,8 +292,8 @@
         <addAttributes>
             <att name="original_ios_variable">{3: '{"ios_name":"Temperature","units":"deg C (ITS90)"}'}</att>
             <att name="original_ios_name">Temperature</att>
-            <att name="long_name">Temperature</att>
-            <att name="units">degrees_celsius (ITS-90)</att>
+            <att name="long_name">Temperature ITS-90</att>
+            <att name="units">degrees_celsius</att>
             <att name="ios_name">temperature</att>
             <att name="standard_name">sea_water_temperature</att>
             <att name="sdn_parameter_urn">SDN:P01::TEMPP901</att>
@@ -307,8 +307,8 @@
         <addAttributes>
             <att name="original_ios_variable">{3: '{"ios_name":"Temperature","units":"deg C (ITS90)"}'}</att>
             <att name="original_ios_name">Temperature</att>
-            <att name="long_name">Temperature</att>
-            <att name="units">degrees_celsius (ITS-90)</att>
+            <att name="long_name">CTD Temperature ITS-90</att>
+            <att name="units">degrees_celsius</att>
             <att name="ios_name">temperature</att>
             <att name="standard_name">sea_water_temperature</att>
             <att name="sdn_parameter_urn">SDN:P01::TEMPS901</att>
@@ -337,7 +337,7 @@
         <addAttributes>
             <att name="original_ios_variable">{4: '{"ios_name":"Salinity:T0:C0","units":"PSS-78"}'}</att>
             <att name="original_ios_name">Salinity:T0:C0</att>
-            <att name="long_name">Salinity T0 C0</att>
+            <att name="long_name">Salinity</att>
             <att name="units">PSS-78</att>
             <att name="ios_name">salinity:t0:c0</att>
             <att name="standard_name">sea_water_practical_salinity</att>
@@ -352,27 +352,12 @@
         <addAttributes>
             <att name="original_ios_variable">{4: '{"ios_name":"Conductivity:Primary","units":"S\\/m"}'}</att>
             <att name="original_ios_name">Conductivity:Primary</att>
-            <att name="long_name">Conductivity Primary</att>
+            <att name="long_name">Conductivity</att>
             <att name="units">S/m</att>
             <att name="ios_name">conductivity:primary</att>
             <att name="standard_name">sea_water_electrical_conductivity</att>
             <att name="sdn_parameter_urn">SDN:P01::CNDCST01</att>
             <att name="sdn_parameter_name">Electrical conductivity of the water body by CTD</att>
-        </addAttributes>
-    </dataVariable>
-    <dataVariable>
-        <sourceName>SVELXXXX</sourceName>
-        <destinationName>SVELXXXX</destinationName>
-        <dataType>float</dataType>
-        <addAttributes>
-            <att name="original_ios_variable">{6: '{"ios_name":"Speed:Sound","units":"m\\/s"}'}</att>
-            <att name="original_ios_name">Speed:Sound</att>
-            <att name="long_name">Speed:Sound</att>
-            <att name="units">m/s</att>
-            <att name="ios_name">speed:sound</att>
-            <att name="standard_name">speed_of_sound_in_sea_water</att>
-            <att name="sdn_parameter_urn">SDN:P01::SVELXXXX</att>
-            <att name="sdn_parameter_name">Sound velocity in the water body</att>
         </addAttributes>
     </dataVariable>
     <dataVariable>
@@ -382,7 +367,7 @@
         <addAttributes>
             <att name="original_ios_variable">{5: '{"ios_name":"Fluorescence:Wetlabs:ECO-AFL","units":"mg\\/m^3"}'}</att>
             <att name="original_ios_name">Fluorescence:Wetlabs:ECO-AFL</att>
-            <att name="long_name">Fluorescence Wetlabs ECO-AFL</att>
+            <att name="long_name">Fluorescence</att>
             <att name="units">mg/m^3</att>
             <att name="ios_name">fluorescence:wetlabs:eco-afl</att>
             <att name="standard_name">mass_concentration_of_chlorophyll_a_in_sea_water</att>
@@ -397,7 +382,7 @@
         <addAttributes>
             <att name="original_ios_variable">{5: '{"ios_name":"Oxygen:Dissolved","units":"mL\\/L"}'}</att>
             <att name="original_ios_name">Oxygen:Dissolved</att>
-            <att name="long_name">Oxygen Dissolved</att>
+            <att name="long_name">Dissolved Oxygen</att>
             <att name="units">mL/L</att>
             <att name="ios_name">oxygen:dissolved</att>
             <att name="standard_name">volume_fraction_of_oxygen_in_sea_water</att>
@@ -412,7 +397,7 @@
         <addAttributes>
             <att name="original_ios_variable">{6: '{"ios_name":"Oxygen:Dissolved:SBE","units":"umol\\/kg"}'}</att>
             <att name="original_ios_name">Oxygen:Dissolved:SBE</att>
-            <att name="long_name">Oxygen Dissolved SBE</att>
+            <att name="long_name">Dissolved Oxygen</att>
             <att name="units">umol/kg</att>
             <att name="ios_name">oxygen:dissolved:sbe</att>
             <att name="standard_name">moles_of_oxygen_per_unit_mass_in_sea_water</att>
@@ -426,7 +411,7 @@
         <addAttributes>
             <att name="original_ios_variable">{7: '{"ios_name":"Oxygen:dissolved:G+G","units":"mL\\/L"}'}</att>
             <att name="original_ios_name">Oxygen:dissolved:G+G</att>
-            <att name="long_name">Oxygen dissolved G+G</att>
+            <att name="long_name">Secondary Dissolved Oxygen</att>
             <att name="units">mL/L</att>
             <att name="ios_name">oxygen:dissolved:g+g</att>
             <att name="standard_name">volume_fraction_of_oxygen_in_sea_water</att>
@@ -456,7 +441,7 @@
         <addAttributes>
             <att name="original_ios_variable">{7: '{"ios_name":"Turbidity:Wetlabs","units":"NTU"}'}</att>
             <att name="original_ios_name">Turbidity:Wetlabs</att>
-            <att name="long_name">Turbidity:Wetlabs</att>
+            <att name="long_name">Calibrated Turbidity</att>
             <att name="units">NTU</att>
             <att name="ios_name">turbidity:wetlabs</att>
             <att name="standard_name">sea_water_turbidity</att>
@@ -477,6 +462,21 @@
             <att name="standard_name">sea_water_sigma_t</att>
             <att name="sdn_parameter_urn">SDN:P01::SIGTPR01</att>
             <att name="sdn_parameter_name">Sigma-theta of the water body by CTD and computation from salinity and potential temperature using UNESCO algorithm</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>SVELXXXX</sourceName>
+        <destinationName>SVELXXXX</destinationName>
+        <dataType>float</dataType>
+        <addAttributes>
+            <att name="original_ios_variable">{6: '{"ios_name":"Speed:Sound","units":"m\\/s"}'}</att>
+            <att name="original_ios_name">Speed:Sound</att>
+            <att name="long_name">Speed:Sound</att>
+            <att name="units">m/s</att>
+            <att name="ios_name">speed:sound</att>
+            <att name="standard_name">speed_of_sound_in_sea_water</att>
+            <att name="sdn_parameter_urn">SDN:P01::SVELXXXX</att>
+            <att name="sdn_parameter_name">Sound velocity in the water body</att>
         </addAttributes>
     </dataVariable>
     <dataVariable>
