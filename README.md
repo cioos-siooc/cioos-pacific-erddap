@@ -28,7 +28,7 @@ To start a new configuration create a copy of the `sample.env` file as `.env` an
 
 ### Testing environment
 - Install [docker](https://docs.docker.com/install/) and [docker-compose](https://docs.docker.com/compose/install/)
-- put your data files (eg .nc files) into the datasets folder
+- put your data files (eg .nc files) into the `datasets` folder. Create one of not present
 - edit the config files in the config directory. After editing them you will need to run `sh update-erddap.sh` to create datasets.xml
 - Run `docker-compose up`. On unix systems you will need to run with `sudo`
 - See if it works by going to <http://localhost:8090/erddap>
