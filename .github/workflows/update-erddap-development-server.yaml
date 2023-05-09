@@ -1,0 +1,27 @@
+name: Update Development ERDDAP server
+on:
+  push:
+    branches:
+      - main
+      - development
+  workflow_run:
+    workflows: [Test datasets.xml and linter]
+    types:
+      - completed
+jobs:
+  development-update:
+    name: Update ERDDAP
+    runs-on: ubuntu-latest
+    environment:
+      name: development
+      url: https://pac-dev2.cioos.org/erddap
+    steps:
+      - name: Update development server
+        if: github.ref_name == 'development'
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DEV_SERVER_HOST }}
+          username: ${{ secrets.DEV_SERVER_USERNAME }}
+          passphrase: ${{ secrets.DEV_SERVER_PASSPHRASE }}
+          key: ${{ secrets.DEV_SERVER_SSH_KEY }}
+          script: cd  ~/cioos-pacific-erddap/; sh update-erddap.sh --hardFlag

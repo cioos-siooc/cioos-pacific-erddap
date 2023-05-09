@@ -1,11 +1,5 @@
 name: Test datasets.xml and linter
 on:
-  push:
-    branches:
-      - main
-      - development
-    paths:
-      - datasets.d/**
   pull_request:
     branches:
       - main
