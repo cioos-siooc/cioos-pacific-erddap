@@ -1,4 +1,4 @@
-name: Update ERDDAP server
+name: Update Development ERDDAP server
 on:
   push:
     branches:
@@ -9,6 +9,9 @@ jobs:
   development-update:
     name: Update ERDDAP
     runs-on: ubuntu-latest
+    environment:
+      name: development
+      url: https://pac-dev2.cioos.org/erddap
     steps:
       - name: Update development server
         if: github.ref_name == 'development'
@@ -18,13 +21,4 @@ jobs:
           username: ${{ secrets.DEV_SERVER_USERNAME }}
           passphrase: ${{ secrets.DEV_SERVER_PASSPHRASE }}
           key: ${{ secrets.DEV_SERVER_SSH_KEY }}
-          script: cd  ~/cioos-pacific-erddap/; sh update-erddap.sh --hardFlag
-      - name: Update production server
-        if: github.ref_name == 'main'
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.PROD_SERVER_HOST }}
-          username: ${{ secrets.PROD_SERVER_USERNAME }}
-          passphrase: ${{ secrets.PROD_SERVER_PASSPHRASE }}
-          key: ${{ secrets.PROD_SERVER_SSH_KEY }}
           script: cd  ~/cioos-pacific-erddap/; sh update-erddap.sh --hardFlag
