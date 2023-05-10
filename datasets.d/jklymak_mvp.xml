@@ -69,7 +69,8 @@
         <att name="_FillValue" type="double">NaN</att>
     </sourceAttributes -->
         <addAttributes>
-            <att name="long_name">Matlabtime</att>
+            <att name="long_name">Time</att>
+            <att name="standard_name">time</att>
             <att name="units">days since 0000-01-02T00:00:00</att>
         </addAttributes>
     </dataVariable>
