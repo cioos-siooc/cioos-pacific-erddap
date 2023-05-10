@@ -181,24 +181,6 @@
     </dataVariable>
 
     <dataVariable>
-        <sourceName>global:start_time</sourceName>
-        <destinationName>start_time</destinationName>
-        <dataType>String</dataType>
-        <addAttributes>
-            <att name="units">yyyy-MM-dd'T'HH:mm:ssZZZ</att>
-        </addAttributes>
-    </dataVariable>
-    <dataVariable>
-        <sourceName>global:end_time</sourceName>
-        <destinationName>end_time</destinationName>
-        <dataType>String</dataType>
-        <addAttributes>
-            <att name="units">yyyy-MM-dd'T'HH:mm:ssZ</att>
-        </addAttributes>
-    </dataVariable>
-
-
-    <dataVariable>
         <sourceName>global:latitude</sourceName>
         <destinationName>latitude</destinationName>
         <dataType>float</dataType>
@@ -283,21 +265,6 @@
             <att name="standard_name">sea_water_temperature</att>
             <att name="sdn_parameter_urn">SDN:P01::TEMPPR01</att>
             <att name="sdn_parameter_name">Temperature of the water body</att>
-        </addAttributes>
-    </dataVariable>
-    <dataVariable>
-        <sourceName>TEMPP901</sourceName>
-        <destinationName>TEMPP901</destinationName>
-        <dataType>float</dataType>
-        <addAttributes>
-            <att name="original_ios_variable">{3: '{"ios_name":"Temperature","units":"deg C (ITS90)"}'}</att>
-            <att name="original_ios_name">Temperature</att>
-            <att name="long_name">Temperature ITS-90</att>
-            <att name="units">degrees_celsius</att>
-            <att name="ios_name">temperature</att>
-            <att name="standard_name">sea_water_temperature</att>
-            <att name="sdn_parameter_urn">SDN:P01::TEMPP901</att>
-            <att name="sdn_parameter_name">Temperature (ITS-90) of the water body</att>
         </addAttributes>
     </dataVariable>
     <dataVariable>

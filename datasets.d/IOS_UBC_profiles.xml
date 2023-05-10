@@ -296,6 +296,22 @@
         </addAttributes>
     </dataVariable>
     <dataVariable>
+        <sourceName>TEMPS901</sourceName>
+        <destinationName>TEMPS901</destinationName>
+        <dataType>float</dataType>
+        <addAttributes>
+            <att name="original_ios_variable">{1: '{"ios_name":"TEMPERATURE","units":"DEG C (ITS 68)"}'}</att>
+            <att name="original_ios_name">TEMPERATURE</att>
+            <att name="long_name">TEMPERATURE</att>
+            <att name="units">degrees_celsius (ITS-90)</att>
+            <att name="ios_name">temperature</att>
+            <att name="standard_name">sea_water_temperature</att>
+            <att name="sdn_parameter_urn">SDN:P01::TEMPS901</att>
+            <att name="sdn_parameter_name">Temperature (ITS-90) of the water body by CTD or STD</att>
+            <att name="source">gsw.t90_from_t68(TEMPS601)</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
         <sourceName>Quality_Flag:Temp</sourceName>
         <destinationName>Quality_Flag_Temp</destinationName>
         <dataType>int</dataType>

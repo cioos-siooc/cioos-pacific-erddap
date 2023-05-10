@@ -294,18 +294,6 @@
         </addAttributes>
     </dataVariable>
     <dataVariable>
-        <sourceName>TEMPP901</sourceName>
-        <destinationName>TEMPP901</destinationName>
-        <dataType>float</dataType>
-        <addAttributes>
-            <att name="ios_name">temperature:primary</att>
-            <att name="standard_name">sea_water_temperature</att>
-            <att name="units">deg C (ITS-90)</att>
-            <att name="sdn_parameter_urn">SDN:P01::TEMPP901</att>
-            <att name="sdn_parameter_name">Temperature (ITS-90) of the water body</att>
-        </addAttributes>
-    </dataVariable>
-    <dataVariable>
         <sourceName>TEMPS901</sourceName>
         <destinationName>TEMPS901</destinationName>
         <dataType>float</dataType>
@@ -336,14 +324,18 @@
         </addAttributes>
     </dataVariable>
     <dataVariable>
-        <sourceName>TEMPP902</sourceName>
-        <destinationName>TEMPP902</destinationName>
+        <sourceName>TEMPS902</sourceName>
+        <destinationName>TEMPS902</destinationName>
         <dataType>float</dataType>
         <addAttributes>
+            <att name="original_ios_variable">{2: '{"ios_name":"Temperature:Secondary","units":"deg C (ITS90)"}'}</att>
+            <att name="original_ios_name">Temperature:Secondary</att>
+            <att name="long_name">Secondary Temperature</att>
+            <att name="units">degrees_celsius (ITS-90)</att>
             <att name="ios_name">temperature:secondary</att>
             <att name="standard_name">sea_water_temperature</att>
-            <att name="units">deg C (ITS-90)</att>
-            <att name="sdn_parameter_urn">SDN:P01::TEMPP902</att>
+            <att name="sdn_parameter_urn">SDN:P01::TEMPS902</att>
+            <att name="sdn_parameter_name">Temperature (ITS-90) of the water body  by CTD or STD (second sensor)</att>
         </addAttributes>
     </dataVariable>
     <dataVariable>
@@ -438,17 +430,6 @@
     <dataVariable>
         <sourceName>flow_rate</sourceName>
         <destinationName>flow_rate</destinationName>
-        <dataType>float</dataType>
-        <addAttributes>
-            <att name="original_ios_variable">{10: '{"ios_name":"Flow_Rate","units":"L\\/min"}'}</att>
-            <att name="original_ios_name">Flow_Rate</att>
-            <att name="long_name">flow_rate</att>
-            <att name="units">L/min</att>
-        </addAttributes>
-    </dataVariable>
-    <dataVariable>
-        <sourceName>flow_rate_no_units</sourceName>
-        <destinationName>flow_rate_no_units</destinationName>
         <dataType>float</dataType>
         <addAttributes>
             <att name="original_ios_variable">{10: '{"ios_name":"Flow_Rate","units":"L\\/min"}'}</att>
