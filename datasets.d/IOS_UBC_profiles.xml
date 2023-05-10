@@ -120,6 +120,8 @@
         <att name="wangle">null</att>
 
         <att name="location_remarks">null</att>
+        <att name="cioos_data_transform_version">null</att>
+        <att name="headers">null</att>
     </addAttributes>
     <dataVariable>
         <sourceName>***fileName,(.*).UBC.nc,1</sourceName>

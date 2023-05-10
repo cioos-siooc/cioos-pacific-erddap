@@ -97,17 +97,24 @@
         <att name="number_of_records">null</att>
         <att name="processing_level">null</att>
         <att name="product_version">null</att>
-
         <att name="time_coverage_duration">null</att>
         <att name="time_coverage_resolution">null</att>
         <att name="time_increment">null</att>
         <att name="time_units">null</att>
         <att name="time_zero">null</att>
-
         <att name="comment">null</att>
         <att name="agency">null</att>
         <att name="data_description">null</att>
         <att name="geographic_area">null</att>
+        <att name="comments">null</att>
+        <att name="geojson_file">null</att>
+        <att name="headers">null</att>
+        <att name="history">null</att>
+        <att name="instrument_data_description">null</att>
+        <att name="instrument_instrument_type">null</att>
+        <att name="language">null</att>
+        <att name="cioos_data_transform_version">null</att>
+        <att name="crc">null</att>
     </addAttributes>
     <dataVariable>
         <sourceName>***fileName,(.*).nc,1</sourceName>

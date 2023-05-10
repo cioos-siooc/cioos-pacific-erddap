@@ -48,6 +48,13 @@
         <att name="number_of_records">null</att>
         <att name="pad">null</att>
         <att name="ios_header_version">null</att>
+        <att name="comments">null</att>
+        <att name="comment">null</att>
+        <att name="product_version">null</att>
+        <att name="time_units">null</att>
+        <att name="time_zero">null</att>
+        <att name="time_resolution">null</att>
+        <att name="time_coverage_duration">null</att>
     </addAttributes>
 
     <dataVariable>

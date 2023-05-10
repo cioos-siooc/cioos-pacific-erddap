@@ -154,6 +154,12 @@
         <att name="time_coverage_resolution">null</att>
         <att name="time_increment">null</att>
 
+        <att name="cioos_data_transform_version">null</att>
+        <att name="comment">null</att>
+        <att name="country">null</att>
+        <att name="defaultGraphQuery">null</att>
+        <att name="headers">null</att>
+
     </addAttributes>
     <dataVariable>
         <sourceName>***fileName,(.*).nc,1</sourceName>
