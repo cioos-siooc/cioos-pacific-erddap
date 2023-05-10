@@ -14,7 +14,6 @@
     <removeMVRows>true</removeMVRows>
     <sortFilesBySourceNames></sortFilesBySourceNames>
     <fileTableInMemory>false</fileTableInMemory>
-
     <addAttributes>
         <att name="ios_comments"></att>
         <att name="ios_remarks"></att>
@@ -43,7 +42,6 @@
         <att name="platform">ship</att>
         <att name="platform_vocabulary">http://vocab.nerc.ac.uk/collection/L06/current/</att>
     </addAttributes>
-
     <dataVariable>
         <sourceName>***fileName,(.*)\.nc,1</sourceName>
         <destinationName>profile</destinationName>
@@ -53,84 +51,70 @@
             <att name="long_name">Profile ID</att>
         </addAttributes>
     </dataVariable>
-
     <dataVariable>
         <sourceName>***fileName,(.*),1</sourceName>
         <destinationName>filename</destinationName>
         <dataType>String</dataType>
     </dataVariable>
-
     <dataVariable>
         <sourceName>global:country</sourceName>
         <destinationName>country</destinationName>
         <dataType>String</dataType>
     </dataVariable>
-
     <dataVariable>
         <sourceName>global:mission</sourceName>
         <destinationName>mission_id</destinationName>
         <dataType>String</dataType>
     </dataVariable>
-
     <dataVariable>
         <sourceName>global:scientist</sourceName>
         <destinationName>scientist</destinationName>
         <dataType>String</dataType>
     </dataVariable>
-
     <dataVariable>
         <sourceName>global:project</sourceName>
         <destinationName>project</destinationName>
         <dataType>String</dataType>
     </dataVariable>
-
     <dataVariable>
         <sourceName>global:agency</sourceName>
         <destinationName>agency</destinationName>
         <dataType>String</dataType>
     </dataVariable>
-
     <dataVariable>
         <sourceName>global:platform</sourceName>
         <destinationName>platform</destinationName>
         <dataType>String</dataType>
     </dataVariable>
-
     <dataVariable>
         <sourceName>global:instrument_type</sourceName>
         <destinationName>instrument_type</destinationName>
         <dataType>String</dataType>
     </dataVariable>
-
     <dataVariable>
         <sourceName>global:instrument_model</sourceName>
         <destinationName>instrument_model</destinationName>
         <dataType>String</dataType>
     </dataVariable>
-
     <dataVariable>
         <sourceName>global:instrument_serial_number</sourceName>
         <destinationName>instrument_serial_number</destinationName>
         <dataType>String</dataType>
     </dataVariable>
-
     <dataVariable>
         <sourceName>global:geographic_area</sourceName>
         <destinationName>geographic_area</destinationName>
         <dataType>String</dataType>
     </dataVariable>
-
     <dataVariable>
         <sourceName>global:event_number</sourceName>
         <destinationName>event_number</destinationName>
         <dataType>String</dataType>
     </dataVariable>
-
     <dataVariable>
         <sourceName>global:latitude</sourceName>
         <destinationName>latitude</destinationName>
         <dataType>float</dataType>
-
         <addAttributes>
             <att name="colorBarMaximum" type="double">90.0</att>
             <att name="colorBarMinimum" type="double">-90.0</att>
@@ -146,7 +130,6 @@
             <att name="standard_name">longitude</att>
         </addAttributes>
     </dataVariable>
-
     <dataVariable>
         <sourceName>global:start_time</sourceName>
         <destinationName>time</destinationName>
@@ -231,9 +214,6 @@
             <att name="sdn_parameter_name">Temperature (IPTS-68) of the water body by CTD or STD</att>
         </addAttributes>
     </dataVariable>
-
-
-
     <dataVariable>
         <sourceName>TEMPPR01</sourceName>
         <destinationName>TEMPPR01</destinationName>
@@ -264,7 +244,6 @@
             <att name="sdn_parameter_name">Temperature (ITS-90) of the water body by second CTD or STD</att>
         </addAttributes>
     </dataVariable>
-
     <dataVariable>
         <sourceName>TEMPPR02</sourceName>
         <destinationName>TEMPPR02</destinationName>
@@ -572,7 +551,6 @@
             <att name="sdn_parameter_name">pH (unspecified scale) of the water body by pH electrode</att>
         </addAttributes>
     </dataVariable>
-
     <dataVariable>
         <sourceName>TURBSP01</sourceName>
         <destinationName>TURBSP01</destinationName>
@@ -603,7 +581,6 @@
             <att name="sdn_parameter_name">Turbidity of water in the water body by in-situ optical backscatter measurement and laboratory calibration against formazin</att>
         </addAttributes>
     </dataVariable>
-
     <dataVariable>
         <sourceName>NTRZAAZX</sourceName>
         <destinationName>NTRZAAZX</destinationName>
@@ -619,7 +596,6 @@
             <att name="sdn_parameter_name">Concentration of nitrate+nitrite {NO3+NO2} per unit volume of the water body [unknown phase] by colorimetric autoanalysis</att>
         </addAttributes>
     </dataVariable>
-
     <dataVariable>
         <sourceName>SVELXXXX</sourceName>
         <destinationName>SVELXXXX</destinationName>
@@ -646,7 +622,6 @@
             <att name="ios_name">thin flag</att>
         </addAttributes>
     </dataVariable>
-
     <dataVariable>
         <sourceName>Flag:CTD</sourceName>
         <destinationName>flag_ctd</destinationName>
