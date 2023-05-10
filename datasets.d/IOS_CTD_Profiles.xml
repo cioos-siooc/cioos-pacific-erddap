@@ -231,37 +231,9 @@
             <att name="sdn_parameter_name">Temperature (IPTS-68) of the water body by CTD or STD</att>
         </addAttributes>
     </dataVariable>
-    <dataVariable>
-        <sourceName>TEMPP681</sourceName>
-        <destinationName>TEMPP681</destinationName>
-        <dataType>float</dataType>
-        <addAttributes>
-            <att name="original_ios_variable">{1: '{"ios_name":"Temperature:Primary","units":"deg C (IPTS68)"}'}</att>
-            <att name="original_ios_name">Temperature:Primary</att>
-            <att name="long_name">Temperature (IPTS-68)</att>
-            <att name="units">degrees_celsius (IPTS-68)</att>
-            <att name="ios_name">temperature:primary</att>
-            <att name="standard_name">sea_water_temperature</att>
-            <att name="sdn_parameter_urn">SDN:P01::TEMPP681</att>
-            <att name="sdn_parameter_name">Temperature (IPTS-68) of the water body</att>
-        </addAttributes>
-    </dataVariable>
 
-    <dataVariable>
-        <sourceName>TEMPP901</sourceName>
-        <destinationName>TEMPP901</destinationName>
-        <dataType>float</dataType>
-        <addAttributes>
-            <att name="original_ios_variable">{1: '{"ios_name":"Temperature:Primary","units":"deg C (ITS90)"}'}</att>
-            <att name="original_ios_name">Temperature:Primary</att>
-            <att name="long_name">Temperature (ITS-90)</att>
-            <att name="units">degrees_celsius (ITS-90)</att>
-            <att name="ios_name">temperature:primary</att>
-            <att name="standard_name">sea_water_temperature</att>
-            <att name="sdn_parameter_urn">SDN:P01::TEMPP901</att>
-            <att name="sdn_parameter_name">Temperature (ITS-90) of the water body</att>
-        </addAttributes>
-    </dataVariable>
+
+
     <dataVariable>
         <sourceName>TEMPPR01</sourceName>
         <destinationName>TEMPPR01</destinationName>
@@ -292,21 +264,7 @@
             <att name="sdn_parameter_name">Temperature (ITS-90) of the water body by second CTD or STD</att>
         </addAttributes>
     </dataVariable>
-    <dataVariable>
-        <sourceName>TEMPP902</sourceName>
-        <destinationName>TEMPP902</destinationName>
-        <dataType>float</dataType>
-        <addAttributes>
-            <att name="original_ios_variable">{2: '{"ios_name":"Temperature:Secondary","units":"deg C (ITS90)"}'}</att>
-            <att name="original_ios_name">Temperature:Secondary</att>
-            <att name="long_name">Temperature (ITS-90) by second sensor</att>
-            <att name="units">degrees_celsius (ITS-90)</att>
-            <att name="ios_name">temperature:secondary</att>
-            <att name="standard_name">sea_water_temperature</att>
-            <att name="sdn_parameter_urn">SDN:P01::TEMPP902</att>
-            <att name="sdn_parameter_name">Temperature (ITS-90) of the water body</att>
-        </addAttributes>
-    </dataVariable>
+
     <dataVariable>
         <sourceName>TEMPPR02</sourceName>
         <destinationName>TEMPPR02</destinationName>
@@ -320,20 +278,6 @@
             <att name="standard_name">sea_water_temperature</att>
             <att name="sdn_parameter_urn">SDN:P01::TEMPPR02</att>
             <att name="sdn_parameter_name">Temperature of the water body by second sensor</att>
-        </addAttributes>
-    </dataVariable>
-    <dataVariable>
-        <sourceName>TEMPP682</sourceName>
-        <destinationName>TEMPP682</destinationName>
-        <dataType>float</dataType>
-        <addAttributes>
-            <att name="original_ios_variable">{1: '{"ios_name":"Temperature:Secondary","units":"deg C (IPTS68)"}'}</att>
-            <att name="original_ios_name">Temperature:Secondary</att>
-            <att name="long_name">Temperature (IPTS-68) by second sensor</att>
-            <att name="units">degrees_celsius (IPTS-68)</att>
-            <att name="ios_name">temperature:secondary</att>
-            <att name="standard_name">sea_water_temperature</att>
-            <att name="sdn_parameter_urn">SDN:P01::TEMPP682</att>
         </addAttributes>
     </dataVariable>
     <dataVariable>
