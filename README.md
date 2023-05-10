@@ -4,8 +4,8 @@ This repo stores CIOOS Pacific ERDDAP datasets `datasets.d/*.xml` which is used 
 
 | Server | Linter | Server Update |
 | --- | --- |--- |
-| https://data.cioospacific.ca/erddap | ![Lint Code Base](https://github.com/cioos-siooc/cioos-pacific-erddap/actions/workflows/review-datasets-xml.yaml/badge.svg) |![Production Server](https://github.com/cioos-siooc/cioos-pacific-erddap/actions/workflows/update-erddap-servers.yaml/badge.svg?branch=main)|
-| https://pac-dev2.cioos.org/erddap | ![Lint Code Base](https://github.com/cioos-siooc/cioos-pacific-erddap/actions/workflows/review-datasets-xml.yaml/badge.svg?branch=development) | ![Development Server](https://github.com/cioos-siooc/cioos-pacific-erddap/actions/workflows/update-erddap-servers.yaml/badge.svg?branch=development)|
+| https://data.cioospacific.ca/erddap | ![Lint Code Base](https://github.com/cioos-siooc/cioos-pacific-erddap/actions/workflows/review-datasets-xml.yaml/badge.svg) | [![Update Main ERDDAP server](https://github.com/cioos-siooc/cioos-pacific-erddap/actions/workflows/update-erddap-production-server.yaml/badge.svg?branch=main)](https://github.com/cioos-siooc/cioos-pacific-erddap/actions/workflows/update-erddap-production-server.yaml)|
+| https://pac-dev2.cioos.org/erddap | ![Lint Code Base](https://github.com/cioos-siooc/cioos-pacific-erddap/actions/workflows/review-datasets-xml.yaml/badge.svg?branch=development) | [![Update Development ERDDAP server](https://github.com/cioos-siooc/cioos-pacific-erddap/actions/workflows/update-erddap-development-server.yaml/badge.svg?branch=development)](https://github.com/cioos-siooc/cioos-pacific-erddap/actions/workflows/update-erddap-development-server.yaml)|
 
 
 ## Creating .xml snippet files for your dataset
