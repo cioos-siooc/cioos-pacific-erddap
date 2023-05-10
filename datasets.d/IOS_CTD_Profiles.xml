@@ -152,6 +152,8 @@
         <destinationName>time</destinationName>
         <dataType>String</dataType>
         <addAttributes>
+            <att name="long_name">Profile Start Time</att>
+            <att name="standard_name">time</att>
             <att name="units">yyyy-MM-dd'T'HH:mm:ssZ</att>
         </addAttributes>
     </dataVariable>
