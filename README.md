@@ -1,8 +1,12 @@
-[![Lint Code Base](https://github.com/HakaiInstitute/cioos-pacific-erddap/actions/workflows/superlinter.yml/badge.svg)](https://github.com/HakaiInstitute/cioos-pacific-erddap-public/actions/workflows/superlinter.yml)
-
 # CIOOS Pacific ERDDAP Config
 
 This repo stores CIOOS Pacific ERDDAP datasets `datasets.d/*.xml` which is used by CIOOS Pacific's ERDDAP at <https://data.cioospacific.ca/erddap/> and the dev site at <https://pac-dev2.cioos.org/erddap/>. It also provides a `docker-compose.local.yaml` file so you can test out your changes on your local machine.
+
+| Server | Linter | Server Update |
+| --- | --- |--- |
+| https://data.cioospacific.ca/erddap | ![Lint Code Base](https://github.com/cioos-siooc/cioos-pacific-erddap/actions/workflows/review-datasets-xml.yaml/badge.svg) | [![Update Main ERDDAP server](https://github.com/cioos-siooc/cioos-pacific-erddap/actions/workflows/update-erddap-production-server.yaml/badge.svg?branch=main)](https://github.com/cioos-siooc/cioos-pacific-erddap/actions/workflows/update-erddap-production-server.yaml)|
+| https://pac-dev2.cioos.org/erddap | ![Lint Code Base](https://github.com/cioos-siooc/cioos-pacific-erddap/actions/workflows/review-datasets-xml.yaml/badge.svg?branch=development) | [![Update Development ERDDAP server](https://github.com/cioos-siooc/cioos-pacific-erddap/actions/workflows/update-erddap-development-server.yaml/badge.svg?branch=development)](https://github.com/cioos-siooc/cioos-pacific-erddap/actions/workflows/update-erddap-development-server.yaml)|
+
 
 ## Creating .xml snippet files for your dataset
 This repository relies on the `docker-erddap` docker container and uses the experimental `datasets.d` feature available within this container (see more documentation [here](https://github.com/axiom-data-science/docker-erddap)). To include a new dataset, apply the following steps:
@@ -28,14 +32,14 @@ To start a new configuration create a copy of the `sample.env` file as `.env` an
 
 ### Testing environment
 - Install [docker](https://docs.docker.com/install/) and [docker-compose](https://docs.docker.com/compose/install/)
-- put your data files (eg .nc files) into the `datasets` folder. Create one of not present
+- put your data files (eg .nc files) into the datasets folder
 - edit the config files in the config directory. After editing them you will need to run `sh update-erddap.sh` to create datasets.xml
 - Run `docker-compose up`. On unix systems you will need to run with `sudo`
 - See if it works by going to <http://localhost:8090/erddap>
 
 ### Production and Development environments
-For both servers, configuration is handled within the `.env` file which overwrites fields present within the `dataset.xml`.
-- [CIOOS Pacific Production ERDDAP](https://data.cioospacific.ca/erddap/) (branch = master)
+For both servers, configuration is handled within the `.env` file which  overwrites fields present within the `setup.xml` through the `ERDDAP_*` variables, expressions to hidden within the datasets.xml are defined by the variables `ERDDAP_SECRET_*`. Pushes to main and development branches triggers an update of each associated servers via the update [workflow](.github/workflows/update-erddap-servers.yaml)
+- [CIOOS Pacific Production ERDDAP](https://data.cioospacific.ca/erddap/) (branch = main)
 - [CIOOS Pacific Development ERDDAP](https://pac-dev2.cioospacific.ca/erddap/) (branch = development)
 
 ## Use ERDDAP docker container
