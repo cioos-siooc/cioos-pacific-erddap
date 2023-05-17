@@ -1,9 +1,4 @@
 #!/bin/bash
-[ -f ./.env ] && source ./.env
-docker run --rm -it \
-  -v "${DATASETS_DIR:-$(pwd)/datasets}:/datasets" \
-  -v "$(pwd)/erddap/data/logs:/erddapData/logs" \
-  -v "$(pwd)/erddap/content:/usr/local/tomcat/content/erddap" \
-  ${ERDDAP_CONTAINAR_NAME:-axiom/docker-erddap:latest} \
-  bash -c "cd webapps/erddap/WEB-INF/ && bash DasDds.sh $*"
+[ -f .env ] && export $(xargs < .env)
+docker exec -it "${CONTAINER_NAME:-erddap}" bash -c "cd webapps/erddap/WEB-INF/ && bash DasDds.sh $*" \
   
