@@ -10,7 +10,7 @@
     <sortedColumnSourceName></sortedColumnSourceName>
     <sortFilesBySourceNames></sortFilesBySourceNames>
     <fileTableInMemory>true</fileTableInMemory>
-    <cacheFromUrl>http://jorvik.uwaterloo.ca:8080/opendap/hyrax/data/Amundsen_INT_to_NetCDF/468</cacheFromUrl>
+    <cacheFromUrl>http://mistwatch.uwaterloo.ca/opendap/data/Amundsen_Science_and_CIOOS/468</cacheFromUrl>
     <accessibleViaFiles>true</accessibleViaFiles>
     <!-- sourceAttributes>
         <att name="_NCProperties">version=2,netcdf=4.9.0,hdf5=1.12.2</att>
