@@ -517,7 +517,7 @@ information.
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QNGD640313"></script>
-<script defer data-domain="data.cioospacific.ca/erddap" src="https://plausible.server.hakai.app/js/script.js"></script>
+<script defer file-types="nc,json,txt" data-domain="data.cioospacific.ca/erddap" src="https://plausible.server.hakai.app/js/script.file-downloads.js"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
