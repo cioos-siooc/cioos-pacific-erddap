@@ -2,7 +2,7 @@ version: '2'
 services:
   erddap:
     container_name: ${CONTAINER_NAME:-erddap}
-    image: axiom/docker-erddap:2.22-jdk17-openjdk
+    image: axiom/docker-erddap:2.23-jdk17-openjdk
     restart: unless-stopped
     env_file:
       - .env
