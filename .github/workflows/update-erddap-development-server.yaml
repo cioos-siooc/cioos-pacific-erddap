@@ -2,7 +2,6 @@ name: Update Development ERDDAP server
 on:
   push:
     branches:
-      - main
       - development
   workflow_run:
     workflows: [Test datasets.xml and linter]
