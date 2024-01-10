@@ -2459,6 +2459,9 @@
         <sourceName>batry_volt_qa_summary</sourceName>
         <destinationName>batry_volt_qa_summary</destinationName>
         <dataType>int</dataType>
+        <addAttributes>
+            <att name="long_name">Battery Voltage QA Summary</att>
+        </addAttributes>
     </dataVariable>
 
 
