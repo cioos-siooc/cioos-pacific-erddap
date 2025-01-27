@@ -1,7 +1,7 @@
 <dataset type="EDDTableFromMultidimNcFiles" datasetID="IOS_CTD_Moorings" active="true">
     <iso19115File>/xml/IOS_CTD_Moorings_iso19115.xml</iso19115File>
     <reloadEveryNMinutes>1440</reloadEveryNMinutes>
-    <fileDir>/datasets/IOS_CTD_moorings/</fileDir>
+    <fileDir>/datasets/IOS_CTD_moorings_updated/</fileDir>
     <fileNameRegex>.*\.nc</fileNameRegex>
     <recursive>true</recursive>
     <pathRegex>.*</pathRegex>
@@ -26,7 +26,7 @@
         <att name="infoUrl">???</att>
         <att name="license">[standard]</att>
         <att name="sourceUrl">(local files)</att>
-        <att name="subsetVariables">instrument_type, platform, agency, scientist, country, geographic_area</att>
+        <att name="subsetVariables">mission_id,station,instrument_type, platform,project, agency, scientist, country, geographic_area</att>
         <att name="standard_name_vocabulary">CF Standard Name Table v79</att>
         <att name="START_TIME">null</att>
         <att name="start_time">null</att>
@@ -42,10 +42,23 @@
         <att name="institution">Institute of Ocean Sciences</att>
         <att name="platform">subsurface mooring</att>
         <att name="platform_vocabulary">http://vocab.nerc.ac.uk/collection/L06/current/</att>
+        <att name="headers">null</att>
+        <att name="history">null</att>
+        <att name="number_of_channels">null</att>
+        <att name="number_of_records">null</att>
+        <att name="pad">null</att>
+        <att name="ios_header_version">null</att>
+        <att name="comments">null</att>
+        <att name="comment">null</att>
+        <att name="product_version">null</att>
+        <att name="time_units">null</att>
+        <att name="time_zero">null</att>
+        <att name="time_resolution">null</att>
+        <att name="time_coverage_duration">null</att>
     </addAttributes>
 
     <dataVariable>
-        <sourceName>profile</sourceName>
+        <sourceName>***fileName,(.*)\.nc,1</sourceName>
         <destinationName>profile</destinationName>
         <dataType>String</dataType>
         <addAttributes>
@@ -54,79 +67,128 @@
     </dataVariable>
 
     <dataVariable>
-        <sourceName>filename</sourceName>
+        <sourceName>***fileName,(.*),1</sourceName>
         <destinationName>filename</destinationName>
         <dataType>String</dataType>
     </dataVariable>
 
     <dataVariable>
-        <sourceName>country</sourceName>
+        <sourceName>global:country</sourceName>
         <destinationName>country</destinationName>
         <dataType>String</dataType>
     </dataVariable>
 
     <dataVariable>
-        <sourceName>mission_id</sourceName>
+        <sourceName>global:mission</sourceName>
         <destinationName>mission_id</destinationName>
         <dataType>String</dataType>
     </dataVariable>
 
     <dataVariable>
-        <sourceName>scientist</sourceName>
+        <sourceName>global:scientist</sourceName>
         <destinationName>scientist</destinationName>
         <dataType>String</dataType>
     </dataVariable>
 
     <dataVariable>
-        <sourceName>project</sourceName>
+        <sourceName>global:project</sourceName>
         <destinationName>project</destinationName>
         <dataType>String</dataType>
     </dataVariable>
 
     <dataVariable>
-        <sourceName>agency</sourceName>
+        <sourceName>global:agency</sourceName>
         <destinationName>agency</destinationName>
+        <dataType>String</dataType>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>global:station</sourceName>
+        <destinationName>station</destinationName>
         <dataType>String</dataType>
     </dataVariable>
 
     <dataVariable>
-        <sourceName>platform</sourceName>
+        <sourceName>global:platform</sourceName>
         <destinationName>platform</destinationName>
         <dataType>String</dataType>
     </dataVariable>
 
     <dataVariable>
-        <sourceName>instrument_type</sourceName>
+        <sourceName>global:instrument_type</sourceName>
         <destinationName>instrument_type</destinationName>
         <dataType>String</dataType>
     </dataVariable>
 
     <dataVariable>
-        <sourceName>instrument_model</sourceName>
+        <sourceName>global:instrument_model</sourceName>
         <destinationName>instrument_model</destinationName>
         <dataType>String</dataType>
     </dataVariable>
 
     <dataVariable>
-        <sourceName>instrument_serial_number</sourceName>
+        <sourceName>global:instrument_serial_number</sourceName>
         <destinationName>instrument_serial_number</destinationName>
         <dataType>String</dataType>
     </dataVariable>
 
     <dataVariable>
-        <sourceName>geographic_area</sourceName>
+        <sourceName>global:geographic_area</sourceName>
         <destinationName>geographic_area</destinationName>
         <dataType>String</dataType>
     </dataVariable>
 
     <dataVariable>
-        <sourceName>event_number</sourceName>
+        <sourceName>global:event_number</sourceName>
         <destinationName>event_number</destinationName>
+        <dataType>String</dataType>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>global:deployment_mission</sourceName>
+        <destinationName>deployment_mission</destinationName>
         <dataType>String</dataType>
     </dataVariable>
 
     <dataVariable>
-        <sourceName>latitude</sourceName>
+        <sourceName>global:deployment_remarks</sourceName>
+        <destinationName>deployment_remarks</destinationName>
+        <dataType>String</dataType>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>global:water_depth</sourceName>
+        <destinationName>water_depth</destinationName>
+        <dataType>float</dataType>
+        <addAttributes>
+            <att name="units">m</att>
+        </addAttributes>
+    </dataVariable>
+
+
+    <dataVariable>
+        <sourceName>global:deployment_time_anchor_dropped</sourceName>
+        <destinationName>deployment_time_anchor_dropped</destinationName>
+        <dataType>String</dataType>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>global:deployment_type</sourceName>
+        <destinationName>deployment_type</destinationName>
+        <dataType>String</dataType>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>global:recovery_mission</sourceName>
+        <destinationName>recovery_mission</destinationName>
+        <dataType>String</dataType>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>global:recovery_time_anchor_released</sourceName>
+        <destinationName>recovery_time_anchor_released</destinationName>
+        <dataType>String</dataType>
+    </dataVariable>
+
+    <dataVariable>
+        <sourceName>global:latitude</sourceName>
         <destinationName>latitude</destinationName>
         <dataType>float</dataType>
 
@@ -136,7 +198,7 @@
         </addAttributes>
     </dataVariable>
     <dataVariable>
-        <sourceName>longitude</sourceName>
+        <sourceName>global:longitude</sourceName>
         <destinationName>longitude</destinationName>
         <dataType>float</dataType>
         <addAttributes>
@@ -154,25 +216,8 @@
             <att name="units">seconds since 1970-01-01T00:00:00Z</att>
         </addAttributes>
     </dataVariable>
-
     <dataVariable>
-        <sourceName>PRESPR01</sourceName>
-        <destinationName>PRESPR01</destinationName>
-        <dataType>float</dataType>
-        <addAttributes>
-            <att name="ios_name">pressure</att>
-            <att name="long_name">Pressure</att>
-            <att name="standard_name">sea_water_pressure</att>
-            <att name="units">decibar</att>
-            <att name="colorBarMaximum" type="double">8000.0</att>
-            <att name="colorBarMinimum" type="double">0.0</att>
-            <att name="Maximum">null</att>
-            <att name="Minimum">null</att>
-        </addAttributes>
-    </dataVariable>
-
-    <dataVariable>
-        <sourceName>instrument_depth</sourceName>
+        <sourceName>global:instrument_depth</sourceName>
         <destinationName>instrument_depth</destinationName>
         <dataType>float</dataType>
         <addAttributes>
@@ -199,204 +244,236 @@
             <att name="standard_name">depth</att>
         </addAttributes>
     </dataVariable>
-
     <dataVariable>
-        <sourceName>sea_water_temperature</sourceName>
-        <destinationName>sea_water_temperature</destinationName>
+        <sourceName>PRESPR01</sourceName>
+        <destinationName>PRESPR01</destinationName>
         <dataType>float</dataType>
         <addAttributes>
-            <att name="units">degC</att>
-            <att name="long_name">Sea Water Temperature</att>
-            <att name="standard_name">sea_water_temperature</att>
-            <att name="standard_name" value="sea_water_temperature" />
-            <att name="colorBarMaximum" type="double">32.0</att>
-            <att name="colorBarMinimum" type="double">0.0</att>
-        </addAttributes>
-    </dataVariable>
-
-    <dataVariable>
-        <sourceName>sea_water_practical_salinity</sourceName>
-        <destinationName>sea_water_practical_salinity</destinationName>
-        <dataType>float</dataType>
-        <addAttributes>
-            <att name="units">PSS-78</att>
-            <att name="long_name">Sea Water Practical Salinity</att>
-            <att name="standard_name">sea_water_practical_salinity</att>
-            <att name="colorBarMaximum" type="double">37.0</att>
-            <att name="colorBarMinimum" type="double">32.0</att>
-            <att name="Maximum">null</att>
-            <att name="Minimum">null</att>
-        </addAttributes>
-    </dataVariable>
-
-    <dataVariable>
-        <sourceName>sea_water_pressure</sourceName>
-        <destinationName>sea_water_pressure</destinationName>
-        <dataType>float</dataType>
-        <addAttributes>
-            <att name="ios_name">pressure</att>
+            <att name="original_ios_variable">{2: '{"ios_name":"Pressure","units":"decibar"}'}</att>
+            <att name="original_ios_name">Pressure</att>
             <att name="long_name">Pressure</att>
+            <att name="units">decibar</att>
+            <att name="ios_name">pressure</att>
             <att name="standard_name">sea_water_pressure</att>
-            <att name="units">dbar</att>
-            <att name="colorBarMaximum" type="double">5000.0</att>
-            <att name="colorBarMinimum" type="double">0.0</att>
-            <att name="Maximum">null</att>
-            <att name="Minimum">null</att>
+            <att name="sdn_parameter_urn">SDN:P01::PRESPR01</att>
+            <att name="sdn_parameter_name">Pressure (spatial coordinate) exerted by the water body by profiling pressure sensor and correction to read zero at sea level</att>
         </addAttributes>
     </dataVariable>
-
+    <dataVariable>
+        <sourceName>TEMPPR01</sourceName>
+        <destinationName>TEMPPR01</destinationName>
+        <dataType>float</dataType>
+        <addAttributes>
+            <att name="original_ios_variable">{3: '{"ios_name":"Temperature","units":"deg C (ITS90)"}'}</att>
+            <att name="original_ios_name">Temperature</att>
+            <att name="long_name">Temperature</att>
+            <att name="units">degrees_celsius</att>
+            <att name="ios_name">temperature</att>
+            <att name="standard_name">sea_water_temperature</att>
+            <att name="sdn_parameter_urn">SDN:P01::TEMPPR01</att>
+            <att name="sdn_parameter_name">Temperature of the water body</att>
+        </addAttributes>
+    </dataVariable>
     <dataVariable>
         <sourceName>TEMPS901</sourceName>
         <destinationName>TEMPS901</destinationName>
         <dataType>float</dataType>
         <addAttributes>
-            <att name="units">deg_C</att>
-            <att name="long_name">Sea Water Temperature</att>
-            <att name="standard_name" value="sea_water_temperature" />
-            <att name="colorBarMaximum" type="double">32.0</att>
-            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="original_ios_variable">{3: '{"ios_name":"Temperature","units":"deg C (ITS90)"}'}</att>
+            <att name="original_ios_name">Temperature</att>
+            <att name="long_name">CTD Temperature ITS-90</att>
+            <att name="units">degrees_celsius</att>
+            <att name="ios_name">temperature</att>
+            <att name="standard_name">sea_water_temperature</att>
+            <att name="sdn_parameter_urn">SDN:P01::TEMPS901</att>
+            <att name="sdn_parameter_name">Temperature (ITS-90) of the water body by CTD or STD</att>
         </addAttributes>
     </dataVariable>
-
-    <dataVariable>
-        <sourceName>TEMPS902</sourceName>
-        <destinationName>TEMPS902</destinationName>
-        <dataType>float</dataType>
-        <addAttributes>
-            <att name="units">deg_C</att>
-            <att name="long_name">Sea Water Temperature</att>
-            <att name="colorBarMaximum" type="double">32.0</att>
-            <att name="colorBarMinimum" type="double">0.0</att>
-        </addAttributes>
-    </dataVariable>
-
-    <dataVariable>
-        <sourceName>TEMPS601</sourceName>
-        <destinationName>TEMPS601</destinationName>
-        <dataType>float</dataType>
-        <addAttributes>
-            <att name="units">deg_C</att>
-            <att name="long_name">Sea Water Temperature</att>
-            <att name="colorBarMaximum" type="double">32.0</att>
-            <att name="colorBarMinimum" type="double">0.0</att>
-            <att name="Maximum">null</att>
-            <att name="Minimum">null</att>
-        </addAttributes>
-    </dataVariable>
-
-    <dataVariable>
-        <sourceName>TEMPS602</sourceName>
-        <destinationName>TEMPS602</destinationName>
-        <dataType>float</dataType>
-        <addAttributes>
-            <att name="units">deg_C</att>
-            <att name="long_name">Sea Water Temperature</att>
-            <att name="colorBarMaximum" type="double">32.0</att>
-            <att name="colorBarMinimum" type="double">0.0</att>
-            <att name="Maximum">null</att>
-            <att name="Minimum">null</att>
-        </addAttributes>
-    </dataVariable>
-
-    <dataVariable>
-        <sourceName>TEMPST01</sourceName>
-        <destinationName>TEMPST01</destinationName>
-        <dataType>float</dataType>
-        <addAttributes>
-            <att name="units">deg_C</att>
-            <att name="long_name">Sea Water Temperature</att>
-            <att name="colorBarMaximum" type="double">32.0</att>
-            <att name="colorBarMinimum" type="double">0.0</att>
-            <att name="Maximum">null</att>
-            <att name="Minimum">null</att>
-        </addAttributes>
-    </dataVariable>
-
-
-    <dataVariable>
-        <sourceName>PSALST01</sourceName>
-        <destinationName>PSALST01</destinationName>
-        <dataType>float</dataType>
-        <addAttributes>
-            <att name="units">PSS-78</att>
-            <att name="long_name">Sea Water Practical Salinity</att>
-            <att name="standard_name">sea_water_practical_salinity</att>
-            <att name="colorBarMaximum" type="double">37.0</att>
-            <att name="colorBarMinimum" type="double">20.0</att>
-            <att name="Maximum">null</att>
-            <att name="Minimum">null</att>
-        </addAttributes>
-    </dataVariable>
-
-    <dataVariable>
-        <sourceName>PSALST02</sourceName>
-        <destinationName>PSALST02</destinationName>
-        <dataType>float</dataType>
-        <addAttributes>
-            <att name="units">PSS-78</att>
-            <att name="long_name">Sea Water Practical Salinity</att>
-            <att name="standard_name">sea_water_practical_salinity</att>
-            <att name="colorBarMaximum" type="double">37.0</att>
-            <att name="colorBarMinimum" type="double">20.0</att>
-            <att name="Maximum">null</att>
-            <att name="Minimum">null</att>
-        </addAttributes>
-    </dataVariable>
-
     <dataVariable>
         <sourceName>SSALST01</sourceName>
         <destinationName>SSALST01</destinationName>
         <dataType>float</dataType>
         <addAttributes>
+            <att name="original_ios_variable">{4: '{"ios_name":"Salinity","units":"ppt"}'}</att>
+            <att name="original_ios_name">Salinity</att>
+            <att name="long_name">Sea Water Practical Salinity</att>
             <att name="units">PPT</att>
-            <att name="long_name">Sea Water Salinity</att>
+            <att name="ios_name">salinity</att>
             <att name="standard_name">sea_water_salinity</att>
-            <att name="colorBarMaximum" type="double">37.0</att>
-            <att name="colorBarMinimum" type="double">20.0</att>
-            <att name="Maximum">null</att>
-            <att name="Minimum">null</att>
+            <att name="sdn_parameter_urn">SDN:P01::SSALST01</att>
+            <att name="sdn_parameter_name">Salinity of the water body by CTD</att>
         </addAttributes>
     </dataVariable>
-
     <dataVariable>
-        <sourceName>DOXYZZ01</sourceName>
-        <destinationName>DOXYZZ01</destinationName>
+        <sourceName>PSALST01</sourceName>
+        <destinationName>PSALST01</destinationName>
         <dataType>float</dataType>
         <addAttributes>
-            <att name="units">mL/L</att>
-            <att name="long_name">Oxygen concentration</att>
-            <att name="standard_name">volume_fraction_of_oxygen_in_sea_water</att>
-            <att name="colorBarMaximum" type="double">10.0</att>
-            <att name="colorBarMinimum" type="double">0.0</att>
+            <att name="original_ios_variable">{4: '{"ios_name":"Salinity:T0:C0","units":"PSS-78"}'}</att>
+            <att name="original_ios_name">Salinity:T0:C0</att>
+            <att name="long_name">Salinity</att>
+            <att name="units">PSS-78</att>
+            <att name="ios_name">salinity:t0:c0</att>
+            <att name="standard_name">sea_water_practical_salinity</att>
+            <att name="sdn_parameter_urn">SDN:P01::PSALST01</att>
+            <att name="sdn_parameter_name">Practical salinity of the water body by CTD and computation using UNESCO 1983 algorithm</att>
         </addAttributes>
     </dataVariable>
-
-    <dataVariable>
-        <sourceName>DOXMZZ01</sourceName>
-        <destinationName>DOXMZZ01</destinationName>
-        <dataType>float</dataType>
-        <addAttributes>
-            <att name="units">umol/kg</att>
-            <att name="long_name">Oxygen concentration</att>
-            <att name="standard_name">mole_concentration_of_dissolved_molecular_oxygen_in_sea_water</att>
-            <att name="colorBarMaximum" type="double">400.0</att>
-            <att name="colorBarMinimum" type="double">150.0</att>
-        </addAttributes>
-    </dataVariable>
-
     <dataVariable>
         <sourceName>CNDCST01</sourceName>
         <destinationName>CNDCST01</destinationName>
         <dataType>float</dataType>
         <addAttributes>
+            <att name="original_ios_variable">{4: '{"ios_name":"Conductivity:Primary","units":"S\\/m"}'}</att>
+            <att name="original_ios_name">Conductivity:Primary</att>
+            <att name="long_name">Conductivity</att>
             <att name="units">S/m</att>
-            <att name="long_name">Sea Water Electrical Conductivity</att>
+            <att name="ios_name">conductivity:primary</att>
             <att name="standard_name">sea_water_electrical_conductivity</att>
-            <att name="colorBarMaximum" type="double">37.0</att>
-            <att name="colorBarMinimum" type="double">20.0</att>
-            <att name="Maximum">null</att>
-            <att name="Minimum">null</att>
+            <att name="sdn_parameter_urn">SDN:P01::CNDCST01</att>
+            <att name="sdn_parameter_name">Electrical conductivity of the water body by CTD</att>
         </addAttributes>
     </dataVariable>
-
+    <dataVariable>
+        <sourceName>CPHLPR01</sourceName>
+        <destinationName>CPHLPR01</destinationName>
+        <dataType>float</dataType>
+        <addAttributes>
+            <att name="original_ios_variable">{5: '{"ios_name":"Fluorescence:Wetlabs:ECO-AFL","units":"mg\\/m^3"}'}</att>
+            <att name="original_ios_name">Fluorescence:Wetlabs:ECO-AFL</att>
+            <att name="long_name">Fluorescence</att>
+            <att name="units">mg/m^3</att>
+            <att name="ios_name">fluorescence:wetlabs:eco-afl</att>
+            <att name="standard_name">mass_concentration_of_chlorophyll_a_in_sea_water</att>
+            <att name="sdn_parameter_urn">SDN:P01::CPHLPR01</att>
+            <att name="sdn_parameter_name">Concentration of chlorophyll-a {chl-a CAS 479-61-8} per unit volume of the water body [particulate >unknown phase] by in-situ chlorophyll fluorometer</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>DOXYZZ01</sourceName>
+        <destinationName>DOXYZZ01</destinationName>
+        <dataType>float</dataType>
+        <addAttributes>
+            <att name="original_ios_variable">{5: '{"ios_name":"Oxygen:Dissolved","units":"mL\\/L"}'}</att>
+            <att name="original_ios_name">Oxygen:Dissolved</att>
+            <att name="long_name">Dissolved Oxygen</att>
+            <att name="units">mL/L</att>
+            <att name="ios_name">oxygen:dissolved</att>
+            <att name="standard_name">volume_fraction_of_oxygen_in_sea_water</att>
+            <att name="sdn_parameter_urn">SDN:P01::DOXYZZ01</att>
+            <att name="sdn_parameter_name">Concentration of oxygen {O2 CAS 7782-44-7} per unit volume of the water body [dissolved plus reactive particulate phase] by in-situ sensor</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>DOXMZZ01</sourceName>
+        <destinationName>DOXMZZ01</destinationName>
+        <dataType>float</dataType>
+        <addAttributes>
+            <att name="original_ios_variable">{6: '{"ios_name":"Oxygen:Dissolved:SBE","units":"umol\\/kg"}'}</att>
+            <att name="original_ios_name">Oxygen:Dissolved:SBE</att>
+            <att name="long_name">Dissolved Oxygen</att>
+            <att name="units">umol/kg</att>
+            <att name="ios_name">oxygen:dissolved:sbe</att>
+            <att name="standard_name">moles_of_oxygen_per_unit_mass_in_sea_water</att>
+            <att name="sdn_parameter_urn">SDN:P01::DOXMZZ01</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>DOXYZZ02</sourceName>
+        <destinationName>DOXYZZ02</destinationName>
+        <dataType>float</dataType>
+        <addAttributes>
+            <att name="original_ios_variable">{7: '{"ios_name":"Oxygen:dissolved:G+G","units":"mL\\/L"}'}</att>
+            <att name="original_ios_name">Oxygen:dissolved:G+G</att>
+            <att name="long_name">Secondary Dissolved Oxygen</att>
+            <att name="units">mL/L</att>
+            <att name="ios_name">oxygen:dissolved:g+g</att>
+            <att name="standard_name">volume_fraction_of_oxygen_in_sea_water</att>
+            <att name="sdn_parameter_urn">SDN:P01::DOXYZZ01</att>
+            <att name="sdn_parameter_name">Concentration of oxygen {O2 CAS 7782-44-7} per unit volume of the water body [dissolved plus reactive particulate phase] by in-situ sensor</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>TURBXXXX</sourceName>
+        <destinationName>TURBXXXX</destinationName>
+        <dataType>float</dataType>
+        <addAttributes>
+            <att name="original_ios_variable">{7: '{"ios_name":"Turbidity","units":"NTU"}'}</att>
+            <att name="original_ios_name">Turbidity</att>
+            <att name="long_name">Turbidity</att>
+            <att name="units">NTU</att>
+            <att name="ios_name">turbidity</att>
+            <att name="standard_name">sea_water_turbidity</att>
+            <att name="sdn_parameter_urn">SDN:P01::TURBXXXX</att>
+            <att name="sdn_parameter_name">Turbidity of water in the water body</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>TURBPR01</sourceName>
+        <destinationName>TURBPR01</destinationName>
+        <dataType>float</dataType>
+        <addAttributes>
+            <att name="original_ios_variable">{7: '{"ios_name":"Turbidity:Wetlabs","units":"NTU"}'}</att>
+            <att name="original_ios_name">Turbidity:Wetlabs</att>
+            <att name="long_name">Calibrated Turbidity</att>
+            <att name="units">NTU</att>
+            <att name="ios_name">turbidity:wetlabs</att>
+            <att name="standard_name">sea_water_turbidity</att>
+            <att name="sdn_parameter_urn">SDN:P01::TURBPR01</att>
+            <att name="sdn_parameter_name">Turbidity of water in the water body by in-situ optical backscatter measurement and laboratory calibration against formazin</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>SIGTEQST</sourceName>
+        <destinationName>SIGTEQST</destinationName>
+        <dataType>float</dataType>
+        <addAttributes>
+            <att name="original_ios_variable">{10: '{"ios_name":"Sigma-t","units":"kg\\/m^3"}'}</att>
+            <att name="original_ios_name">Sigma-t</att>
+            <att name="long_name">Sigma-theta</att>
+            <att name="units">kg/m^3</att>
+            <att name="ios_name">sigma-t</att>
+            <att name="standard_name">sea_water_sigma_t</att>
+            <att name="sdn_parameter_urn">SDN:P01::SIGTPR01</att>
+            <att name="sdn_parameter_name">Sigma-theta of the water body by CTD and computation from salinity and potential temperature using UNESCO algorithm</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>SVELXXXX</sourceName>
+        <destinationName>SVELXXXX</destinationName>
+        <dataType>float</dataType>
+        <addAttributes>
+            <att name="original_ios_variable">{6: '{"ios_name":"Speed:Sound","units":"m\\/s"}'}</att>
+            <att name="original_ios_name">Speed:Sound</att>
+            <att name="long_name">Speed:Sound</att>
+            <att name="units">m/s</att>
+            <att name="ios_name">speed:sound</att>
+            <att name="standard_name">speed_of_sound_in_sea_water</att>
+            <att name="sdn_parameter_urn">SDN:P01::SVELXXXX</att>
+            <att name="sdn_parameter_name">Sound velocity in the water body</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>Flag</sourceName>
+        <destinationName>Flag</destinationName>
+        <dataType>float</dataType>
+        <addAttributes>
+            <att name="original_ios_variable">{11: '{"ios_name":"Flag","units":null}'}</att>
+            <att name="original_ios_name">Flag</att>
+            <att name="long_name">Flag</att>
+            <att name="flag_values">[0 2 6]</att>
+            <att name="flag_meanings">not_quality_control good interpolated_or_replaced_by_dual_sensor_or_upcast_value</att>
+        </addAttributes>
+    </dataVariable>
+    <dataVariable>
+        <sourceName>record_number</sourceName>
+        <destinationName>record_number</destinationName>
+        <dataType>float</dataType>
+        <addAttributes>
+            <att name="original_ios_variable">{0: '{"ios_name":"Record_Number","units":null}'}</att>
+            <att name="original_ios_name">Record_Number</att>
+            <att name="long_name">Record_Number</att>
+            <att name="ios_name">record_number</att>
+        </addAttributes>
+    </dataVariable>
 </dataset>
