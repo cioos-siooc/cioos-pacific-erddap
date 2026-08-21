@@ -80,8 +80,20 @@ directories on the same machine. It:
 
 Setup:
 
+> **Port collision warning:** `cioos-pacific-bucket/docker-compose.yml` ships its own bundled
+> `erddap-restore-agent` — a self-contained fake destination it uses to test its own
+> backup→restore loop in isolation — published on host port **8090**. That's the same host
+> port this repo's real `erddap` container uses (`HOST_PORT:-8090:8080`). On a host running
+> both repos side by side, a plain `docker compose up -d` in `cioos-pacific-bucket` will try to
+> bind 8090 twice and fail with `port is already allocated`. You don't need that bundled agent
+> here at all — the real destination-side agent is the one below, on port 8091. Bring up only
+> what the bucket needs instead:
+> ```bash
+> cd ../cioos-pacific-bucket
+> docker compose up -d seaweedfs-master seaweedfs-volume seaweedfs-filer seaweedfs-s3 init-bucket erddap-sync
+> ```
+
 ```bash
-cd ../cioos-pacific-bucket && docker compose up -d   # brings up SeaweedFS + the bucket
 cd ../cioos-pacific-erddap
 cp restore-agent.env.sample restore-agent.env   # fill in S3_* / RESTORE_WEBHOOK_TOKEN —
                                                  # must match ../cioos-pacific-bucket/.env exactly
