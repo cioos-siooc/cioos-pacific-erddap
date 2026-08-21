@@ -52,3 +52,82 @@ The following commands are usefull for handling an erdddap docker container:
 - See ERDDAP Status page <http://localhost:8090/erddap/status.html>
 - See ERDDAP log `erddap/data/logs/log.txt` for more information
 - Test your dataset with the following command: `sh DasDds.sh` And then type in a dataset ID
+
+## Restoring from cioos-pacific-bucket
+
+[cioos-pacific-bucket](https://github.com/cioos-siooc/cioos-pacific-bucket) backs up ERDDAP
+datasets to a SeaweedFS (S3-compatible) bucket and can push them back to an ERDDAP host
+on demand via its `restore` command — useful for recovering a dataset, or repopulating this
+repo's `datasets/` folder after a rebuild, without waiting on the passive cron/git flow.
+
+### Local host (implemented)
+
+`docker-compose.local.yml` runs an `erddap-restore-agent` service — the destination side of
+`cioos-pacific-bucket`'s restore command — for when both repos are checked out as sibling
+directories on the same machine. It:
+
+- writes restored `.nc` files into `./datasets/<dataset_id>/`, matching this repo's existing
+  `fileDir` convention (see any file in `datasets.d/`)
+- writes generated dataset XML into `./datasets.d.restored/` (gitignored) — a **staging** area,
+  not the live `datasets.d/`. `datasets.d/` is git-tracked and hand-curated, and is deployed via
+  the normal git + CI + SSH flow ([update-erddap.sh](update-erddap.sh)), so restore never writes
+  into it directly. Review a generated fragment and `git add` it yourself if it looks right.
+- touches `./erddap/data/hardFlag/<dataset_id>` per restored dataset, reusing the exact reload
+  mechanism `update-erddap.sh --hardFlag` already uses — no new reload path introduced
+- is bound to `127.0.0.1:8091` only (never reachable off the host), and joins
+  `cioos-pacific-bucket_default` (declared as an `external` network) so it can resolve
+  `seaweedfs-s3` by name without any change to that repo's compose file
+
+Setup:
+
+```bash
+cd ../cioos-pacific-bucket && docker compose up -d   # brings up SeaweedFS + the bucket
+cd ../cioos-pacific-erddap
+cp restore-agent.env.sample restore-agent.env   # fill in S3_* / RESTORE_WEBHOOK_TOKEN —
+                                                 # must match ../cioos-pacific-bucket/.env exactly
+docker compose -f docker-compose.local.yml up -d erddap-restore-agent
+```
+
+Then from `cioos-pacific-bucket`, with a `pacific` instance configured with
+`restore_webhook_url: http://erddap-restore-agent:8090` in `config.yaml`:
+
+```bash
+# IMPORTANT: --data-dir must be /datasets (how the erddap container itself sees the
+# mount), not the restore-agent's own internal /erddapData/datasets path — otherwise
+# the generated <fileDir> won't match where ERDDAP actually looks.
+docker compose run --rm erddap-sync -c /app/config.yaml restore pacific <dataset_id> --data-dir /datasets
+```
+
+### TODO: remote host (production / development)
+
+Not yet implemented. The production and development ERDDAP servers are separate remote
+machines, reachable today only via SSH (see the `PROD_SERVER_*` / `DEV_SERVER_*` secrets used
+by [update-erddap-production-server.yaml](.github/workflows/update-erddap-production-server.yaml)
+and [update-erddap-development-server.yaml](.github/workflows/update-erddap-development-server.yaml)),
+so the local setup above — shared Docker network, loopback port — doesn't carry over directly.
+Rough plan:
+
+1. **Deploy the agent on the remote host itself**, as a service in `docker-compose.yml` (the
+   one actually running on those hosts, not `docker-compose.local.yml`), not sharing a Docker
+   network with `cioos-pacific-bucket` (which runs elsewhere). Bind its port to loopback only,
+   same as local, and reach it either over an SSH tunnel
+   (`ssh -L 8090:localhost:8090 <prod-or-dev-host>`) run from wherever `erddap-sync restore` is
+   invoked, or over a private/VPC network restricted by firewall to the bucket host's IP —
+   never publish it on a public interface.
+2. **Provision real secrets on the remote host** — `RESTORE_WEBHOOK_TOKEN` and the S3
+   credentials — as GitHub Actions secrets synced to the host's `restore-agent.env`, the same
+   way `PROD_SERVER_SSH_KEY` etc. are already managed. Do not reuse the shared local-dev token
+   committed nowhere but also not treated as secret today.
+3. **Two separate destinations**: prod and dev are different hosts, so this needs either two
+   `erddap_instances` entries in `cioos-pacific-bucket`'s `config.yaml` (`prod`, `dev`), each
+   with its own `restore_webhook_url` and tunnel/network path, or a shared bastion pattern that
+   both reuse.
+4. **Keep restore on-demand, not part of every deploy** — the existing SSH `git pull` +
+   `--hardFlag` flow in `update-erddap.sh` stays the routine deploy path; `restore` remains a
+   manual disaster-recovery / single-dataset-recovery tool triggered separately, run from
+   wherever `cioos-pacific-bucket` is operated.
+5. **`datasets.d.restored/` review step changes** — a reviewer needs to pull generated
+   fragments off the remote host (e.g. `scp`) before diffing and committing them, since there's
+   no shared filesystem like the local sibling-checkout setup has.
+6. **Document the new secrets** in `sample.env`/`restore-agent.env.sample` and the deployment
+   runbook, alongside the existing `PROD_SERVER_*` / `DEV_SERVER_*` GitHub Actions secrets.

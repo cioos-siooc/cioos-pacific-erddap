@@ -15,3 +15,7 @@ bkp/**
 datasets/**
 .last_update_sha
 tomcatLogs
+
+# restore-agent (see README.md "Restoring from cioos-pacific-bucket")
+restore-agent.env
+datasets.d.restored/

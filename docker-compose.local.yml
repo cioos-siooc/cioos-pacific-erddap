@@ -26,3 +26,50 @@ services:
           "http://localhost:8080/erddap/index.html"
         ]
       interval: 10s
+
+  # ── erddap-sync restore-agent (local host) ────────────────────────────────
+  # Pulls dataset backups from the cioos-pacific-bucket SeaweedFS store onto
+  # this host's dataset/config directories, reusing the existing hardFlag
+  # reload mechanism (see update-erddap.sh --hardFlag). Assumes
+  # ../cioos-pacific-bucket is a sibling checkout whose own `docker compose up`
+  # has been run at least once, so the cioos-pacific-bucket_default network
+  # and seaweedfs-s3 already exist. Bound to loopback only — not reachable
+  # off this host. See README.md "Restoring from cioos-pacific-bucket" for
+  # setup and the remote-host TODO.
+  erddap-restore-agent:
+    build:
+      context: ../cioos-pacific-bucket
+      dockerfile: Dockerfile
+    env_file:
+      - restore-agent.env
+    command:
+      - "-c"
+      - "/app/config.yaml"
+      - "restore-agent"
+      - "--data-dir"
+      - "/erddapData/datasets"
+      - "--datasets-d-dir"
+      - "/erddapData/datasets.d.restored"
+      - "--flag-dir"
+      - "/erddapData/hardFlag"
+      - "--port"
+      - "8090"
+    networks:
+      - bucket-storage
+    ports:
+      - "127.0.0.1:8091:8090"
+    volumes:
+      - ./restore-agent.config.yaml:/app/config.yaml:ro
+      - ./datasets:/erddapData/datasets
+      - ./datasets.d.restored:/erddapData/datasets.d.restored
+      - ./erddap/data/hardFlag:/erddapData/hardFlag
+    restart: unless-stopped
+
+networks:
+  # References cioos-pacific-bucket's own compose-managed network so this
+  # container can resolve seaweedfs-s3 by name without editing that repo.
+  # If the bucket repo's directory name (and thus its default project/network
+  # name) differs on your machine, update `name:` to match.
+  bucket-storage:
+    external: true
+    name: cioos-pacific-bucket_default
