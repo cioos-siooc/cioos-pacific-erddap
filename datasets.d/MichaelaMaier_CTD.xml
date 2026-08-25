@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<erddapDatasets>
+  <dataset type="EDDTableFromNcFiles" datasetID="MichaelaMaier_CTD" active="true">
+    <reloadEveryNMinutes>10080</reloadEveryNMinutes>
+    <fileDir>/erddapData/datasets/MichaelaMaier_CTD/</fileDir>
+    <fileNameRegex>.*\.nc</fileNameRegex>
+    <recursive>false</recursive>
+    <metadataFrom>last</metadataFrom>
+    <sortedColumnSourceName>time</sortedColumnSourceName>
+    <sortFilesBySourceNames>time</sortFilesBySourceNames>
+    <fileTableInMemory>false</fileTableInMemory>
+  </dataset>
+</erddapDatasets>

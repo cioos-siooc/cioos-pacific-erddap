@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<erddapDatasets>
+  <dataset type="EDDTableFromNcFiles" datasetID="dfo-hal1002-20251201_erddap" active="true">
+    <reloadEveryNMinutes>10080</reloadEveryNMinutes>
+    <fileDir>/erddapData/datasets/dfo-hal1002-20251201_erddap/</fileDir>
+    <fileNameRegex>.*\.nc</fileNameRegex>
+    <recursive>false</recursive>
+    <metadataFrom>last</metadataFrom>
+    <sortedColumnSourceName>time</sortedColumnSourceName>
+    <sortFilesBySourceNames>time</sortFilesBySourceNames>
+    <fileTableInMemory>false</fileTableInMemory>
+  </dataset>
+</erddapDatasets>
