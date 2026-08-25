@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<erddapDatasets>
   <dataset type="EDDTableFromNcFiles" datasetID="DFO_MEDS_BUOYS" active="true">
     <reloadEveryNMinutes>10080</reloadEveryNMinutes>
     <fileDir>/erddapData/datasets/DFO_MEDS_BUOYS/</fileDir>
@@ -10,4 +8,3 @@
     <sortFilesBySourceNames>time</sortFilesBySourceNames>
     <fileTableInMemory>false</fileTableInMemory>
   </dataset>
-</erddapDatasets>

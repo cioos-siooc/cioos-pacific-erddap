@@ -1,5 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<erddapDatasets>
   <dataset type="EDDTableFromNcFiles" datasetID="dfo-kitt1097-20250826_erddap" active="true">
     <reloadEveryNMinutes>10080</reloadEveryNMinutes>
     <fileDir>/erddapData/datasets/dfo-kitt1097-20250826_erddap/</fileDir>
@@ -10,4 +8,3 @@
     <sortFilesBySourceNames>time</sortFilesBySourceNames>
     <fileTableInMemory>false</fileTableInMemory>
   </dataset>
-</erddapDatasets>
