@@ -4,7 +4,5 @@
     <fileNameRegex>.*\.nc</fileNameRegex>
     <recursive>false</recursive>
     <metadataFrom>last</metadataFrom>
-    <sortedColumnSourceName>time</sortedColumnSourceName>
-    <sortFilesBySourceNames>time</sortFilesBySourceNames>
     <fileTableInMemory>false</fileTableInMemory>
   </dataset>
