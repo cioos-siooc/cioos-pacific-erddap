@@ -15,3 +15,7 @@ bkp/**
 datasets/**
 .last_update_sha
 tomcatLogs
+
+# server-local files: never committed, so git pull (and the update workflows) keep working
+.env.bak*
+docker-compose.override.yml

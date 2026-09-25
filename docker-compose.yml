@@ -26,6 +26,20 @@ services:
           "http://localhost:8080/erddap/index.html"
         ]
       interval: 10s
+  pipelines-db:
+    # Optional (COMPOSE_PROFILES=pipelines-db): the cioos-pipelines database (cioos-siooc/cioos-pacific-pipeline)
+    # reached through its Cloudflare Tunnel with an Access service token. ERDDAP then connects to
+    #   jdbc:postgresql://pipelines-db:5432/cioos
+    # See README "Database from cioos-pipelines". Nothing changes on servers without the profile.
+    image: cloudflare/cloudflared:${CLOUDFLARED_VERSION:-latest}
+    profiles: ["pipelines-db"]
+    restart: unless-stopped
+    command: access tcp
+    environment:
+      TUNNEL_SERVICE_HOSTNAME: ${PIPELINES_DB_HOSTNAME:-}
+      TUNNEL_SERVICE_URL: 0.0.0.0:5432
+      TUNNEL_SERVICE_TOKEN_ID: ${PIPELINES_DB_ACCESS_CLIENT_ID:-}
+      TUNNEL_SERVICE_TOKEN_SECRET: ${PIPELINES_DB_ACCESS_CLIENT_SECRET:-}
   erddap-logs:
     image: gynter/rsyslog-relp:alpine
     volumes:

@@ -52,3 +52,35 @@ The following commands are usefull for handling an erdddap docker container:
 - See ERDDAP Status page <http://localhost:8090/erddap/status.html>
 - See ERDDAP log `erddap/data/logs/log.txt` for more information
 - Test your dataset with the following command: `sh DasDds.sh` And then type in a dataset ID
+## Database from cioos-pipelines
+
+`DFO_MEDS_BUOYS` and `ECCC_MSC_BUOYS` read the placeholder `hakai_database_connection`, which
+`init.d/replace-datasets-secrets.sh` replaces with `ERDDAP_SECRET_hakai_database_connection` from `.env`.
+To read them from the [cioos-pipelines](https://github.com/cioos-siooc/cioos-pacific-pipeline) database
+instead of db.hakai.org, the optional `pipelines-db` service opens a connection through that stack's
+Cloudflare Tunnel. On the ERDDAP server's `.env`:
+
+```bash
+COMPOSE_PROFILES=pipelines-db
+PIPELINES_DB_HOSTNAME=<database hostname of the pipelines tunnel>
+PIPELINES_DB_ACCESS_CLIENT_ID=<Cloudflare Access service token id>
+PIPELINES_DB_ACCESS_CLIENT_SECRET=<Cloudflare Access service token secret>
+ERDDAP_SECRET_hakai_database_connection=jdbc:postgresql://pipelines-db:5432/cioos?user=erddap\&amp;password=<erddap password>
+```
+
+- Write `\&amp;`, not `&`, in the JDBC URL. The replacement script is `sed`, where `&` means "the matched
+  text", and the result must be valid XML. The script turns `\&amp;` into `&amp;`, which ERDDAP reads as `&`.
+- The password must not contain `@`, `&`, `\`, `<` or `>`. Generate it with `openssl rand -hex 24`.
+- `erddap` is a read-only role created on the pipelines stack with `scripts/create-readonly-role.sh erddap`.
+- The service token must be allowed by a *Service Auth* policy on the database hostname's Cloudflare Access
+  application.
+
+Then `docker compose up -d` (starts `pipelines-db`) and restart `erddap` so the new `.env` value is applied.
+Check the connection from the ERDDAP container with `docker compose exec erddap bash -c 'cat < /dev/null > /dev/tcp/pipelines-db/5432 && echo ok'`.
+
+## Server-specific settings
+
+Keep each server's settings in its `.env` (ERDDAP reads any `setup.xml` setting from an `ERDDAP_<setting>`
+variable), not in edits to tracked files. A modified `docker-compose.yml` or `erddap/content/setup.xml` makes
+`git pull` fail, which silently stops the update workflows. For anything `.env` can't express, use
+`docker-compose.override.yml`: Docker Compose loads it automatically, and git ignores it.
