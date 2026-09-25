@@ -77,3 +77,10 @@ ERDDAP_SECRET_hakai_database_connection=jdbc:postgresql://pipelines-db:5432/cioo
 
 Then `docker compose up -d` (starts `pipelines-db`) and restart `erddap` so the new `.env` value is applied.
 Check the connection from the ERDDAP container with `docker compose exec erddap bash -c 'cat < /dev/null > /dev/tcp/pipelines-db/5432 && echo ok'`.
+
+## Server-specific settings
+
+Keep each server's settings in its `.env` (ERDDAP reads any `setup.xml` setting from an `ERDDAP_<setting>`
+variable), not in edits to tracked files. A modified `docker-compose.yml` or `erddap/content/setup.xml` makes
+`git pull` fail, which silently stops the update workflows. For anything `.env` can't express, use
+`docker-compose.override.yml`: Docker Compose loads it automatically, and git ignores it.
