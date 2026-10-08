@@ -55,7 +55,11 @@ services:
       - "--port"
       - "8090"
     networks:
-      - bucket-storage
+      bucket-storage:
+        # A name only this agent answers to. cioos-pacific-bucket's own test agent is also called
+        # erddap-restore-agent on that network, so that name can reach either one; point
+        # restore_webhook_url at http://pacific-erddap-restore-agent:8090 instead.
+        aliases: [pacific-erddap-restore-agent]
     ports:
       - "127.0.0.1:8091:8090"
     volumes:

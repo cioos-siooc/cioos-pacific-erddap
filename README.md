@@ -101,13 +101,17 @@ docker compose -f docker-compose.local.yml up -d erddap-restore-agent
 ```
 
 Then from `cioos-pacific-bucket`, with a `pacific` instance configured with
-`restore_webhook_url: http://erddap-restore-agent:8090` in `config.yaml`:
+`restore_webhook_url: http://pacific-erddap-restore-agent:8090` in `config.yaml`. Use that name, not
+`erddap-restore-agent`: the bucket stack's own test agent has that name on the same network, so it can
+answer instead of this one.
 
 ```bash
 # IMPORTANT: --data-dir must be /datasets (how the erddap container itself sees the
 # mount), not the restore-agent's own internal /erddapData/datasets path — otherwise
 # the generated <fileDir> won't match where ERDDAP actually looks.
-docker compose run --rm erddap-sync -c /app/config.yaml restore pacific <dataset_id> --data-dir /datasets
+# erddap-sync is behind the bucket repo's `manual` profile; a restore only reads the bucket,
+# so --entrypoint erddap-sync skips its write lock.
+docker compose --profile manual run --rm --entrypoint erddap-sync erddap-sync -c /app/config.yaml restore pacific <dataset_id> --data-dir /datasets
 ```
 
 ### TODO: remote host (production / development)
