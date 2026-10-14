@@ -4,7 +4,7 @@
     <reloadEveryNMinutes>10080</reloadEveryNMinutes>
     <updateEveryNMillis>10000</updateEveryNMillis>
     <fileDir>/datasets/NEP36_CanOE/</fileDir>
-    <fileNameRegex>.*</fileNameRegex>
+    <fileNameRegex>.*\.nc</fileNameRegex>
     <recursive>true</recursive>
     <pathRegex>.*</pathRegex>
     <metadataFrom>last</metadataFrom>
@@ -44,7 +44,7 @@ Wed Jan  6 03:20:02 2021: ncks -x -v std ../../NEP36-CanOE_STD/NEP36-CanOE_temp_
         </addAttributes>
     </axisVariable>
     <axisVariable>
-        <sourceName>deptht</sourceName>
+        <sourceName>depth</sourceName>
         <destinationName>depth</destinationName>
         <!-- sourceAttributes>
             <att name="axis">Z</att>
@@ -62,7 +62,7 @@ Wed Jan  6 03:20:02 2021: ncks -x -v std ../../NEP36-CanOE_STD/NEP36-CanOE_temp_
         </addAttributes>
     </axisVariable>
     <axisVariable>
-        <sourceName>y</sourceName>
+        <sourceName>latitude</sourceName>
         <destinationName>latitude</destinationName>
         <!-- sourceAttributes>
         </sourceAttributes -->
@@ -75,7 +75,7 @@ Wed Jan  6 03:20:02 2021: ncks -x -v std ../../NEP36-CanOE_STD/NEP36-CanOE_temp_
         </addAttributes>
     </axisVariable>
     <axisVariable>
-        <sourceName>x</sourceName>
+        <sourceName>longitude</sourceName>
         <destinationName>longitude</destinationName>
         <!-- sourceAttributes>
         </sourceAttributes -->

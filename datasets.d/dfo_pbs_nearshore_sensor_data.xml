@@ -1,17 +1,14 @@
-<dataset type="EDDTableFromAsciiFiles" datasetID="dfo_pbs_nearshore_sensor_data" active="true">
+<dataset type="EDDTableFromNcFiles" datasetID="dfo_pbs_nearshore_sensor_data" active="true">
     <reloadEveryNMinutes>10080</reloadEveryNMinutes>
     <updateEveryNMillis>10000</updateEveryNMillis>
-    <fileDir>/datasets/dfo_pbs_nearshore_sensor_data_flagged/</fileDir>
-    <fileNameRegex>.*_flagged\.csv</fileNameRegex>
+    <fileDir>/datasets/dfo_pbs_nearshore_sensor_data/</fileDir>
+    <fileNameRegex>.*\.nc</fileNameRegex>
     <recursive>true</recursive>
     <pathRegex>.*</pathRegex>
     <metadataFrom>last</metadataFrom>
-    <charset>UTF-8</charset>
-    <columnNamesRow>1</columnNamesRow>
-    <firstDataRow>2</firstDataRow>
     <standardizeWhat>0</standardizeWhat>
-    <sortedColumnSourceName>date_time_UTC</sortedColumnSourceName>
-    <sortFilesBySourceNames>date_time_UTC</sortFilesBySourceNames>
+    <sortedColumnSourceName>time</sortedColumnSourceName>
+    <sortFilesBySourceNames>time</sortFilesBySourceNames>
     <fileTableInMemory>false</fileTableInMemory>
     <accessibleViaFiles>true</accessibleViaFiles>
     <!-- sourceAttributes>
@@ -37,7 +34,7 @@
         <att name="title">DFO PBS Nearshore Sensors Timeseries</att>
     </addAttributes>
         <dataVariable>
-        <sourceName>***fileName,(.*)\.csv,1</sourceName>
+        <sourceName>source_file</sourceName>
         <destinationName>source_file</destinationName>
         <dataType>String</dataType>
         <addAttributes>
@@ -46,7 +43,7 @@
         </addAttributes>
     </dataVariable>
     <dataVariable>
-        <sourceName>***fileName,(.*)_S\d+_.*,1</sourceName>
+        <sourceName>station</sourceName>
         <destinationName>station</destinationName>
         <dataType>String</dataType>
         <addAttributes>
@@ -65,7 +62,7 @@
         </addAttributes>
     </dataVariable>
     <dataVariable>
-        <sourceName>***fileName,.*_(S\d+)_.*,1</sourceName>
+        <sourceName>instrument_serial_number</sourceName>
         <destinationName>instrument_serial_number</destinationName>
         <dataType>String</dataType>
         <addAttributes>
@@ -74,7 +71,7 @@
         </addAttributes>
     </dataVariable>
     <dataVariable>
-        <sourceName>latitude_dd</sourceName>
+        <sourceName>latitude</sourceName>
         <destinationName>latitude</destinationName>
         <dataType>float</dataType>
         <addAttributes>
@@ -87,7 +84,7 @@
         </addAttributes>
     </dataVariable>
     <dataVariable>
-        <sourceName>longitude_dd</sourceName>
+        <sourceName>longitude</sourceName>
         <destinationName>longitude</destinationName>
         <dataType>float</dataType>
         <addAttributes>
@@ -100,19 +97,19 @@
         </addAttributes>
     </dataVariable>
     <dataVariable>
-        <sourceName>date_time_UTC</sourceName>
+        <sourceName>time</sourceName>
         <destinationName>time</destinationName>
-        <dataType>String</dataType>
+        <dataType>double</dataType>
         <addAttributes>
             <att name="ioos_category">Time</att>
             <att name="long_name">Date Time</att>
             <att name="standard_name">time</att>
             <att name="time_precision">1970-01-01T00:00:00Z</att>
-            <att name="units">yyyy-MM-dd HH:mm:ssxxx</att>
+            <att name="units">seconds since 1970-01-01T00:00:00Z</att>
         </addAttributes>
     </dataVariable>
     <dataVariable>
-        <sourceName>depth_m</sourceName>
+        <sourceName>depth</sourceName>
         <destinationName>depth</destinationName>
         <dataType>byte</dataType>
         <addAttributes>
@@ -127,7 +124,7 @@
         </addAttributes>
     </dataVariable>
     <dataVariable>
-        <sourceName>temp_degC</sourceName>
+        <sourceName>temp</sourceName>
         <destinationName>temp</destinationName>
         <dataType>float</dataType>
         <addAttributes>
@@ -138,7 +135,7 @@
         </addAttributes>
     </dataVariable>
     <dataVariable>
-        <sourceName>salinity_psu</sourceName>
+        <sourceName>salinity</sourceName>
         <destinationName>salinity</destinationName>
         <dataType>float</dataType>
         <addAttributes>
@@ -149,7 +146,7 @@
         </addAttributes>
     </dataVariable>
     <dataVariable>
-        <sourceName>conductivity_mS_cm</sourceName>
+        <sourceName>conductivity</sourceName>
         <destinationName>conductivity</destinationName>
         <dataType>float</dataType>
         <addAttributes>
@@ -160,7 +157,7 @@
         </addAttributes>
     </dataVariable>
     <dataVariable>
-        <sourceName>velocity_m_sec</sourceName>
+        <sourceName>velocity</sourceName>
         <destinationName>velocity</destinationName>
         <dataType>float</dataType>
         <addAttributes>

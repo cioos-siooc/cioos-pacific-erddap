@@ -1,16 +1,13 @@
-<dataset type="EDDTableFromAsciiFiles" datasetID="data_4b77_e2d6_712f" active="true">
+<dataset type="EDDTableFromNcFiles" datasetID="data_4b77_e2d6_712f" active="true">
     <reloadEveryNMinutes>10080</reloadEveryNMinutes>
     <updateEveryNMillis>10000</updateEveryNMillis>
     <fileDir>/datasets/data_4b77_e2d6_712f/</fileDir>
-    <fileNameRegex>.*\.csv</fileNameRegex>
+    <fileNameRegex>.*\.nc</fileNameRegex>
     <recursive>true</recursive>
     <pathRegex>.*</pathRegex>
     <metadataFrom>last</metadataFrom>
     <standardizeWhat>0</standardizeWhat>
-    <charset>ISO-8859-1</charset>
     <columnSeparator></columnSeparator>
-    <columnNamesRow>1</columnNamesRow>
-    <firstDataRow>2</firstDataRow>
     <sortedColumnSourceName></sortedColumnSourceName>
     <sortFilesBySourceNames></sortFilesBySourceNames>
     <fileTableInMemory>false</fileTableInMemory>
@@ -47,7 +44,7 @@
         </addAttributes>
     </dataVariable>
     <dataVariable>
-        <sourceName>Metadata element name</sourceName>
+        <sourceName>Metadata_element_name</sourceName>
         <destinationName>Metadata_element_name</destinationName>
         <dataType>String</dataType>
         <!-- sourceAttributes>
@@ -57,7 +54,7 @@
         </addAttributes>
     </dataVariable>
     <dataVariable>
-        <sourceName>Your input</sourceName>
+        <sourceName>Your_input</sourceName>
         <destinationName>Your_input</destinationName>
         <dataType>String</dataType>
         <!-- sourceAttributes>
@@ -67,7 +64,7 @@
         </addAttributes>
     </dataVariable>
     <dataVariable>
-        <sourceName>Help reference no.</sourceName>
+        <sourceName>Help_reference_no</sourceName>
         <destinationName>Help_reference_no</destinationName>
         <dataType>String</dataType>
         <!-- sourceAttributes>
