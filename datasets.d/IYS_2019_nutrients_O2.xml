@@ -1,8 +1,92 @@
-  <dataset type="EDDTableFromNcFiles" datasetID="IYS_2019_nutrients_O2" active="true">
-    <reloadEveryNMinutes>10080</reloadEveryNMinutes>
-    <fileDir>/erddapData/datasets/IYS_2019_nutrients_O2/</fileDir>
-    <fileNameRegex>.*\.nc</fileNameRegex>
-    <recursive>false</recursive>
-    <metadataFrom>last</metadataFrom>
-    <fileTableInMemory>false</fileTableInMemory>
-  </dataset>
+<dataset type="EDDTableFromMultidimNcFiles" datasetID="IYS_2019_nutrients_O2" active="true">
+  <reloadEveryNMinutes>10080</reloadEveryNMinutes>
+  <fileDir>/datasets/IYS_2019_nutrients_O2/</fileDir>
+  <fileNameRegex>.*\.nc</fileNameRegex>
+  <recursive>false</recursive>
+  <metadataFrom>last</metadataFrom>
+  <fileTableInMemory>false</fileTableInMemory>
+  <addAttributes>
+    <att name="title">Nutrient and Oxygen Data from the 2019 Gulf of Alaska International Year of the Salmon Expedition</att>
+    <att name="summary">Nutrient data collected in the Northeast Pacific Ocean during the Gulf of Alaska (GoA) expedition in 2019. The dataset also contains temperature, salinity, pH, and oxygen measurements at the depths at which nutrient samples were collected. These data were collected as part of the International Year of the Salmon (IYS) Gulf of Alaska High Seas Expedition conducted in February and March 2019, to further improve the understanding of factors impacting salmon early marine winter survival.</att>
+    <att name="institution">Russian Federal Institute of Fisheries and Oceanography</att>
+    <att name="infoUrl">http://yearofthesalmon.org</att>
+    <att name="sourceUrl">(local files)</att>
+    <att name="cdm_data_type">TimeSeriesProfile</att>
+  </addAttributes>
+  <dataVariable>
+    <sourceName>station</sourceName>
+    <dataType>byte</dataType>
+  </dataVariable>
+  <dataVariable>
+    <sourceName>time</sourceName>
+    <dataType>double</dataType>
+  </dataVariable>
+  <dataVariable>
+    <sourceName>profile_id</sourceName>
+    <dataType>String</dataType>
+  </dataVariable>
+  <dataVariable>
+    <sourceName>cruise</sourceName>
+    <dataType>String</dataType>
+  </dataVariable>
+  <dataVariable>
+    <sourceName>latitude</sourceName>
+    <dataType>double</dataType>
+  </dataVariable>
+  <dataVariable>
+    <sourceName>longitude</sourceName>
+    <dataType>double</dataType>
+  </dataVariable>
+  <dataVariable>
+    <sourceName>bottom_depth</sourceName>
+    <dataType>short</dataType>
+  </dataVariable>
+  <dataVariable>
+    <sourceName>depth</sourceName>
+    <dataType>short</dataType>
+  </dataVariable>
+  <dataVariable>
+    <sourceName>temperature</sourceName>
+    <dataType>float</dataType>
+  </dataVariable>
+  <dataVariable>
+    <sourceName>salinity_psu</sourceName>
+    <dataType>float</dataType>
+  </dataVariable>
+  <dataVariable>
+    <sourceName>ph</sourceName>
+    <dataType>float</dataType>
+  </dataVariable>
+  <dataVariable>
+    <sourceName>oxygen_concentration</sourceName>
+    <dataType>double</dataType>
+  </dataVariable>
+  <dataVariable>
+    <sourceName>oxygen_saturation</sourceName>
+    <dataType>double</dataType>
+  </dataVariable>
+  <dataVariable>
+    <sourceName>biochemichal_oxygen_consumption</sourceName>
+    <dataType>double</dataType>
+  </dataVariable>
+  <dataVariable>
+    <sourceName>silicate</sourceName>
+    <dataType>double</dataType>
+  </dataVariable>
+  <dataVariable>
+    <sourceName>dissolved_inorganic_phosphate</sourceName>
+    <dataType>double</dataType>
+  </dataVariable>
+  <dataVariable>
+    <sourceName>dissolved_inorganic_nitrogen</sourceName>
+    <dataType>double</dataType>
+  </dataVariable>
+  <dataVariable>
+    <sourceName>no2</sourceName>
+    <dataType>double</dataType>
+  </dataVariable>
+  <dataVariable>
+    <sourceName>no3</sourceName>
+    <dataType>double</dataType>
+  </dataVariable>
+</dataset>
