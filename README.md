@@ -114,36 +114,39 @@ answer instead of this one.
 docker compose --profile manual run --rm erddap-sync -c /app/config.yaml restore pacific <dataset_id> --data-dir /datasets
 ```
 
-### TODO: remote host (production / development)
+### Remote host: rebuild from the bucket
 
-Not yet implemented. The production and development ERDDAP servers are separate remote
-machines, reachable today only via SSH (see the `PROD_SERVER_*` / `DEV_SERVER_*` secrets used
-by [update-erddap-production-server.yaml](.github/workflows/update-erddap-production-server.yaml)
-and [update-erddap-development-server.yaml](.github/workflows/update-erddap-development-server.yaml)),
-so the local setup above — shared Docker network, loopback port — doesn't carry over directly.
-Rough plan:
+A server away from the bucket (the rebuilt data.cioospacific.ca, stg-data.cioospacific.ca) gets its datasets with
+`erddap-sync pull` (cioos-pacific-bucket), which only reads the bucket, and serves them with the git-tracked
+`datasets.d/`: every `fileDir` is `/datasets/<dataset_id>/`, the layout `pull` writes. No restore-agent, shared
+Docker network or SSH tunnel is involved. Tested on oncstage2 (stg-data.cioospacific.ca) on 2026-10-14: all
+datasets load and match dev-data.
 
-1. **Deploy the agent on the remote host itself**, as a service in `docker-compose.yml` (the
-   one actually running on those hosts, not `docker-compose.local.yml`), not sharing a Docker
-   network with `cioos-pacific-bucket` (which runs elsewhere). Bind its port to loopback only,
-   same as local, and reach it either over an SSH tunnel
-   (`ssh -L 8090:localhost:8090 <prod-or-dev-host>`) run from wherever `erddap-sync restore` is
-   invoked, or over a private/VPC network restricted by firewall to the bucket host's IP —
-   never publish it on a public interface.
-2. **Provision real secrets on the remote host** — `RESTORE_WEBHOOK_TOKEN` and the S3
-   credentials — as GitHub Actions secrets synced to the host's `restore-agent.env`, the same
-   way `PROD_SERVER_SSH_KEY` etc. are already managed. Do not reuse the shared local-dev token
-   committed nowhere but also not treated as secret today.
-3. **Two separate destinations**: prod and dev are different hosts, so this needs either two
-   `erddap_instances` entries in `cioos-pacific-bucket`'s `config.yaml` (`prod`, `dev`), each
-   with its own `restore_webhook_url` and tunnel/network path, or a shared bastion pattern that
-   both reuse.
-4. **Keep restore on-demand, not part of every deploy** — the existing SSH `git pull` +
-   `--hardFlag` flow in `update-erddap.sh` stays the routine deploy path; `restore` remains a
-   manual disaster-recovery / single-dataset-recovery tool triggered separately, run from
-   wherever `cioos-pacific-bucket` is operated.
-5. **`datasets.d.restored/` review step changes** — a reviewer needs to pull generated
-   fragments off the remote host (e.g. `scp`) before diffing and committing them, since there's
-   no shared filesystem like the local sibling-checkout setup has.
-6. **Document the new secrets** in `sample.env`/`restore-agent.env.sample` and the deployment
-   runbook, alongside the existing `PROD_SERVER_*` / `DEV_SERVER_*` GitHub Actions secrets.
+1. **Checkouts**: this repo, and cioos-pacific-bucket beside it (or set `BUCKET_REPO_DIR` in `.env`).
+2. **`.env`** (from `sample.env`), besides the usual ERDDAP settings:
+   - `ERDDAP_baseUrl` / `ERDDAP_baseHttpsUrl`: the public URL, e.g. `https://stg-data.cioospacific.ca`
+   - `ERDDAP_MAX_MEMORY`: at least `8G` for the full catalogue
+   - `PIPELINES_DB_HOSTNAME`, `ERDDAP_SECRET_hakai_database_connection`: for DFO_MEDS_BUOYS and ECCC_MSC_BUOYS
+   - `BUCKET_S3_ENDPOINT`: the bucket's S3 gateway as this host reaches it (default `https://s3.cioospacific.ca`;
+     on ONC's network `http://142.104.198.53:8333` is direct and much faster)
+   - `TOMCAT_USER_ID` / `TOMCAT_GROUP_ID`: the host user that owns `DATASETS_DIR`
+3. **`restore-agent.env`** (from `restore-agent.env.sample`): `S3_BUCKET`, `S3_ACCESS_KEY`, `S3_SECRET_KEY`. Keep it
+   mode 600; a read-only key is enough.
+4. **Pull the datasets** (about 155 GB; `DATASETS_DIR` must be writable by `TOMCAT_USER_ID`):
+   ```bash
+   docker compose -f docker-compose.restore.yml run --rm --build bucket-pull
+   ```
+   Rerunning it overwrites what's there. One dataset: append `pull --data-dir /datasets <dataset_id>`.
+5. **Start ERDDAP** with the DB sidecar; the container builds `datasets.xml` from `datasets.d/` and fills in the
+   secret on startup:
+   ```bash
+   docker compose -f docker-compose.yml -f docker-compose.pipelines-db.yml up -d
+   ```
+   On a fresh start ERDDAP defers every new dataset to the end of the first load, so `status.html` lists them as
+   failed until the next major load. Compare the result with the other servers using cioos-pacific-pipeline's
+   `scripts/compare-erddaps.py <url> ...`.
+6. **Publish it** through a Cloudflare Tunnel: `sudo cloudflared service install <token>`, then install
+   [cloudflared/override.conf](cloudflared/override.conf) as
+   `/etc/systemd/system/cloudflared.service.d/override.conf`, `sudo systemctl daemon-reload` and
+   `sudo systemctl restart cloudflared`. The tunnel's public hostname points at `http://localhost:8090` (path empty);
+   a Cloudflare redirect rule sends `/` to `/erddap/index.html`, since Tomcat serves nothing at the root.
