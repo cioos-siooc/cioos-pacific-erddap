@@ -1,17 +1,11 @@
-<dataset type="EDDTableFromAsciiFiles" datasetID="IOS_P26_Annualized" active="true">
+<dataset type="EDDTableFromMultidimNcFiles" datasetID="IOS_P26_Annualized" active="true">
     <iso19115File></iso19115File>
     <reloadEveryNMinutes>1440</reloadEveryNMinutes>
     <fileDir>/datasets/IOS_P26_Annualized/</fileDir>
-    <fileNameRegex>.*</fileNameRegex>
+    <fileNameRegex>.*\.nc</fileNameRegex>
     <recursive>true</recursive>
     <pathRegex>.*</pathRegex>
     <metadataFrom>last</metadataFrom>
-    <standardizeWhat>0</standardizeWhat>
-    <charset>UTF-8</charset>
-    <columnSeparator></columnSeparator>
-    <columnNamesRow>1</columnNamesRow>
-    <firstDataRow>2</firstDataRow>
-    <sortedColumnSourceName></sortedColumnSourceName>
     <sortFilesBySourceNames></sortFilesBySourceNames>
     <fileTableInMemory>false</fileTableInMemory>
     <accessibleViaFiles>false</accessibleViaFiles>
@@ -50,7 +44,7 @@
         </addAttributes>
     </dataVariable>
     <dataVariable>
-        <sourceName>temp_0-10 dbar</sourceName>
+        <sourceName>temp_0_10_dbar</sourceName>
         <destinationName>temp_0_10_dbar</destinationName>
         <dataType>float</dataType>
         <!-- sourceAttributes>
@@ -62,7 +56,7 @@
         </addAttributes>
     </dataVariable>
     <dataVariable>
-        <sourceName>temp_10-50 dbar</sourceName>
+        <sourceName>temp_10_50_dbar</sourceName>
         <destinationName>temp_10_50_dbar</destinationName>
         <dataType>float</dataType>
         <!-- sourceAttributes>
@@ -74,7 +68,7 @@
         </addAttributes>
     </dataVariable>
     <dataVariable>
-        <sourceName>temp_100-150 dbar</sourceName>
+        <sourceName>temp_100_150_dbar</sourceName>
         <destinationName>temp_100_150_dbar</destinationName>
         <dataType>float</dataType>
         <!-- sourceAttributes>
@@ -86,7 +80,7 @@
         </addAttributes>
     </dataVariable>
     <dataVariable>
-        <sourceName>temp_800-1200 dbar</sourceName>
+        <sourceName>temp_800_1200_dbar</sourceName>
         <destinationName>temp_800_1200_dbar</destinationName>
         <dataType>float</dataType>
         <!-- sourceAttributes>
@@ -98,7 +92,7 @@
         </addAttributes>
     </dataVariable>
     <dataVariable>
-        <sourceName>temp_2000 dbar - bottom</sourceName>
+        <sourceName>temp_2000_dbar_bottom</sourceName>
         <destinationName>temp_2000_dbar_bottom</destinationName>
         <dataType>float</dataType>
         <!-- sourceAttributes>

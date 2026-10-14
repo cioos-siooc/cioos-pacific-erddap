@@ -613,7 +613,7 @@
         </addAttributes>
     </dataVariable>
     <dataVariable>
-        <sourceName>metaWaterDepth</sourceName>
+        <sourceName>depth</sourceName>
         <destinationName>depth</destinationName>
         <dataType>double</dataType>
         <!-- sourceAttributes>

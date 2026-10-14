@@ -28,6 +28,9 @@
   <dataVariable>
     <sourceName>station</sourceName>
     <dataType>byte</dataType>
+    <addAttributes>
+      <att name="_FillValue" type="byte">127</att>
+    </addAttributes>
   </dataVariable>
   <dataVariable>
     <sourceName>YEAR</sourceName>
@@ -136,5 +139,8 @@
   <dataVariable>
     <sourceName>cruise</sourceName>
     <dataType>byte</dataType>
+    <addAttributes>
+      <att name="_FillValue" type="byte">127</att>
+    </addAttributes>
   </dataVariable>
 </dataset>
