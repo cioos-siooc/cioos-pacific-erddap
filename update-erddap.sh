@@ -48,7 +48,7 @@ while true; do
         ;;
     -m|--mode)
         MODE=$2;
-        [[ ! $COLOR =~ all|pull|commited ]] && {
+        [[ ! $MODE =~ all|pull|commited ]] && {
             echo "Incorrect options provided"
             exit 1
         }

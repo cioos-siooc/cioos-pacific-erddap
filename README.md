@@ -126,7 +126,8 @@ datasets load and match dev-data.
 2. **`.env`** (from `sample.env`), besides the usual ERDDAP settings:
    - `ERDDAP_baseUrl` / `ERDDAP_baseHttpsUrl`: the public URL, e.g. `https://stg-data.cioospacific.ca`
    - `ERDDAP_MAX_MEMORY`: at least `8G` for the full catalogue
-   - `PIPELINES_DB_HOSTNAME`, `ERDDAP_SECRET_hakai_database_connection`: for DFO_MEDS_BUOYS and ECCC_MSC_BUOYS
+   - `COMPOSE_PROFILES=pipelines-db`, `PIPELINES_DB_HOSTNAME`, `ERDDAP_SECRET_hakai_database_connection`: for
+     DFO_MEDS_BUOYS and ECCC_MSC_BUOYS (see "Database from cioos-pipelines")
    - `BUCKET_S3_ENDPOINT`: the bucket's S3 gateway as this host reaches it (default `https://s3.cioospacific.ca`;
      on ONC's network `http://142.104.198.53:8333` is direct and much faster)
    - `TOMCAT_USER_ID` / `TOMCAT_GROUP_ID`: the host user that owns `DATASETS_DIR`
@@ -137,10 +138,10 @@ datasets load and match dev-data.
    docker compose -f docker-compose.restore.yml run --rm --build bucket-pull
    ```
    Rerunning it overwrites what's there. One dataset: append `pull --data-dir /datasets <dataset_id>`.
-5. **Start ERDDAP** with the DB sidecar; the container builds `datasets.xml` from `datasets.d/` and fills in the
-   secret on startup:
+5. **Start ERDDAP**; with `COMPOSE_PROFILES=pipelines-db` the DB sidecar starts too. The container builds
+   `datasets.xml` from `datasets.d/` and fills in the secret on startup:
    ```bash
-   docker compose -f docker-compose.yml -f docker-compose.pipelines-db.yml up -d
+   docker compose up -d
    ```
    On a fresh start ERDDAP defers every new dataset to the end of the first load, so `status.html` lists them as
    failed until the next major load. Compare the result with the other servers using cioos-pacific-pipeline's
@@ -166,3 +167,36 @@ reloads them, quickRestart or not. Run it weekly from cron after the flow's Mond
 Same setup as a rebuild (`restore-agent.env`, `BUCKET_S3_ENDPOINT`, `TOMCAT_USER_ID`). It re-downloads about 50 MB
 each time, whether or not there was a release. Prod keeps its own 2019 copy until it's rebuilt from the bucket;
 add the cron there at the cutover.
+
+## Database from cioos-pipelines
+
+`DFO_MEDS_BUOYS` and `ECCC_MSC_BUOYS` read the placeholder `hakai_database_connection`, which
+`init.d/replace-datasets-secrets.sh` replaces with `ERDDAP_SECRET_hakai_database_connection` from `.env`.
+To read them from the [cioos-pipelines](https://github.com/cioos-siooc/cioos-pacific-pipeline) database
+instead of db.hakai.org, the optional `pipelines-db` service opens a connection through that stack's
+Cloudflare Tunnel. On the ERDDAP server's `.env`:
+
+```bash
+COMPOSE_PROFILES=pipelines-db
+PIPELINES_DB_HOSTNAME=<database hostname of the pipelines tunnel>
+PIPELINES_DB_ACCESS_CLIENT_ID=<Cloudflare Access service token id>
+PIPELINES_DB_ACCESS_CLIENT_SECRET=<Cloudflare Access service token secret>
+ERDDAP_SECRET_hakai_database_connection=jdbc:postgresql://pipelines-db:5432/cioos?user=erddap\&amp;password=<erddap password>
+```
+
+- Write `\&amp;`, not `&`, in the JDBC URL. The replacement script is `sed`, where `&` means "the matched
+  text", and the result must be valid XML. The script turns `\&amp;` into `&amp;`, which ERDDAP reads as `&`.
+- The password must not contain `@`, `&`, `\`, `<` or `>`. Generate it with `openssl rand -hex 24`.
+- `erddap` is a read-only role created on the pipelines stack with `scripts/create-readonly-role.sh erddap`.
+- The service token must be allowed by a *Service Auth* policy on the database hostname's Cloudflare Access
+  application.
+
+Then `docker compose up -d` (starts `pipelines-db`) and restart `erddap` so the new `.env` value is applied.
+Check the connection from the ERDDAP container with `docker compose exec erddap bash -c 'cat < /dev/null > /dev/tcp/pipelines-db/5432 && echo ok'`.
+
+## Server-specific settings
+
+Keep each server's settings in its `.env` (ERDDAP reads any `setup.xml` setting from an `ERDDAP_<setting>`
+variable), not in edits to tracked files. A modified `docker-compose.yml` or `erddap/content/setup.xml` makes
+`git pull` fail, which silently stops the update workflows. For anything `.env` can't express, use
+`docker-compose.override.yml`: Docker Compose loads it automatically, and git ignores it.

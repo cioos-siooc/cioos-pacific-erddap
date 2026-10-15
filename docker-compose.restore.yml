@@ -19,5 +19,5 @@ services:
       - ${DATASETS_DIR:-./datasets}:/datasets
       # pull --flag-dir /hardFlag makes ERDDAP reload what it pulled (pull-managed-datasets.sh)
       - ./erddap/data/hardFlag:/hardFlag
-    # DFO_MEDS_BUOYS and ECCC_MSC_BUOYS are read from the pipelines DB (docker-compose.pipelines-db.yml)
+    # DFO_MEDS_BUOYS and ECCC_MSC_BUOYS are read from the pipelines DB (COMPOSE_PROFILES=pipelines-db)
     command: ["pull", "--data-dir", "/datasets", "--skip", "DFO_MEDS_BUOYS", "--skip", "ECCC_MSC_BUOYS"]
