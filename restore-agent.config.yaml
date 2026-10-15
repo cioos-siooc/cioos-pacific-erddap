@@ -1,0 +1,6 @@
+# Config file required by the erddap-sync CLI's `restore-agent` command.
+# Storage credentials and the restore token are read from restore-agent.env
+# (S3_* / RESTORE_WEBHOOK_TOKEN via docker-compose.local.yml's env_file) —
+# see erddap_sync/config.py in cioos-pacific-bucket. erddap_instances is
+# unused by restore-agent itself but load_config() requires a valid document.
+erddap_instances: []

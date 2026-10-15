@@ -15,3 +15,13 @@ bkp/**
 datasets/**
 .last_update_sha
 tomcatLogs
+
+# restore-agent (see README.md "Restoring from cioos-pacific-bucket")
+restore-agent.env
+datasets.d.restored/
+# server-local files: never committed, so git pull (and the update workflows) keep working
+.env.bak*
+docker-compose.override.yml
+
+# Tomcat temp dir (docker-compose.yml)
+tomcat-temp/

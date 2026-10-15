@@ -1,0 +1,23 @@
+# Copies every dataset from cioos-pacific-bucket into DATASETS_DIR, for an ERDDAP host away from the bucket
+# (README: "Remote host: rebuild from the bucket"). Reads the bucket only; runs as the ERDDAP user.
+#
+#   docker compose -f docker-compose.restore.yml run --rm bucket-pull                      # everything
+#   docker compose -f docker-compose.restore.yml run --rm bucket-pull pull --data-dir /datasets IOS_ADCP_Moorings
+services:
+  bucket-pull:
+    build:
+      context: ${BUCKET_REPO_DIR:-../cioos-pacific-bucket}
+    user: "${TOMCAT_USER_ID:-1000}:${TOMCAT_GROUP_ID:-1000}"
+    # S3_ACCESS_KEY / S3_SECRET_KEY / S3_BUCKET (restore-agent.env.sample)
+    env_file:
+      - restore-agent.env
+    environment:
+      # the bucket's S3 gateway as this host reaches it; the default goes through Cloudflare (reads only)
+      S3_ENDPOINT: ${BUCKET_S3_ENDPOINT:-https://s3.cioospacific.ca}
+    volumes:
+      - ./restore-agent.config.yaml:/app/config.yaml:ro
+      - ${DATASETS_DIR:-./datasets}:/datasets
+      # pull --flag-dir /hardFlag makes ERDDAP reload what it pulled (pull-managed-datasets.sh)
+      - ./erddap/data/hardFlag:/hardFlag
+    # DFO_MEDS_BUOYS and ECCC_MSC_BUOYS are read from the pipelines DB (COMPOSE_PROFILES=pipelines-db)
+    command: ["pull", "--data-dir", "/datasets", "--skip", "DFO_MEDS_BUOYS", "--skip", "ECCC_MSC_BUOYS"]

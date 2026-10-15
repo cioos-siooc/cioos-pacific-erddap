@@ -1,6 +1,6 @@
 <dataset type="EDDTableFromMultidimNcFiles" datasetID="BCSOP_monthly" active="true">
     <reloadEveryNMinutes>1440</reloadEveryNMinutes>
-    <fileDir>/datasets/BCSOP/monthly/</fileDir>
+    <fileDir>/datasets/BCSOP_monthly/</fileDir>
     <fileNameRegex>.*\.nc</fileNameRegex>
     <recursive>true</recursive>
     <pathRegex>.*</pathRegex>
@@ -25,7 +25,7 @@
         <att name="contact_email">DFO.PAC.SCI.IOSData-DonneesISO.SCI.PAC.MPO@dfo-mpo.gc.ca</att>
         <att name="creator_name">Institute of Ocean Sciences, 9860 West Saanich Road, Sidney, B.C., Canada</att>
         <att name="infoUrl">https://open.canada.ca/data/en/dataset/719955f2-bf8e-44f7-bc26-6bd623e82884</att>
-        <att name="license">[standard]</att>
+        <att name="license">Open Government Licence - Canada (https://open.canada.ca/en/open-government-licence-canada)</att>
         <att name="sourceUrl">(local files)</att>
         <att name="subsetVariables">agency, scientist, country, profile, status</att>
         <att name="standard_name_vocabulary">CF Standard Name Table v79</att>
@@ -37,7 +37,7 @@ Observations are made daily using seawater collected in a bucket lowered into th
 The monthly data are calculated by averaging the daily data of each month."</att>
         <att name="title">BC Lightstation data</att>
         <att name="language">eng</att>
-        <att name="publisher_name">Hakai Institute</att>
+        <att name="publisher_name">CIOOS Pacific</att>
         <att name="keywords_vocabulary">GCMD Science Keywords</att>
         <att name="keywords">salinity, seaSurfaceSalinity, seaSurfaceTemperature, temperature</att>
         <att name="keywords_fra">salinité sous la surface,température sous la surface,salinité,température</att>

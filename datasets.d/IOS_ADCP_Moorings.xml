@@ -3,8 +3,8 @@
     <reloadEveryNMinutes>1440</reloadEveryNMinutes>
     <reloadEveryNMinutes>10080</reloadEveryNMinutes>
     <updateEveryNMillis>10000</updateEveryNMillis>
-    <fileDir>/datasets/IOS_ADCP_moorings</fileDir>
-    <fileNameRegex>.*\.adcp.L1.nc</fileNameRegex>
+    <fileDir>/datasets/IOS_ADCP_Moorings/</fileDir>
+    <fileNameRegex>.*\.nc</fileNameRegex>
     <recursive>true</recursive>
     <pathRegex>.*</pathRegex>
     <metadataFrom>last</metadataFrom>
@@ -535,7 +535,7 @@
         </addAttributes>
     </dataVariable>
     <dataVariable>
-        <sourceName>PPSAADCP</sourceName>
+        <sourceName>depth</sourceName>
         <destinationName>depth</destinationName>
         <dataType>float</dataType>
         <!-- sourceAttributes>

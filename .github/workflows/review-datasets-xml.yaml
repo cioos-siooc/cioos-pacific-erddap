@@ -6,6 +6,7 @@ on:
       - development
     paths:
       - datasets.d/**
+      - .github/workflows/**
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -24,3 +25,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Review dataset.d/*.xml file names = datasetIDs
         run: sh .github/workflows/test-datasets.d.sh
+      - name: Check datasets.d/*.xml (valid XML, unique IDs, bucket fileDir layout, DB secret placeholder)
+        run: python3 .github/workflows/check-datasets.py datasets.d

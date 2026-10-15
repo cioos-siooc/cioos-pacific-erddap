@@ -1,0 +1,796 @@
+<dataset type="EDDTableFromNcFiles" datasetID="dfo-walle652-20190314_CTDadjusted_erddap" active="true">
+    <reloadEveryNMinutes>10080</reloadEveryNMinutes>
+    <updateEveryNMillis>10000</updateEveryNMillis>
+    <fileDir>/datasets/dfo-walle652-20190314_CTDadjusted_erddap/</fileDir>
+    <fileNameRegex>dfo-walle652-20190314_CTDadjusted_erddap.nc</fileNameRegex>
+    <recursive>true</recursive>
+    <pathRegex>.*</pathRegex>
+    <metadataFrom>last</metadataFrom>
+    <standardizeWhat>0</standardizeWhat>
+    <sortedColumnSourceName>time</sortedColumnSourceName>
+    <sortFilesBySourceNames>time</sortFilesBySourceNames>
+    <fileTableInMemory>false</fileTableInMemory>
+    <!-- Please specify the actual cdm_data_type (TimeSeries?) and related info below, for example...
+        <att name="cdm_timeseries_variables">station_id, longitude, latitude</att>
+        <att name="subsetVariables">station_id, longitude, latitude</att>
+    -->
+    <addAttributes>
+<att name="_NCProperties">version=2,netcdf=4.9.3,hdf5=1.14.6</att>
+<att name="acknowledgement">Funding from Fisheries and Oceans Canada, Canadian Foundation for Innovation, BC Knowledge Development Fund</att>
+<att name="cdm_data_type">Trajectory</att>
+<att name="citation">&quot;Klymak, J., &amp; Ross, T. (2025). C-PROOF Underwater Glider Deployment Datasets [Data set]. Canadian-Pacific Robotic Ocean Observing Facility.doi:10.82534/44DS-K310&quot;</att>
+<att name="comment">Saanich Inlet test deployment</att>
+<att name="contributor_name">James Pegg, Tetjana Ross, Jody Klymak, Hayley Dosser</att>
+<att name="contributor_role">Lead Technician, Principal Investigator, Co-PI, Ocean Glider Scientist</att>
+<att name="Conventions">CF-1.6</att>
+<att name="creator_email">jklymak@uvic.ca</att>
+<att name="creator_name">Jody Klymak</att>
+<att name="creator_url">http://cproof.uvic.ca</att>
+<att name="ctd">{&#39;make&#39;: &#39;Seabird&#39;, &#39;model&#39;: &#39;SlocumCTD&#39;, &#39;serial&#39;: &#39;9409&#39;, &#39;long_name&#39;: &#39;Seabird SlocumCTD&#39;, &#39;make_model&#39;: &#39;Seabird SlocumCTD&#39;, &#39;factory_calibrated&#39;: &#39;yes&#39;, &#39;calibration_date&#39;: &#39;2017-09-28&#39;, &#39;calibration_report&#39;: &#39;&#39;, &#39;comment&#39;: &#39; &#39;}</att>
+<att name="data_mode">P</att>
+<att name="date_created">2022-11-01T17:35:13Z</att>
+<att name="date_issued">2022-11-01T17:35:13Z</att>
+<att name="deployment_end">2019-03-15T14:59:26.000000000</att>
+<att name="deployment_id">1</att>
+<att name="deployment_name">dfo-walle652-20190314</att>
+<att name="deployment_start">2019-03-14T17:59:30.000000000</att>
+<att name="featureType">timeseries</att>
+<att name="format_version">IOOS_Glider_NetCDF_v2.0.nc</att>
+<att name="geospatial_lat_max" type="double">48.66906664438102</att>
+<att name="geospatial_lat_min" type="double">48.61560785615176</att>
+<att name="geospatial_lat_units">degrees_north</att>
+<att name="geospatial_lon_max" type="double">-123.45969907416821</att>
+<att name="geospatial_lon_min" type="double">-123.51833197577423</att>
+<att name="geospatial_lon_units">degrees_east</att>
+<att name="glider_instrument_name">slocum</att>
+<att name="glider_model">Slocum G2 Deep</att>
+<att name="glider_name">dfo-walle</att>
+<att name="glider_serial">652</att>
+<att name="glider_wmo">4800996</att>
+<att name="history">CPROOF glider toolbox version: pre-tag</att>
+<att name="id">dfo-walle652-20190314T1759</att>
+<att name="institution">C-PROOF</att>
+<att name="keywords">AUVS, Autonomous Underwater Vehicles, Oceans, Ocean Pressure, Water Pressure, Oceans, Ocean Temperature, Water Temperature, Oceans, Salinity/Density, Conductivity, Oceans, Salinity/Density, Density, Oceans, Salinity/Density, Salinity</att>
+<att name="keywords_vocabulary">GCMD Science Keywords</att>
+<att name="license">This data may be redistributed and used without restriction or warranty</att>
+<att name="Metadata_Conventions">CF-1.6, Unidata Dataset Discovery v1.0</att>
+<att name="metadata_link">https://cproof.uvic.ca</att>
+<att name="naming_authority">ca.uvic.cproof</att>
+<att name="netcdf_version">4.0</att>
+<att name="optics">{&#39;make&#39;: &#39;Wetlabs&#39;, &#39;model&#39;: &#39;FLBBCDSLC&#39;, &#39;serial&#39;: &#39;4564&#39;}</att>
+<att name="oxygen">{&#39;make&#39;: &#39;AADI&#39;, &#39;model&#39;: &#39;Optode4831&#39;, &#39;serial&#39;: &#39;491&#39;}</att>
+<att name="platform_type">Slocum Glider</att>
+<att name="pressure">{&#39;make&#39;: &#39;Micron&#39;, &#39;model&#39;: &#39;Pressure&#39;, &#39;serial&#39;: &#39;104714&#39;}</att>
+<att name="processing_details">Processing details are located on the C-PROOF website for this mission under the reports tab.</att>
+<att name="processing_level">Level 0 (L0) processed data timeseries; no corrections or data screening</att>
+<att name="processing_tech">Lauryn Talbot; ltalbot@uvic.ca</att>
+<att name="project">Saanich Inlet</att>
+<att name="project_url">http://cproof.uvic.ca</att>
+<att name="publisher_email">jklymak@uvic.ca</att>
+<att name="publisher_name">Jody Klymak</att>
+<att name="publisher_url">http://cproof.uvic.ca</att>
+<att name="references">https://doi.org/10.82534/44DS-K310</att>
+<att name="sea_name">Coastal Waters of British Columbia</att>
+<att name="source">Observational data from a profiling glider.</att>
+<att name="standard_name_vocabulary">CF Standard Name Table v49</att>
+<att name="summary">Manufacturer test in Saanich Inlet</att>
+<att name="time_coverage_end">2019-03-15T14:59:26.000000000</att>
+<att name="time_coverage_start">2019-03-14T17:59:30.000000000</att>
+<att name="title">dfo-walle652-20190314T1759</att>
+<att name="transmission_system">IRIDIUM</att>
+<att name="wmo_id">4800996</att>
+<att name="creator_type">person</att>
+<att name="infoUrl">https://cproof.uvic.ca</att>
+<att name="publisher_type">person</att>
+<att name="sourceUrl">(local files)</att>
+<att name="subsetVariables">time_optics, time_oxygen, trajectory</att>
+<att name="cdm_trajectory_variables">trajectory</att>
+    </addAttributes>
+<dataVariable>
+        <sourceName>trajectory</sourceName>
+        <destinationName>trajectory</destinationName>
+        <dataType>String</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uintList">52867 33</att>
+<att name="cf_role">trajectory_id</att>
+<att name="comment">A trajectory is a single deployment of a glider and may span multiple data files.</att>
+<att name="coordinates">depth latitude longitude pind</att>
+<att name="long_name">Trajectory/Deployment Name</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>time</sourceName>
+        <destinationName>time</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_FillValue" type="double">NaN</att>
+<att name="calendar">gregorian</att>
+<att name="units">seconds since 1970-01-01T00:00:00+00:00</att>
+<att name="long_name">Time</att>
+<att name="standard_name">time</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>latitude</sourceName>
+        <destinationName>latitude</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_FillValue" type="double">NaN</att>
+<att name="axis">Y</att>
+<att name="comment">Estimated between surface fixes</att>
+<att name="coordinate_reference_frame">urn:ogc:crs:EPSG::4326</att>
+<att name="long_name">latitude</att>
+<att name="observation_type">measured</att>
+<att name="platform">platform</att>
+<att name="reference">WGS84</att>
+<att name="source">m_lat</att>
+<att name="standard_name">latitude</att>
+<att name="units">degrees_north</att>
+<att name="valid_max">90.0</att>
+<att name="valid_min">-90.0</att>
+<att name="colorBarMaximum" type="double">90.0</att>
+<att name="colorBarMinimum" type="double">-90.0</att>
+<att name="missing_value" type="double">NaN</att>
+<att name="references">WGS84</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>longitude</sourceName>
+        <destinationName>longitude</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_FillValue" type="double">NaN</att>
+<att name="axis">X</att>
+<att name="comment">Estimated between surface fixes</att>
+<att name="coordinate_reference_frame">urn:ogc:crs:EPSG::4326</att>
+<att name="long_name">longitude</att>
+<att name="observation_type">measured</att>
+<att name="platform">platform</att>
+<att name="reference">WGS84</att>
+<att name="source">m_lon</att>
+<att name="standard_name">longitude</att>
+<att name="units">degrees_east</att>
+<att name="valid_max">180.0</att>
+<att name="valid_min">-180.0</att>
+<att name="colorBarMaximum" type="double">180.0</att>
+<att name="colorBarMinimum" type="double">-180.0</att>
+<att name="missing_value" type="double">NaN</att>
+<att name="references">WGS84</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>depth</sourceName>
+        <destinationName>depth</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_FillValue" type="double">NaN</att>
+<att name="accuracy">1</att>
+<att name="comment">from science pressure and interpolated</att>
+<att name="long_name">glider depth</att>
+<att name="observation_type">calulated</att>
+<att name="positive">down</att>
+<att name="precision">2</att>
+<att name="reference_datum">surface</att>
+<att name="resolution">0.02</att>
+<att name="source">pressure</att>
+<att name="standard_name">depth</att>
+<att name="units">m</att>
+<att name="valid_max">2000</att>
+<att name="valid_min">0</att>
+<att name="colorBarMaximum" type="double">8000.0</att>
+<att name="colorBarMinimum" type="double">-8000.0</att>
+<att name="colorBarPalette">TopographyDepth</att>
+<att name="missing_value" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>heading</sourceName>
+        <destinationName>heading</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uint">52867</att>
+<att name="_FillValue" type="double">NaN</att>
+<att name="coordinates">depth longitude latitude</att>
+<att name="long_name">glider heading angle</att>
+<att name="platform">platform</att>
+<att name="source">m_heading</att>
+<att name="standard_name">platform_orientation</att>
+<att name="units">rad</att>
+<att name="missing_value" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>pitch</sourceName>
+        <destinationName>pitch</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uint">52867</att>
+<att name="_FillValue" type="double">NaN</att>
+<att name="coordinates">depth longitude latitude</att>
+<att name="long_name">glider pitch angle</att>
+<att name="platform">platform</att>
+<att name="source">m_pitch</att>
+<att name="standard_name">platform_pitch_angle</att>
+<att name="units">rad</att>
+<att name="missing_value" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>roll</sourceName>
+        <destinationName>roll</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uint">52867</att>
+<att name="_FillValue" type="double">NaN</att>
+<att name="coordinates">depth longitude latitude</att>
+<att name="long_name">glider roll angle</att>
+<att name="platform">platform</att>
+<att name="source">m_roll</att>
+<att name="standard_name">platform_roll_angle</att>
+<att name="units">rad</att>
+<att name="missing_value" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>waypoint_latitude</sourceName>
+        <destinationName>waypoint_latitude</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uint">52867</att>
+<att name="_FillValue" type="double">NaN</att>
+<att name="coordinates">depth longitude latitude</att>
+<att name="long_name">waypoint latitude</att>
+<att name="platform">platform</att>
+<att name="source">c_wpt_lat</att>
+<att name="standard_name">latitude</att>
+<att name="units">degree_north</att>
+<att name="colorBarMaximum" type="double">90.0</att>
+<att name="colorBarMinimum" type="double">-90.0</att>
+<att name="missing_value" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>waypoint_longitude</sourceName>
+        <destinationName>waypoint_longitude</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uint">52867</att>
+<att name="_FillValue" type="double">NaN</att>
+<att name="coordinates">depth longitude latitude</att>
+<att name="long_name">waypoint longitude</att>
+<att name="platform">platform</att>
+<att name="source">c_wpt_lon</att>
+<att name="standard_name">longitude</att>
+<att name="units">degree_east</att>
+<att name="colorBarMaximum" type="double">180.0</att>
+<att name="colorBarMinimum" type="double">-180.0</att>
+<att name="missing_value" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>conductivity</sourceName>
+        <destinationName>conductivity</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uint">52867</att>
+<att name="_FillValue" type="double">NaN</att>
+<att name="accuracy">0.0003</att>
+<att name="comment">uncorrected conductivity</att>
+<att name="coordinates">depth longitude latitude</att>
+<att name="instrument">instrument_ctd</att>
+<att name="long_name">water conductivity</att>
+<att name="observation_type">measured</att>
+<att name="platform">platform</att>
+<att name="precision">0.0001</att>
+<att name="resolution">0.00002</att>
+<att name="source">sci_water_cond</att>
+<att name="standard_name">sea_water_electrical_conductivity</att>
+<att name="units">S m-1</att>
+<att name="valid_max">10.</att>
+<att name="valid_min">0.</att>
+<att name="colorBarMaximum" type="double">40.0</att>
+<att name="colorBarMinimum" type="double">30.0</att>
+<att name="missing_value" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>temperature</sourceName>
+        <destinationName>temperature</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uint">52867</att>
+<att name="_FillValue" type="double">NaN</att>
+<att name="accuracy">0.002</att>
+<att name="comment">uncorrected temperature [degC]</att>
+<att name="coordinates">depth longitude latitude</att>
+<att name="instrument">instrument_ctd</att>
+<att name="long_name">water temperature</att>
+<att name="observation_type">measured</att>
+<att name="platform">platform</att>
+<att name="precision">0.001</att>
+<att name="resolution">0.0002</att>
+<att name="source">sci_water_temp</att>
+<att name="standard_name">sea_water_temperature</att>
+<att name="units">Celsius</att>
+<att name="valid_max">50</att>
+<att name="valid_min">-5</att>
+<att name="colorBarMaximum" type="double">32.0</att>
+<att name="colorBarMinimum" type="double">0.0</att>
+<att name="missing_value" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>pressure</sourceName>
+        <destinationName>pressure</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uint">52867</att>
+<att name="_FillValue" type="double">NaN</att>
+<att name="accuracy">1</att>
+<att name="comment">ctd pressure sensor</att>
+<att name="conversion">bar2dbar</att>
+<att name="coordinates">depth longitude latitude</att>
+<att name="instrument">instrument_ctd</att>
+<att name="long_name">water pressure</att>
+<att name="observation_type">measured</att>
+<att name="platform">platform</att>
+<att name="positive">down</att>
+<att name="precision">2</att>
+<att name="reference_datum">sea-surface</att>
+<att name="resolution">0.02</att>
+<att name="source">sci_water_pressure</att>
+<att name="standard_name">sea_water_pressure</att>
+<att name="units">dbar</att>
+<att name="valid_max">2000</att>
+<att name="valid_min">0</att>
+<att name="colorBarMaximum" type="double">5000.0</att>
+<att name="colorBarMinimum" type="double">0.0</att>
+<att name="missing_value" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>time_ctd</sourceName>
+        <destinationName>time_ctd</destinationName>
+        <dataType>long</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uint">52867</att>
+<att name="calendar">proleptic_gregorian</att>
+<att name="coordinates">depth longitude latitude</att>
+<att name="long_name">CTD epoch time</att>
+<att name="platform">platform</att>
+<att name="source">sci_ctd41cp_timestamp</att>
+<att name="standard_name">null</att>
+<att name="units">nanoseconds</att>
+<att name="comment">nanoseconds since 2019-03-14 17:57:46.406470656 (stored as an integer; ERDDAP cannot read nanosecond time units)</att>
+<att name="_FillValue" type="long">-9223372036854775808</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>chlorophyll</sourceName>
+        <destinationName>chlorophyll</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uint">52867</att>
+<att name="_FillValue" type="double">NaN</att>
+<att name="coordinates">depth longitude latitude</att>
+<att name="long_name">chlorophyll</att>
+<att name="platform">platform</att>
+<att name="source">sci_flbbcd_chlor_units</att>
+<att name="standard_name">concentration_of_chlorophyll_in_sea_water</att>
+<att name="units">mg m-3</att>
+<att name="colorBarMaximum" type="double">30.0</att>
+<att name="colorBarMinimum" type="double">0.03</att>
+<att name="colorBarScale">Log</att>
+<att name="missing_value" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>cdom</sourceName>
+        <destinationName>cdom</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uint">52867</att>
+<att name="_FillValue" type="double">NaN</att>
+<att name="coordinates">depth longitude latitude</att>
+<att name="long_name">CDOM</att>
+<att name="platform">platform</att>
+<att name="source">sci_flbbcd_cdom_units</att>
+<att name="units">ppb</att>
+<att name="missing_value" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>backscatter_700</sourceName>
+        <destinationName>backscatter_700</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uint">52867</att>
+<att name="_FillValue" type="double">NaN</att>
+<att name="coordinates">depth longitude latitude</att>
+<att name="long_name">700 nm wavelength backscatter</att>
+<att name="platform">platform</att>
+<att name="source">sci_flbbcd_bb_units</att>
+<att name="units">1</att>
+<att name="missing_value" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>temperature_optics</sourceName>
+        <destinationName>temperature_optics</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uint">52867</att>
+<att name="_FillValue" type="double">NaN</att>
+<att name="coordinates">depth longitude latitude</att>
+<att name="long_name">optic sensor temperature</att>
+<att name="platform">platform</att>
+<att name="source">sci_flbbcd_therm</att>
+<att name="units">Celsius</att>
+<att name="colorBarMaximum" type="double">40.0</att>
+<att name="colorBarMinimum" type="double">-10.0</att>
+<att name="missing_value" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>time_optics</sourceName>
+        <destinationName>time_optics</destinationName>
+        <dataType>long</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uint">52867</att>
+<att name="calendar">proleptic_gregorian</att>
+<att name="coordinates">depth longitude latitude</att>
+<att name="long_name">optic sensor epoch time</att>
+<att name="platform">platform</att>
+<att name="source">sci_flbbcd_timestamp</att>
+<att name="standard_name">time</att>
+<att name="units">days since 1970-01-01 00:00:00</att>
+<att name="_FillValue" type="long">-9223372036854775808</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>oxygen_concentration</sourceName>
+        <destinationName>oxygen_concentration</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uint">52867</att>
+<att name="_FillValue" type="double">NaN</att>
+<att name="coordinates">depth longitude latitude</att>
+<att name="long_name">oxygen concentration</att>
+<att name="platform">platform</att>
+<att name="source">sci_oxy4_oxygen</att>
+<att name="standard_name">mole_concentration_of_dissolved_molecular_oxygen_in_sea_water</att>
+<att name="units">umol l-1</att>
+<att name="colorBarMaximum" type="double">500.0</att>
+<att name="colorBarMinimum" type="double">0.0</att>
+<att name="missing_value" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>oxygen_saturation</sourceName>
+        <destinationName>oxygen_saturation</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uint">52867</att>
+<att name="_FillValue" type="double">NaN</att>
+<att name="coordinates">depth longitude latitude</att>
+<att name="long_name">oxygen saturation</att>
+<att name="platform">platform</att>
+<att name="source">sci_oxy4_saturation</att>
+<att name="standard_name">fractional_saturation_of_oxygen_in_sea_water</att>
+<att name="units">1</att>
+<att name="colorBarMaximum" type="double">1.0</att>
+<att name="colorBarMinimum" type="double">0.0</att>
+<att name="missing_value" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>temperature_oxygen</sourceName>
+        <destinationName>temperature_oxygen</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uint">52867</att>
+<att name="_FillValue" type="double">NaN</att>
+<att name="coordinates">depth longitude latitude</att>
+<att name="long_name">oxygen sensor temperature</att>
+<att name="platform">platform</att>
+<att name="source">sci_oxy4_temp</att>
+<att name="standard_name">temperature_of_sensor_for_oxygen_in_sea_water</att>
+<att name="units">Celsius</att>
+<att name="colorBarMaximum" type="double">500.0</att>
+<att name="colorBarMinimum" type="double">0.0</att>
+<att name="missing_value" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>time_oxygen</sourceName>
+        <destinationName>time_oxygen</destinationName>
+        <dataType>long</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uint">52867</att>
+<att name="calendar">proleptic_gregorian</att>
+<att name="coordinates">depth longitude latitude</att>
+<att name="long_name">oxygen sensor epoch time</att>
+<att name="platform">platform</att>
+<att name="source">sci_oxy4_timestamp</att>
+<att name="standard_name">time</att>
+<att name="units">days since 1970-01-01 00:00:00</att>
+<att name="_FillValue" type="long">-9223372036854775808</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>water_velocity_eastward</sourceName>
+        <destinationName>water_velocity_eastward</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uint">52867</att>
+<att name="_FillValue" type="double">NaN</att>
+<att name="coordinates">depth longitude latitude</att>
+<att name="long_name">mean eastward water velocity in segment</att>
+<att name="platform">platform</att>
+<att name="source">m_final_water_vx</att>
+<att name="standard_name">barotropic_eastward_sea_water_velocity</att>
+<att name="units">m s-1</att>
+<att name="colorBarMaximum" type="double">0.5</att>
+<att name="colorBarMinimum" type="double">-0.5</att>
+<att name="missing_value" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>water_velocity_northward</sourceName>
+        <destinationName>water_velocity_northward</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uint">52867</att>
+<att name="_FillValue" type="double">NaN</att>
+<att name="coordinates">depth longitude latitude</att>
+<att name="long_name">mean northward water velocity in segment</att>
+<att name="platform">platform</att>
+<att name="source">m_final_water_vy</att>
+<att name="standard_name">barotropic_northward_sea_water_velocity</att>
+<att name="units">m s-1</att>
+<att name="colorBarMaximum" type="double">0.5</att>
+<att name="colorBarMinimum" type="double">-0.5</att>
+<att name="missing_value" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>distance_over_ground</sourceName>
+        <destinationName>distance_over_ground</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uint">52867</att>
+<att name="_FillValue" type="double">NaN</att>
+<att name="coordinates">depth longitude latitude</att>
+<att name="long_name">distance over ground flown since mission start</att>
+<att name="method">get_distance_over_ground</att>
+<att name="sources">latitude longitude</att>
+<att name="units">km</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>salinity</sourceName>
+        <destinationName>salinity</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uint">52867</att>
+<att name="_FillValue" type="double">NaN</att>
+<att name="accuracy">0.01</att>
+<att name="comment">uncorrected salinity [psu]</att>
+<att name="coordinates">depth longitude latitude</att>
+<att name="instrument">instrument_ctd</att>
+<att name="long_name">water salinity</att>
+<att name="method">get_derived_eos_raw</att>
+<att name="observation_type">calulated</att>
+<att name="platform">platform</att>
+<att name="precision">0.01</att>
+<att name="resolution">0.001</att>
+<att name="sources">conductivity temperature pressure</att>
+<att name="standard_name">sea_water_practical_salinity</att>
+<att name="units">1e-3</att>
+<att name="valid_max">40.0</att>
+<att name="valid_min">0.0</att>
+<att name="colorBarMaximum" type="double">37.0</att>
+<att name="colorBarMinimum" type="double">32.0</att>
+<att name="missing_value" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>potential_density</sourceName>
+        <destinationName>potential_density</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uint">52867</att>
+<att name="_FillValue" type="double">NaN</att>
+<att name="accuracy">0.01</att>
+<att name="comment">raw, uncorrected salinity</att>
+<att name="coordinates">depth longitude latitude</att>
+<att name="instrument">instrument_ctd</att>
+<att name="long_name">water potential density</att>
+<att name="method">get_derived_eos_raw</att>
+<att name="observation_type">calulated</att>
+<att name="platform">platform</att>
+<att name="precision">0.01</att>
+<att name="resolution">0.001</att>
+<att name="sources">salinity temperature pressure</att>
+<att name="standard_name">sea_water_potential_density</att>
+<att name="units">kg m-3</att>
+<att name="colorBarMaximum" type="double">28.0</att>
+<att name="colorBarMinimum" type="double">20.0</att>
+<att name="missing_value" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>density</sourceName>
+        <destinationName>density</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uint">52867</att>
+<att name="_FillValue" type="double">NaN</att>
+<att name="accuracy">0.01</att>
+<att name="comment">unadjusted density</att>
+<att name="coordinates">depth longitude latitude</att>
+<att name="instrument">instrument_ctd</att>
+<att name="long_name">Density</att>
+<att name="method">get_derived_eos_raw</att>
+<att name="observation_type">calulated</att>
+<att name="platform">platform</att>
+<att name="precision">0.01</att>
+<att name="resolution">0.001</att>
+<att name="sources">salinity temperature pressure</att>
+<att name="standard_name">sea_water_density</att>
+<att name="units">kg m-3</att>
+<att name="valid_max">1040.0</att>
+<att name="valid_min">1000.0</att>
+<att name="colorBarMaximum" type="double">28.0</att>
+<att name="colorBarMinimum" type="double">20.0</att>
+<att name="missing_value" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>potential_temperature</sourceName>
+        <destinationName>potential_temperature</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uint">52867</att>
+<att name="_FillValue" type="double">NaN</att>
+<att name="accuracy">0.002</att>
+<att name="comment">raw, uncorrected salinity</att>
+<att name="coordinates">depth longitude latitude</att>
+<att name="instrument">instrument_ctd</att>
+<att name="long_name">water potential temperature</att>
+<att name="method">get_derived_eos_raw</att>
+<att name="observation_type">calulated</att>
+<att name="platform">platform</att>
+<att name="precision">0.001</att>
+<att name="resolution">0.0001</att>
+<att name="sources">salinity temperature pressure</att>
+<att name="standard_name">sea_water_potential_temperature</att>
+<att name="units">Celsius</att>
+<att name="colorBarMaximum" type="double">32.0</att>
+<att name="colorBarMinimum" type="double">0.0</att>
+<att name="missing_value" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>profile_index</sourceName>
+        <destinationName>profile_index</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uint">52867</att>
+<att name="_FillValue" type="double">NaN</att>
+<att name="comment">N = inside profile N, N + 0.5 = between profiles N and N + 1</att>
+<att name="coordinates">depth longitude latitude</att>
+<att name="filt_length" type="long">400</att>
+<att name="long_name">profile index</att>
+<att name="method">get_profiles_new</att>
+<att name="min_dp" type="double">10.0</att>
+<att name="min_nsamples" type="long">100</att>
+<att name="sources">time pressure</att>
+<att name="units">1</att>
+<att name="missing_value" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>profile_direction</sourceName>
+        <destinationName>profile_direction</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uint">52867</att>
+<att name="_FillValue" type="double">NaN</att>
+<att name="comment">-1 = ascending, 0 = inflecting or stalled, 1 = descending</att>
+<att name="coordinates">depth longitude latitude</att>
+<att name="long_name">glider vertical speed direction</att>
+<att name="method">get_profiles_new</att>
+<att name="sources">time pressure</att>
+<att name="units">1</att>
+<att name="colorBarMaximum" type="double">360.0</att>
+<att name="colorBarMinimum" type="double">0.0</att>
+<att name="missing_value" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>conductivity_adjusted</sourceName>
+        <destinationName>conductivity_adjusted</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uint">52867</att>
+<att name="_FillValue" type="double">NaN</att>
+<att name="comment">adjusted conductivity</att>
+<att name="coordinates">depth latitude longitude</att>
+<att name="processing_date">C-PROOF_SBE_CTDProcessingReport_v0.2.pdf</att>
+<att name="processing_report">CTD_dfo-walle652-20190314</att>
+<att name="colorBarMaximum" type="double">40.0</att>
+<att name="colorBarMinimum" type="double">30.0</att>
+<att name="long_name">Sea Water Electrical Conductivity</att>
+<att name="missing_value" type="double">NaN</att>
+<att name="standard_name">sea_water_electrical_conductivity</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>temperature_adjusted</sourceName>
+        <destinationName>temperature_adjusted</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uint">52867</att>
+<att name="_FillValue" type="double">NaN</att>
+<att name="comment">adjusted temperature [degC]</att>
+<att name="coordinates">depth latitude longitude</att>
+<att name="processing_date">C-PROOF_SBE_CTDProcessingReport_v0.2.pdf</att>
+<att name="processing_report">CTD_dfo-walle652-20190314</att>
+<att name="long_name">Temperature Adjusted</att>
+<att name="missing_value" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>salinity_adjusted</sourceName>
+        <destinationName>salinity_adjusted</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uint">52867</att>
+<att name="_FillValue" type="double">NaN</att>
+<att name="comment">adjusted salinity [psu]</att>
+<att name="coordinates">depth latitude longitude</att>
+<att name="processing_date">20251110</att>
+<att name="processing_protocol">C-PROOF_SBE_CTDProcessingReport_v0.2.pdf</att>
+<att name="processing_report">CTD_dfo-walle652-20190314</att>
+<att name="colorBarMaximum" type="double">37.0</att>
+<att name="colorBarMinimum" type="double">32.0</att>
+<att name="long_name">Sea Water Practical Salinity</att>
+<att name="missing_value" type="double">NaN</att>
+<att name="standard_name">sea_water_practical_salinity</att>
+<att name="units">PSU</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>density_adjusted</sourceName>
+        <destinationName>density_adjusted</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_ChunkSizes" type="uint">52867</att>
+<att name="_FillValue" type="double">NaN</att>
+<att name="comment">density from adjusted salinity [psu] and temperature [degC]</att>
+<att name="coordinates">depth latitude longitude</att>
+<att name="long_name">Density Adjusted</att>
+<att name="missing_value" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+<dataVariable>
+        <sourceName>pind</sourceName>
+        <destinationName>pind</destinationName>
+        <dataType>double</dataType>
+        <addAttributes>
+<att name="_FillValue" type="double">NaN</att>
+<att name="comment">N = inside profile N, N + 0.5 = between profiles N and N + 1</att>
+<att name="coordinates">depth latitude longitude</att>
+<att name="filt_length" type="long">400</att>
+<att name="long_name">profile index</att>
+<att name="method">get_profiles_new</att>
+<att name="min_dp" type="double">10.0</att>
+<att name="min_nsamples" type="long">100</att>
+<att name="sources">time pressure</att>
+<att name="units">1</att>
+<att name="missing_value" type="double">NaN</att>
+        </addAttributes>
+    </dataVariable>
+
+</dataset>

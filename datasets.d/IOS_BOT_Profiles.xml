@@ -1,7 +1,7 @@
 <dataset type="EDDTableFromMultidimNcFiles" datasetID="IOS_BOT_Profiles" active="true">
     <iso19115File>/xml/IOS_BOT_Profiles_iso19115.xml</iso19115File>
     <reloadEveryNMinutes>1440</reloadEveryNMinutes>
-    <fileDir>/datasets/IOS_BOT_profiles/</fileDir>
+    <fileDir>/datasets/IOS_BOT_Profiles/</fileDir>
     <fileNameRegex>.*\.nc</fileNameRegex>
     <recursive>true</recursive>
     <pathRegex>.*</pathRegex>

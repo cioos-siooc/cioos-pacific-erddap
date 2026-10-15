@@ -1,7 +1,7 @@
 <dataset type="EDDTableFromMultidimNcFiles" datasetID="IOS_CTD_Moorings" active="true">
     <iso19115File>/xml/IOS_CTD_Moorings_iso19115.xml</iso19115File>
     <reloadEveryNMinutes>1440</reloadEveryNMinutes>
-    <fileDir>/datasets/IOS_CTD_moorings/</fileDir>
+    <fileDir>/datasets/IOS_CTD_Moorings/</fileDir>
     <fileNameRegex>.*\.nc</fileNameRegex>
     <recursive>true</recursive>
     <pathRegex>.*</pathRegex>
