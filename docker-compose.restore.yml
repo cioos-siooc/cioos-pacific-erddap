@@ -17,5 +17,7 @@ services:
     volumes:
       - ./restore-agent.config.yaml:/app/config.yaml:ro
       - ${DATASETS_DIR:-./datasets}:/datasets
+      # pull --flag-dir /hardFlag makes ERDDAP reload what it pulled (pull-managed-datasets.sh)
+      - ./erddap/data/hardFlag:/hardFlag
     # DFO_MEDS_BUOYS and ECCC_MSC_BUOYS are read from the pipelines DB (docker-compose.pipelines-db.yml)
     command: ["pull", "--data-dir", "/datasets", "--skip", "DFO_MEDS_BUOYS", "--skip", "ECCC_MSC_BUOYS"]

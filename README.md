@@ -150,3 +150,19 @@ datasets load and match dev-data.
    `/etc/systemd/system/cloudflared.service.d/override.conf`, `sudo systemctl daemon-reload` and
    `sudo systemctl restart cloudflared`. The tunnel's public hostname points at `http://localhost:8090` (path empty);
    a Cloudflare redirect rule sends `/` to `/erddap/index.html`, since Tomcat serves nothing at the root.
+
+### Datasets a pipeline updates
+
+`BCSOP_daily` and `BCSOP_monthly` (BC Lightstations) are written straight into the bucket by cioos-pacific-pipeline's
+`bcsop` flow from DFO's releases, about every three months. Their manifests say `managed_by`, so the bucket's
+ERDDAP backups never replace them with an ERDDAP's copy. A host gets each new version with
+[pull-managed-datasets.sh](pull-managed-datasets.sh), which pulls just those datasets and drops a `hardFlag` so ERDDAP
+reloads them, quickRestart or not. Run it weekly from cron after the flow's Monday check:
+
+```bash
+30 7 * * 1  cd /opt/cioos-pacific-erddap && ./pull-managed-datasets.sh >> pull-managed-datasets.log 2>&1
+```
+
+Same setup as a rebuild (`restore-agent.env`, `BUCKET_S3_ENDPOINT`, `TOMCAT_USER_ID`). It re-downloads about 50 MB
+each time, whether or not there was a release. Prod keeps its own 2019 copy until it's rebuilt from the bucket;
+add the cron there at the cutover.
