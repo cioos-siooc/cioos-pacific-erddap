@@ -22,3 +22,6 @@ datasets.d.restored/
 # server-local files: never committed, so git pull (and the update workflows) keep working
 .env.bak*
 docker-compose.override.yml
+
+# Tomcat temp dir (docker-compose.yml)
+tomcat-temp/

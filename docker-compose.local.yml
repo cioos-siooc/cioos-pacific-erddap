@@ -14,7 +14,8 @@ services:
       - "./erddap/content:/usr/local/tomcat/content/erddap"
       - "./erddap/data:/erddapData"
       - "${DATASETS_DIR:-./datasets}:/datasets"
-      - "/tmp/:/usr/local/tomcat/temp/"
+      # Tomcat's own temp dir: the image chowns it on every start, so it must never be the host's /tmp
+      - "./tomcat-temp:/usr/local/tomcat/temp/"
       - "./datasets.d:/datasets.d:ro"
       - "./init.d:/init.d"
     healthcheck:
