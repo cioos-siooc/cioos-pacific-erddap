@@ -1,5 +1,4 @@
 # see the .env file to set the variables used here
-version: "2"
 services:
   erddap:
     image: ${ERDDAP_DOCKER_IMAGE:-axiom/docker-erddap:2.23-jdk17-openjdk}
