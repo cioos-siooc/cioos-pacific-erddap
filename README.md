@@ -28,6 +28,14 @@ To start a new configuration create a copy of the `sample.env` file as `.env` an
 - ERDDAP_DATASET_(.*) variables are used to define top level elements of the dataset.xml, see [ERDDAP Docs](https://coastwatch.pfeg.noaa.gov/erddap/download/setupDatasetsXml.html#details) for full list of parametesr. This component is using the EXPERIMENTAL feature `/datasets.d.sh` of [docker-erddap](https://github.com/axiom-data-science/docker-erddap).
 - ERDDAP_SECRET_(.*) is used to replace any expressions present within the datasets.xml by a certain value. This can be use to keep certain information secret. This component is using the EXPERIMENTAL feature `/init.d/*` of [docker-erddap](https://github.com/axiom-data-science/docker-erddap) and is handled by [init.d/replace-datasets-secrets.sh](init.d/replace-datasets-secrets.sh)
 
+**ERDDAP version.** The image is `axiom/docker-erddap:v2.31.1` (ERDDAP 2.31.1, Java 25). Since v2.27 the image builds
+`datasets.xml` from `datasets.d/` in its own `/init.d/50-datasets.d.sh`, so the compose files mount only our secrets
+script, as `/init.d/90-replace-datasets-secrets.sh`: mounting the whole `init.d/` would hide the image's script, and
+ERDDAP would start with a stale `datasets.xml`. The 90- prefix runs it after the build. Other changes since 2.23 that
+can matter here: CORS is off unless `ERDDAP_enableCors=true`; ERDDAP builds its URLs from the request's `Host` and
+`X-Forwarded-Proto` headers (`useHeadersForUrl`, default since 2.28), so a proxy in front must pass them; and
+`/erddap/metrics` (Prometheus) is public unless a proxy blocks it.
+
 ## Setup
 
 ### Testing environment
