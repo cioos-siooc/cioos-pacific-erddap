@@ -172,9 +172,23 @@ reloads them, quickRestart or not. Run it weekly from cron after the flow's Mond
 30 7 * * 1  cd /opt/cioos-pacific-erddap && ./pull-managed-datasets.sh >> pull-managed-datasets.log 2>&1
 ```
 
-Same setup as a rebuild (`restore-agent.env`, `BUCKET_S3_ENDPOINT`, `TOMCAT_USER_ID`). It re-downloads about 50 MB
-each time, whether or not there was a release. Prod keeps its own 2019 copy until it's rebuilt from the bucket;
-add the cron there at the cutover.
+Same setup as a rebuild (`restore-agent.env`, `BUCKET_S3_ENDPOINT`, `TOMCAT_USER_ID`). It downloads only files that
+changed, deletes local files that are gone from the bucket, and sets the hardFlag only for a dataset that changed
+(`pull --skip-unchanged --delete-removed`; rebuild the image after updating the cioos-pacific-bucket checkout:
+`docker compose -f docker-compose.restore.yml build`). Prod keeps its own 2019 copy until it's rebuilt from the
+bucket; add the cron there at the cutover.
+
+The five IOS datasets (`IOS_ADCP_Moorings`, `IOS_CTD_Moorings`, `IOS_CTD_Profiles`, `IOS_CUR_Moorings`,
+`IOS_BOT_Profiles`) are DFO's own files from `dfo-bucket`, copied into the bucket by cioos-pacific-pipeline's
+`ios_dfo` flow (Mondays 05:30 UTC) and read as delivered: 133,000 files, 45 GB. Their XMLs read DFO's variable
+names (CUR `deployment_mission_id` → `mission_id`, ADCP `PPSAADCP` → `depth`), so they need those files, not the
+yearly ERDDAP exports the bucket held before. Add them to the cron's list:
+
+```bash
+30 7 * * 1  cd /opt/cioos-pacific-erddap && MANAGED_DATASETS="BCSOP_daily BCSOP_monthly IOS_ADCP_Moorings IOS_CTD_Moorings IOS_CTD_Profiles IOS_CUR_Moorings IOS_BOT_Profiles" ./pull-managed-datasets.sh >> pull-managed-datasets.log 2>&1
+```
+
+The first pull downloads all 45 GB and replaces the exports in `DATASETS_DIR`; later ones only what DFO changed.
 
 ## Database from cioos-pipelines
 

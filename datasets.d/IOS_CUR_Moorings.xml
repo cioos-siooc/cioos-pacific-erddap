@@ -26,7 +26,9 @@
     <dataType>String</dataType>
   </dataVariable>
   <dataVariable>
-    <sourceName>mission_id</sourceName>
+    <!-- DFO's files call it deployment_mission_id (dfo-bucket, every file, 2026-11) -->
+    <sourceName>deployment_mission_id</sourceName>
+    <destinationName>mission_id</destinationName>
     <dataType>String</dataType>
   </dataVariable>
   <dataVariable>
@@ -112,5 +114,82 @@
   <dataVariable>
     <sourceName>LCDAEL01</sourceName>
     <dataType>float</dataType>
+  </dataVariable>
+  <!-- in DFO's files but not served before the switch to them (2026-11); units and standard names come from the files -->
+  <dataVariable>
+    <sourceName>TEMPPR02</sourceName>
+    <dataType>float</dataType>
+  </dataVariable>
+  <dataVariable>
+    <sourceName>TEMPPR03</sourceName>
+    <dataType>float</dataType>
+  </dataVariable>
+  <dataVariable>
+    <sourceName>PSLTZZ01</sourceName>
+    <dataType>float</dataType>
+  </dataVariable>
+  <dataVariable>
+    <sourceName>ODSDM021</sourceName>
+    <dataType>float</dataType>
+  </dataVariable>
+  <dataVariable>
+    <sourceName>SIGTEQST</sourceName>
+    <dataType>float</dataType>
+  </dataVariable>
+  <dataVariable>
+    <sourceName>HEADCM01</sourceName>
+    <dataType>float</dataType>
+    <addAttributes>
+      <att name="long_name">Heading</att>
+    </addAttributes>
+  </dataVariable>
+  <dataVariable>
+    <sourceName>PTCHEI01</sourceName>
+    <dataType>float</dataType>
+    <addAttributes>
+      <att name="long_name">Pitch</att>
+    </addAttributes>
+  </dataVariable>
+  <dataVariable>
+    <sourceName>ROLLEI01</sourceName>
+    <dataType>float</dataType>
+    <addAttributes>
+      <att name="long_name">Roll</att>
+    </addAttributes>
+  </dataVariable>
+  <dataVariable>
+    <sourceName>ISCMBMA1</sourceName>
+    <dataType>float</dataType>
+    <addAttributes>
+      <att name="long_name">Signal Intensity, Beam 1</att>
+    </addAttributes>
+  </dataVariable>
+  <dataVariable>
+    <sourceName>ISCMBMA2</sourceName>
+    <dataType>float</dataType>
+    <addAttributes>
+      <att name="long_name">Signal Intensity, Beam 2</att>
+    </addAttributes>
+  </dataVariable>
+  <dataVariable>
+    <sourceName>ISCMBMA3</sourceName>
+    <dataType>float</dataType>
+    <addAttributes>
+      <att name="long_name">Signal Intensity, Beam 3</att>
+    </addAttributes>
+  </dataVariable>
+  <dataVariable>
+    <sourceName>SVELCV01</sourceName>
+    <dataType>float</dataType>
+    <addAttributes>
+      <att name="long_name">Speed of Sound in Sea Water</att>
+    </addAttributes>
+  </dataVariable>
+  <dataVariable>
+    <sourceName>SVELCV02</sourceName>
+    <dataType>float</dataType>
+    <addAttributes>
+      <att name="long_name">Speed of Sound in Sea Water (2)</att>
+    </addAttributes>
   </dataVariable>
 </dataset>
