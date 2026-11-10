@@ -12,6 +12,8 @@
     <att name="infoUrl">???</att>
     <att name="sourceUrl">(local files)</att>
     <att name="cdm_data_type">Profile</att>
+    <att name="cdm_profile_variables">profile,filename</att>
+    <att name="subsetVariables">instrument_type, platform, agency, scientist, country, geographic_area</att>
   </addAttributes>
   <dataVariable>
     <sourceName>profile</sourceName>
