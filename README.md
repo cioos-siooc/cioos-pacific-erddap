@@ -163,7 +163,9 @@ datasets load and match dev-data.
 ### Datasets a pipeline updates
 
 `BCSOP_daily` and `BCSOP_monthly` (BC Lightstations) are written straight into the bucket by cioos-pacific-pipeline's
-`bcsop` flow from DFO's releases, about every three months. Their manifests say `managed_by`, so the bucket's
+`bcsop` flow from DFO's releases, about every three months, and `dfo_pbs_nearshore_sensor_data` (DFO PBS nearshore
+sensors) by its `pbs_nearshore` flow from DFO's GitLab repository when it has a new commit (Mondays 06:15 UTC).
+Their manifests say `managed_by`, so the bucket's
 ERDDAP backups never replace them with an ERDDAP's copy. A host gets each new version with
 [pull-managed-datasets.sh](pull-managed-datasets.sh), which pulls just those datasets and drops a `hardFlag` so ERDDAP
 reloads them, quickRestart or not. Run it weekly from cron after the flow's Monday check:
@@ -175,8 +177,10 @@ reloads them, quickRestart or not. Run it weekly from cron after the flow's Mond
 Same setup as a rebuild (`restore-agent.env`, `BUCKET_S3_ENDPOINT`, `TOMCAT_USER_ID`). It downloads only files that
 changed, deletes local files that are gone from the bucket, and sets the hardFlag only for a dataset that changed
 (`pull --skip-unchanged --delete-removed`; rebuild the image after updating the cioos-pacific-bucket checkout:
-`docker compose -f docker-compose.restore.yml build`). Prod keeps its own 2019 copy until it's rebuilt from the
-bucket; add the cron there at the cutover.
+`docker compose -f docker-compose.restore.yml build`). Each dataset's directory under `datasets/` must belong to
+`TOMCAT_USER_ID`: a directory a root restore created makes the pull fail with `could not read …`. Prod keeps its own
+2019 copy of BCSOP and doesn't serve the PBS dataset until it's rebuilt from the bucket; add the cron there at the
+cutover.
 
 The five IOS datasets (`IOS_ADCP_Moorings`, `IOS_CTD_Moorings`, `IOS_CTD_Profiles`, `IOS_CUR_Moorings`,
 `IOS_BOT_Profiles`) are DFO's own files from `dfo-bucket`, copied into the bucket by cioos-pacific-pipeline's
@@ -185,7 +189,7 @@ names (CUR `deployment_mission_id` → `mission_id`, ADCP `PPSAADCP` → `depth`
 yearly ERDDAP exports the bucket held before. Add them to the cron's list:
 
 ```bash
-30 7 * * 1  cd /opt/cioos-pacific-erddap && MANAGED_DATASETS="BCSOP_daily BCSOP_monthly IOS_ADCP_Moorings IOS_CTD_Moorings IOS_CTD_Profiles IOS_CUR_Moorings IOS_BOT_Profiles" ./pull-managed-datasets.sh >> pull-managed-datasets.log 2>&1
+30 7 * * 1  cd /opt/cioos-pacific-erddap && MANAGED_DATASETS="BCSOP_daily BCSOP_monthly dfo_pbs_nearshore_sensor_data IOS_ADCP_Moorings IOS_CTD_Moorings IOS_CTD_Profiles IOS_CUR_Moorings IOS_BOT_Profiles" ./pull-managed-datasets.sh >> pull-managed-datasets.log 2>&1
 ```
 
 The first pull downloads all 45 GB and replaces the exports in `DATASETS_DIR`; later ones only what DFO changed.
