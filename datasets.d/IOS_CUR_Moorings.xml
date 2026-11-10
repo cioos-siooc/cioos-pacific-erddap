@@ -18,6 +18,9 @@
   <dataVariable>
     <sourceName>profile</sourceName>
     <dataType>String</dataType>
+    <addAttributes>
+      <att name="cf_role">timeseries_id</att>
+    </addAttributes>
   </dataVariable>
   <dataVariable>
     <sourceName>filename</sourceName>
