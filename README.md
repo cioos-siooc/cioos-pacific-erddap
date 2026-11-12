@@ -226,3 +226,23 @@ Keep each server's settings in its `.env` (ERDDAP reads any `setup.xml` setting 
 variable), not in edits to tracked files. A modified `docker-compose.yml` or `erddap/content/setup.xml` makes
 `git pull` fail, which silently stops the update workflows. For anything `.env` can't express, use
 `docker-compose.override.yml`: Docker Compose loads it automatically, and git ignores it.
+
+## TODO
+
+Found reviewing stage and dev-data on 2026-11-12 (ERDDAP 2.31.1). Not critical: both serve all 127 datasets.
+
+- **Subset pages of the database datasets fail on 2.31 (fix before prod's cutover; prod's 2.28.1 is fine).**
+  `DFO_MEDS_BUOYS` and `ECCC_MSC_BUOYS` return HTTP 500 "Unable to create subsetVariablesDataTable (in danger of
+  stack overflow)" for `.subset` and for any query asking only for `subsetVariables` (e.g. a distinct station list);
+  queries with a time constraint work. Since v2.31.0 `EDDTableFromDatabase.getDataForDapQuery` calls
+  `handleViaFixedOrSubsetVariables`, which asks for the subset table, which queries the dataset again, and ERDDAP's
+  recursion guard throws. 2.28.1–2.30.0 don't; upstream `main` still does. Options: drop `subsetVariables` from the
+  two XMLs (queries go to the database; only the Subset page is lost) and report it upstream, restoring the attribute
+  once fixed; or stay on 2.30.0.
+- **ERDDAP can't send email.** Gmail rejects `ERDDAP_emailUserName` / `ERDDAP_emailPassword` ("535 Username and
+  Password not accepted") on stage and dev-data, so daily reports, subscriptions and error emails aren't sent. Set a
+  valid app password in each host's `.env`, and in prod's at the cutover.
+- **`erddap-logs` isn't running on stage or dev-data.** It stops whenever `erddap` is recreated (`depends_on`, no
+  `restart:` policy; `docker compose up -d erddap` doesn't start it again), and when it runs it can't read Tomcat's
+  logs (`0640`, uid 1001: "imfile: error accessing file ... Permission denied"). cioos-pacific-obs counts on it to
+  forward the access log. Add `restart: unless-stopped` and make the logs readable to it.
