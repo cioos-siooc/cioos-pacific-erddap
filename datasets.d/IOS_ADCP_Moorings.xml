@@ -535,7 +535,8 @@
         </addAttributes>
     </dataVariable>
     <dataVariable>
-        <sourceName>depth</sourceName>
+        <!-- DFO's files have no depth variable: PPSAADCP, the bin depths (every file, 2026-11) -->
+        <sourceName>PPSAADCP</sourceName>
         <destinationName>depth</destinationName>
         <dataType>float</dataType>
         <!-- sourceAttributes>

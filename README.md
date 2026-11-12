@@ -28,6 +28,14 @@ To start a new configuration create a copy of the `sample.env` file as `.env` an
 - ERDDAP_DATASET_(.*) variables are used to define top level elements of the dataset.xml, see [ERDDAP Docs](https://coastwatch.pfeg.noaa.gov/erddap/download/setupDatasetsXml.html#details) for full list of parametesr. This component is using the EXPERIMENTAL feature `/datasets.d.sh` of [docker-erddap](https://github.com/axiom-data-science/docker-erddap).
 - ERDDAP_SECRET_(.*) is used to replace any expressions present within the datasets.xml by a certain value. This can be use to keep certain information secret. This component is using the EXPERIMENTAL feature `/init.d/*` of [docker-erddap](https://github.com/axiom-data-science/docker-erddap) and is handled by [init.d/replace-datasets-secrets.sh](init.d/replace-datasets-secrets.sh)
 
+**ERDDAP version.** The image is `axiom/docker-erddap:v2.31.1` (ERDDAP 2.31.1, Java 25). Since v2.27 the image builds
+`datasets.xml` from `datasets.d/` in its own `/init.d/50-datasets.d.sh`, so the compose files mount only our secrets
+script, as `/init.d/90-replace-datasets-secrets.sh`: mounting the whole `init.d/` would hide the image's script, and
+ERDDAP would start with a stale `datasets.xml`. The 90- prefix runs it after the build. Other changes since 2.23 that
+can matter here: CORS is off unless `ERDDAP_enableCors=true`; ERDDAP builds its URLs from the request's `Host` and
+`X-Forwarded-Proto` headers (`useHeadersForUrl`, default since 2.28), so a proxy in front must pass them; and
+`/erddap/metrics` (Prometheus) is public unless a proxy blocks it.
+
 ## Setup
 
 ### Testing environment
@@ -155,7 +163,9 @@ datasets load and match dev-data.
 ### Datasets a pipeline updates
 
 `BCSOP_daily` and `BCSOP_monthly` (BC Lightstations) are written straight into the bucket by cioos-pacific-pipeline's
-`bcsop` flow from DFO's releases, about every three months. Their manifests say `managed_by`, so the bucket's
+`bcsop` flow from DFO's releases, about every three months, and `dfo_pbs_nearshore_sensor_data` (DFO PBS nearshore
+sensors) by its `pbs_nearshore` flow from DFO's GitLab repository when it has a new commit (Mondays 06:15 UTC).
+Their manifests say `managed_by`, so the bucket's
 ERDDAP backups never replace them with an ERDDAP's copy. A host gets each new version with
 [pull-managed-datasets.sh](pull-managed-datasets.sh), which pulls just those datasets and drops a `hardFlag` so ERDDAP
 reloads them, quickRestart or not. Run it weekly from cron after the flow's Monday check:
@@ -164,9 +174,25 @@ reloads them, quickRestart or not. Run it weekly from cron after the flow's Mond
 30 7 * * 1  cd /opt/cioos-pacific-erddap && ./pull-managed-datasets.sh >> pull-managed-datasets.log 2>&1
 ```
 
-Same setup as a rebuild (`restore-agent.env`, `BUCKET_S3_ENDPOINT`, `TOMCAT_USER_ID`). It re-downloads about 50 MB
-each time, whether or not there was a release. Prod keeps its own 2019 copy until it's rebuilt from the bucket;
-add the cron there at the cutover.
+Same setup as a rebuild (`restore-agent.env`, `BUCKET_S3_ENDPOINT`, `TOMCAT_USER_ID`). It downloads only files that
+changed, deletes local files that are gone from the bucket, and sets the hardFlag only for a dataset that changed
+(`pull --skip-unchanged --delete-removed`; rebuild the image after updating the cioos-pacific-bucket checkout:
+`docker compose -f docker-compose.restore.yml build`). Each dataset's directory under `datasets/` must belong to
+`TOMCAT_USER_ID`: a directory a root restore created makes the pull fail with `could not read …`. Prod keeps its own
+2019 copy of BCSOP and doesn't serve the PBS dataset until it's rebuilt from the bucket; add the cron there at the
+cutover.
+
+The five IOS datasets (`IOS_ADCP_Moorings`, `IOS_CTD_Moorings`, `IOS_CTD_Profiles`, `IOS_CUR_Moorings`,
+`IOS_BOT_Profiles`) are DFO's own files from `dfo-bucket`, copied into the bucket by cioos-pacific-pipeline's
+`ios_dfo` flow (Mondays 05:30 UTC) and read as delivered: 133,000 files, 45 GB. Their XMLs read DFO's variable
+names (CUR `deployment_mission_id` → `mission_id`, ADCP `PPSAADCP` → `depth`), so they need those files, not the
+yearly ERDDAP exports the bucket held before. Add them to the cron's list:
+
+```bash
+30 7 * * 1  cd /opt/cioos-pacific-erddap && MANAGED_DATASETS="BCSOP_daily BCSOP_monthly dfo_pbs_nearshore_sensor_data IOS_ADCP_Moorings IOS_CTD_Moorings IOS_CTD_Profiles IOS_CUR_Moorings IOS_BOT_Profiles" ./pull-managed-datasets.sh >> pull-managed-datasets.log 2>&1
+```
+
+The first pull downloads all 45 GB and replaces the exports in `DATASETS_DIR`; later ones only what DFO changed.
 
 ## Database from cioos-pipelines
 
