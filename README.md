@@ -246,3 +246,15 @@ Found reviewing stage and dev-data on 2026-11-12 (ERDDAP 2.31.1). Not critical: 
   `restart:` policy; `docker compose up -d erddap` doesn't start it again), and when it runs it can't read Tomcat's
   logs (`0640`, uid 1001: "imfile: error accessing file ... Permission denied"). cioos-pacific-obs counts on it to
   forward the access log. Add `restart: unless-stopped` and make the logs readable to it.
+
+- **Compressed netCDF-4 dataset files (proposed 2026-11-17, not started; plan in cioos-pacific-bucket's README,
+  TODO).** The bucket would store the non-DFO datasets as netCDF-4 with deflate 1 plus shuffle instead of ERDDAP's
+  netCDF-3 export: about 58.5 GiB down to 20 GiB on each host's dataset directory (gliders ×2.3–3.2, ECCC buoys ×13).
+  ERDDAP reads both formats with the same XML. On this side:
+  - Roll out on dev-data first, then stage, then prod off-hours. Each host needs a one-time `pull --skip-unchanged`
+    of every dataset, not only the 8 in `pull-managed-datasets.sh`, after which ERDDAP reloads the changed datasets.
+    Old files keep being served until each reload finishes.
+  - Before and after on each host, compare the catalogue and query checksums (as at prod's 2026-11-13 cutover), and
+    time a few large glider and ECCC queries, since ERDDAP now decompresses on every read.
+  - Prod's rollback: keep the uncompressed files until the reload is checked (`DATASETS_DIR` back to them), or pull
+    again from the bucket backup.
