@@ -247,8 +247,9 @@ Found reviewing stage and dev-data on 2026-11-12 (ERDDAP 2.31.1). Not critical: 
   logs (`0640`, uid 1001: "imfile: error accessing file ... Permission denied"). cioos-pacific-obs counts on it to
   forward the access log. Add `restart: unless-stopped` and make the logs readable to it.
 
-- **Compressed netCDF-4 dataset files (proposed 2026-11-17, not started; plan in cioos-pacific-bucket's README,
-  TODO).** The bucket would store the non-DFO datasets as netCDF-4 with deflate 1 plus shuffle instead of ERDDAP's
+- **Compressed netCDF-4 dataset files: tabled 2026-11-18.** A local test on 2.31.1 found partial queries 2.5–5×
+  slower and `_ChunkSizes` attributes added to the metadata (details in cioos-pacific-bucket's README, TODO; code on
+  its branch `compressed-netcdf`). The plan below stands if it's taken up again. The bucket would store the non-DFO datasets as netCDF-4 with deflate 1 plus shuffle instead of ERDDAP's
   netCDF-3 export: about 58.5 GiB down to 20 GiB on each host's dataset directory (gliders ×2.3–3.2, ECCC buoys ×13).
   ERDDAP reads both formats with the same XML. On this side:
   - Roll out on dev-data first, then stage, then prod off-hours. Each host needs a one-time `pull --skip-unchanged`
