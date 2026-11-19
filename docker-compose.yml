@@ -5,6 +5,9 @@ services:
     restart: unless-stopped
     env_file:
       - .env
+    environment:
+      # Tomcat's logs readable (0644 instead of 0640) by erddap-logs, which runs as another user
+      UMASK: "0022"
     ports:
       - "${HOST_PORT:-8090}:8080"
     volumes:
@@ -19,6 +22,16 @@ services:
       # /init.d/50-datasets.d.sh, which mounting the whole directory would hide. 90- runs after it.
       - "./init.d/replace-datasets-secrets.sh:/init.d/90-replace-datasets-secrets.sh:ro"
       - ./tomcatLogs:/usr/local/tomcat/logs
+      # access-log format for cioos-pacific-obs analytics (comment in the file). Not :ro: the image chowns it.
+      - ./erddap/conf/server.xml:/usr/local/tomcat/conf/server.xml
+    logging: &obs-logging
+      # Compose project/service in each log line, so the cioos-pacific-obs agent can name it (that README,
+      # daemon.json). Set here as well so it holds on hosts whose daemon.json doesn't have it yet.
+      driver: json-file
+      options:
+        max-size: "20m"
+        max-file: "5"
+        labels-regex: "^com\\.docker\\.compose\\.(project|service)$"
     healthcheck:
       test:
         [
@@ -43,7 +56,10 @@ services:
       TUNNEL_SERVICE_TOKEN_ID: ${PIPELINES_DB_ACCESS_CLIENT_ID:-}
       TUNNEL_SERVICE_TOKEN_SECRET: ${PIPELINES_DB_ACCESS_CLIENT_SECRET:-}
   erddap-logs:
+    # Tomcat's access log and logs, and ERDDAP's log.txt → stdout, where the cioos-pacific-obs agent collects them
     image: gynter/rsyslog-relp:alpine
+    restart: unless-stopped
+    logging: *obs-logging
     volumes:
       - ./erddap/data:/erddapData:ro
       - ./tomcatLogs:/usr/local/tomcat/logs:ro

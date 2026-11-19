@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The image's server.xml (axiom/docker-erddap v2.31.1, Tomcat 11) with one change: the access log's format,
+     in the field order cioos-pacific-obs's analytics expect (its central/gateway/analytics/common.yaml):
+       client ident user [time] "request" status bytes "referrer" "user agent" ms country peer
+     The client is the real address: RemoteIpValve takes it from the proxy's X-Forwarded-For
+     (requestAttributesEnabled makes the access log use it). Country is CF-IPCountry, "-" when not behind
+     Cloudflare. The erddap-logs container forwards the file to its stdout, tagged [ACCESS]; Tomcat itself can't
+     write to /dev/stdout (it runs as a non-root user). Re-check against the image's own file on image upgrades. -->
+<Server port="-1" shutdown="SHUTDOWN_PORT_DISABLED">
+  <Listener className="org.apache.catalina.core.JreMemoryLeakPreventionListener"/>
+  <Listener className="org.apache.catalina.core.ThreadLocalLeakPreventionListener"/>
+
+  <Service name="Catalina">
+    <Connector server="Apache" port="8080" protocol="HTTP/1.1"
+      connectionTimeout="300000" relaxedQueryChars="[]|:&quot;&lt;&gt;" maxParameterCount="1000"/>
+
+    <Engine name="Catalina" defaultHost="localhost">
+      <Host name="localhost" appBase="webapps" unpackWARs="false" autoDeploy="false">
+        <Valve className="org.apache.catalina.valves.AccessLogValve"
+          directory="logs" prefix="localhost_access_log" suffix=".txt"
+          requestAttributesEnabled="true"
+          pattern="%a %l %u %t &quot;%r&quot; %s %b &quot;%{Referer}i&quot; &quot;%{User-Agent}i&quot; %{ms}T %{CF-IPCountry}i %h"/>
+
+        <Valve className="org.apache.catalina.valves.ErrorReportValve"
+          showReport="false" showServerInfo="false"/>
+
+        <Valve className="org.apache.catalina.valves.RemoteIpValve"
+          remoteIpHeader="X-Forwarded-For" protocolHeader="X-Forwarded-Proto"
+          protocolHeaderHttpsValue="https"/>
+      </Host>
+    </Engine>
+  </Service>
+</Server>

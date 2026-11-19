@@ -242,10 +242,10 @@ Found reviewing stage and dev-data on 2026-11-12 (ERDDAP 2.31.1). Not critical: 
 - **ERDDAP can't send email.** Gmail rejects `ERDDAP_emailUserName` / `ERDDAP_emailPassword` ("535 Username and
   Password not accepted") on stage and dev-data, so daily reports, subscriptions and error emails aren't sent. Set a
   valid app password in each host's `.env`, and in prod's at the cutover.
-- **`erddap-logs` isn't running on stage or dev-data.** It stops whenever `erddap` is recreated (`depends_on`, no
-  `restart:` policy; `docker compose up -d erddap` doesn't start it again), and when it runs it can't read Tomcat's
-  logs (`0640`, uid 1001: "imfile: error accessing file ... Permission denied"). cioos-pacific-obs counts on it to
-  forward the access log. Add `restart: unless-stopped` and make the logs readable to it.
+- **`erddap-logs` on stage and dev-data.** Fixed in the repo 2026-11-19 (`restart: unless-stopped`, Tomcat
+  `UMASK=0022` so it can read the logs, and the access-log format cioos-pacific-obs's analytics parse, in
+  `erddap/conf/server.xml`); live on prod. Stage and dev-data pick it up the next time they're updated
+  (`docker compose up -d erddap erddap-logs`). Only prod is counted in the analytics.
 
 - **Compressed netCDF-4 dataset files: tabled 2026-11-18.** A local test on 2.31.1 found partial queries 2.5–5×
   slower and `_ChunkSizes` attributes added to the metadata (details in cioos-pacific-bucket's README, TODO; code on
