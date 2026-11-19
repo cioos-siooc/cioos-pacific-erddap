@@ -31,7 +31,9 @@ To start a new configuration create a copy of the `sample.env` file as `.env` an
 **ERDDAP version.** The image is `axiom/docker-erddap:v2.31.1` (ERDDAP 2.31.1, Java 25) with its Java replaced by
 Temurin 25.0.5.1+2 for CVE-2026-114938 / GHSA-6g7j-4xh3-xq2q (a JVM Base64 bug; every one of our ERDDAP hosts has the
 affected CPU feature). The [Dockerfile](Dockerfile) builds it as `cioos-pacific-erddap/erddap:v2.31.1-temurin25.0.5.1`:
-run `docker compose build erddap` on a host before `docker compose up -d erddap`. Go back to the plain axiom image
+run `docker compose build erddap` on a host before `docker compose up -d erddap`. The compose file also sets
+`JAVA_OPTS=-XX:-UseBASE64Intrinsics`, ERDDAP 2.31.2's workaround for the same CVE, so it holds even on an unpatched
+Java; hosts keep their own JVM options in `CATALINA_OPTS`. Go back to the plain axiom image
 once it ships Temurin 25.0.5.1 or newer (check with `docker run --rm --entrypoint java <image> -version`). Since v2.27 the image builds
 `datasets.xml` from `datasets.d/` in its own `/init.d/50-datasets.d.sh`, so the compose files mount only our secrets
 script, as `/init.d/90-replace-datasets-secrets.sh`: mounting the whole `init.d/` would hide the image's script, and

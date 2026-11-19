@@ -11,6 +11,9 @@ services:
     environment:
       # Tomcat's logs readable (0644 instead of 0640) by erddap-logs, which runs as another user
       UMASK: "0022"
+      # CVE-2026-114938: ERDDAP 2.31.2's workaround, on top of the patched Java (Dockerfile). Hosts set their own
+      # JVM options in CATALINA_OPTS (.env), so this doesn't override them.
+      JAVA_OPTS: "-XX:-UseBASE64Intrinsics"
     ports:
       - "${HOST_PORT:-8090}:8080"
     volumes:
