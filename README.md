@@ -244,8 +244,11 @@ Found reviewing stage and dev-data on 2026-11-12 (ERDDAP 2.31.1). Not critical: 
   valid app password in each host's `.env`, and in prod's at the cutover.
 - **`erddap-logs` on stage and dev-data.** Fixed in the repo 2026-11-19 (`restart: unless-stopped`, Tomcat
   `UMASK=0022` so it can read the logs, and the access-log format cioos-pacific-obs's analytics parse, in
-  `erddap/conf/server.xml`); live on prod. Stage and dev-data pick it up the next time they're updated
-  (`docker compose up -d erddap erddap-logs`). Only prod is counted in the analytics.
+  `erddap/conf/server.xml`); live on prod. Stage and dev-data pick it up the next time they're updated:
+  `docker compose up -d erddap`, then `docker exec erddap chmod 644 /usr/local/tomcat/logs/localhost_access_log.$(date -u +%F).txt`
+  (today's file was created with the old umask), then `docker compose up -d erddap-logs`. rsyslog doesn't retry a
+  file it couldn't open, so if the relay started first, `docker compose restart erddap-logs` after the chmod. Only
+  prod is counted in the analytics.
 
 - **Compressed netCDF-4 dataset files: tabled 2026-11-18.** A local test on 2.31.1 found partial queries 2.5–5×
   slower and `_ChunkSizes` attributes added to the metadata (details in cioos-pacific-bucket's README, TODO; code on
