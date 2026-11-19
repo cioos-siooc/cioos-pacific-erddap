@@ -1,7 +1,10 @@
 services:
   erddap:
     container_name: ${CONTAINER_NAME:-erddap}
-    image: axiom/docker-erddap:v2.31.1
+    # axiom/docker-erddap:v2.31.1 with Java patched for CVE-2026-114938 (Dockerfile). `docker compose build erddap`
+    # on each host; back to the axiom image once it ships Temurin >= 25.0.5.1.
+    image: cioos-pacific-erddap/erddap:v2.31.1-temurin25.0.5.1
+    build: .
     restart: unless-stopped
     env_file:
       - .env

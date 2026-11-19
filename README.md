@@ -28,7 +28,11 @@ To start a new configuration create a copy of the `sample.env` file as `.env` an
 - ERDDAP_DATASET_(.*) variables are used to define top level elements of the dataset.xml, see [ERDDAP Docs](https://coastwatch.pfeg.noaa.gov/erddap/download/setupDatasetsXml.html#details) for full list of parametesr. This component is using the EXPERIMENTAL feature `/datasets.d.sh` of [docker-erddap](https://github.com/axiom-data-science/docker-erddap).
 - ERDDAP_SECRET_(.*) is used to replace any expressions present within the datasets.xml by a certain value. This can be use to keep certain information secret. This component is using the EXPERIMENTAL feature `/init.d/*` of [docker-erddap](https://github.com/axiom-data-science/docker-erddap) and is handled by [init.d/replace-datasets-secrets.sh](init.d/replace-datasets-secrets.sh)
 
-**ERDDAP version.** The image is `axiom/docker-erddap:v2.31.1` (ERDDAP 2.31.1, Java 25). Since v2.27 the image builds
+**ERDDAP version.** The image is `axiom/docker-erddap:v2.31.1` (ERDDAP 2.31.1, Java 25) with its Java replaced by
+Temurin 25.0.5.1+2 for CVE-2026-114938 / GHSA-6g7j-4xh3-xq2q (a JVM Base64 bug; every one of our ERDDAP hosts has the
+affected CPU feature). The [Dockerfile](Dockerfile) builds it as `cioos-pacific-erddap/erddap:v2.31.1-temurin25.0.5.1`:
+run `docker compose build erddap` on a host before `docker compose up -d erddap`. Go back to the plain axiom image
+once it ships Temurin 25.0.5.1 or newer (check with `docker run --rm --entrypoint java <image> -version`). Since v2.27 the image builds
 `datasets.xml` from `datasets.d/` in its own `/init.d/50-datasets.d.sh`, so the compose files mount only our secrets
 script, as `/init.d/90-replace-datasets-secrets.sh`: mounting the whole `init.d/` would hide the image's script, and
 ERDDAP would start with a stale `datasets.xml`. The 90- prefix runs it after the build. Other changes since 2.23 that

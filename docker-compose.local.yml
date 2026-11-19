@@ -1,7 +1,9 @@
 # see the .env file to set the variables used here
 services:
   erddap:
-    image: ${ERDDAP_DOCKER_IMAGE:-axiom/docker-erddap:v2.31.1}
+    # Java patched for CVE-2026-114938 (Dockerfile); ERDDAP_DOCKER_IMAGE picks another image
+    image: ${ERDDAP_DOCKER_IMAGE:-cioos-pacific-erddap/erddap:v2.31.1-temurin25.0.5.1}
+    build: .
     restart: always
     container_name: ${CONTAINER_NAME:-erddap}
     env_file:

@@ -1,0 +1,3 @@
+# The image needs only the Dockerfile; on servers this directory holds ERDDAP data, datasets and logs
+*
+!Dockerfile
